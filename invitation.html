@@ -11,15 +11,20 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&family=Great+Vibes&family=Pinyon+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/everly.css?v=14" />
+    <link rel="stylesheet" href="css/everly.css?v=15" />
+    <link rel="stylesheet" href="css/everly-uicookies.css?v=1" />
   </head>
-  <body class="everly">
+  <body class="everly everly-template">
+    <a class="skip-link" href="#story">Skip to invitation</a>
     <header class="site-header" id="header">
       <a class="header-chip" href="#top">
         <span class="header-chip-names">
           <span data-field="partner1">Vincent</span> & <span data-field="partner2">Cynah</span>
         </span>
-        <span class="chip-date" data-field="headerDate">Feb 12 · 2027</span>
+        <span class="chip-meta">
+          <span class="chip-date" data-field="headerDate">Feb 12 · 2027</span>
+          <span class="chip-days" id="header-days" aria-live="polite"></span>
+        </span>
       </a>
       <nav class="header-nav" aria-label="Sections">
         <a href="#story">Story</a>
@@ -33,7 +38,7 @@
     </header>
 
     <main id="top">
-      <section class="hero">
+      <section class="hero" id="hero">
         <div class="hero-bg" id="hero-bg"></div>
         <div class="hero-inner">
           <p class="families" data-field="familiesLine">With the love and blessing of their families</p>
@@ -332,7 +337,7 @@
     </footer>
 
     <script src="js/config.js?v=10"></script>
-    <script src="js/main.js?v=12"></script>
+    <script src="js/main.js?v=13"></script>
     <script>
       (function () {
         var daysEl = document.getElementById("cd-days");

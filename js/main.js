@@ -66,6 +66,7 @@
     setupGoogleForm(cfg.googleFormUrl);
     initRsvpForm();
     initHeaderScroll();
+    initScrollSpy();
     initCountdown();
   }
 
@@ -254,6 +255,19 @@
     }
   }
 
+  const DETAIL_ICON_SVG = {
+    ceremony: `<svg class="detail-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><circle cx="11" cy="18" r="5.5"/><circle cx="21" cy="18" r="5.5"/><path d="M11 12.5V10M21 12.5V10"/></svg>`,
+    reception: `<svg class="detail-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M10 8h12v3c0 4-2.5 6.5-6 6.5S10 15 10 11V8z"/><path d="M16 17.5V24M12 24h8"/></svg>`,
+  };
+
+  function detailIconKey(block) {
+    if (block?.icon && DETAIL_ICON_SVG[block.icon]) return block.icon;
+    const label = String(block?.label || "").toLowerCase();
+    if (label.includes("ceremony")) return "ceremony";
+    if (label.includes("reception")) return "reception";
+    return null;
+  }
+
   function cardHtml(block, options = {}) {
     const includeMedia = options.includeMedia !== false;
     const bullets = (block.bullets || []).map((b) => `<li>${escapeHtml(b)}</li>`).join("");
@@ -266,7 +280,10 @@
         ? `<a class="${btnClass}" href="${href}">${label}</a>`
         : `<a class="card-link" href="${href}">${label}</a>`
       : "";
+    const iconKey = detailIconKey(block);
+    const icon = iconKey ? DETAIL_ICON_SVG[iconKey] : "";
     const body = `
+      ${icon}
       <p class="label">${escapeHtml(block.label)}</p>
       <h3>${escapeHtml(block.title)}</h3>
       <p class="subtitle">${escapeHtml(block.subtitle)}</p>
@@ -435,6 +452,12 @@
         const el = document.getElementById(ids[i]);
         if (el) el.textContent = String(val).padStart(2, "0");
       });
+      const headerDays = document.getElementById("header-days");
+      if (headerDays) {
+        if (totalSec === 0) headerDays.textContent = "Today";
+        else if (days === 1) headerDays.textContent = "1 day to go";
+        else headerDays.textContent = `${days} days to go`;
+      }
       if (totalSec === 0 && timerId) {
         clearInterval(timerId);
       }
@@ -454,6 +477,48 @@
       },
       { passive: true }
     );
+  }
+
+  function initScrollSpy() {
+    const navLinks = $$(".header-nav a[href^='#']");
+    if (!navLinks.length) return;
+
+    const sectionById = new Map();
+    navLinks.forEach((link) => {
+      const id = link.getAttribute("href")?.slice(1);
+      if (!id) return;
+      const section = document.getElementById(id);
+      if (section) sectionById.set(id, { link, section });
+    });
+    if (!sectionById.size) return;
+
+    const setActive = (id) => {
+      navLinks.forEach((a) => a.classList.remove("is-active"));
+      sectionById.get(id)?.link.classList.add("is-active");
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-35% 0px -50% 0px", threshold: [0, 0.12, 0.35] }
+    );
+
+    sectionById.forEach(({ section }) => observer.observe(section));
+
+    const hero = document.getElementById("hero");
+    if (hero) {
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) navLinks.forEach((a) => a.classList.remove("is-active"));
+        },
+        { threshold: 0.2 }
+      );
+      heroObserver.observe(hero);
+    }
   }
 
   const WORD_REVEAL_SELECTORS = [

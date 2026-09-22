@@ -1,5 +1,10 @@
-/** Everly-style wedding site — edit your details here. */
+/**
+ * Everly-style wedding site — edit your details here.
+ * Official UICookies Everly template: https://uicookies.com/downloads/everly/
+ * (Unzip download into `_everly_tpl/` to compare; this site keeps your content in config.js.)
+ */
 window.WEDDING_CONFIG = {
+  template: "uicookies-everly",
   partner1: "Vincent",
   partner2: "Cynah",
   hashtag: "VincentAndCynah",

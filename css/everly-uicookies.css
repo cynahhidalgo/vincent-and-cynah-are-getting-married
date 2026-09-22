@@ -1,0 +1,85 @@
+/* UICookies Everly template layer — merged with Vincent & Cynah customizations */
+
+.everly-template {
+  --everly-bordeaux: #6b2c32;
+  --everly-eucalyptus: #5a7161;
+  --everly-champagne: #c4a574;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0.5rem;
+  z-index: 200;
+  padding: 0.5rem 1rem;
+  background: var(--bordeaux-deep, #4a1a20);
+  color: #fff;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+}
+
+.chip-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.chip-days {
+  font-family: var(--sans);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--everly-champagne, var(--champagne));
+  font-weight: 400;
+}
+
+.header-nav a.is-active {
+  color: var(--bordeaux);
+}
+
+.header-nav a.is-active::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 0.2rem;
+  background: linear-gradient(90deg, transparent, var(--everly-champagne), transparent);
+}
+
+.detail-icon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto 0.65rem;
+  display: block;
+  color: var(--everly-eucalyptus, var(--eucalyptus));
+}
+
+.detail-card-body .label {
+  margin-top: 0;
+}
+
+.section.section-muted + .section::before,
+.section + .section.section-muted::before {
+  content: "";
+  display: block;
+  width: min(6rem, 40vw);
+  height: 1px;
+  margin: 0 auto clamp(2rem, 5vw, 3rem);
+  background: linear-gradient(90deg, transparent, rgba(196, 165, 116, 0.65), transparent);
+}
+
+.section.hero + .section::before {
+  display: none;
+}
+
+@media (max-width: 900px) and (min-width: 769px) {
+  .chip-meta {
+    align-items: center;
+  }
+}
