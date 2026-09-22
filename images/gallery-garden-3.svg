@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" aria-hidden="true">
+  <rect fill="#d4e4cc" width="400" height="300"/>
+  <rect x="120" y="80" width="160" height="140" fill="none" stroke="#6b1d3a" stroke-width="2"/>
+  <path fill="#5a7a4e" d="M100 220 Q200 180 300 220 L300 300 L100 300Z"/>
+  <text x="200" y="160" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#4a0f24">Garden</text>
+</svg>

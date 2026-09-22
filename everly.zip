@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="pingback" href="https://uicookies.com/xmlrpc.php" />
+
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<link rel="preload" href="https://uicookies.com/wp-content/themes/checkout/inc/fonts/self/montserrat-latin-a5ec5492.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://uicookies.com/wp-content/themes/checkout/inc/fonts/self/arimo-latin-ee8fae80.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Everly — Free Couple&#039;s Wedding Website Template</title>
+	<meta name="description" content="A romantic, editorial one-page wedding website with a live countdown, story timeline and built-in RSVP." />
+	<link rel="canonical" href="https://uicookies.com/downloads/everly/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Everly — Free Couple&#039;s Wedding Website Template" />
+	<meta property="og:description" content="A romantic, editorial one-page wedding website with a live countdown, story timeline and built-in RSVP." />
+	<meta property="og:url" content="https://uicookies.com/downloads/everly/" />
+	<meta property="og:site_name" content="uiCookies" />
+	<meta property="article:publisher" content="https://www.facebook.com/uicookies" />
+	<meta property="article:modified_time" content="2026-07-16T10:28:43+00:00" />
+	<meta property="og:image" content="https://uicookies.com/wp-content/uploads/2026/07/everly-top.jpg" />
+	<meta property="og:image:width" content="1800" />
+	<meta property="og:image:height" content="1222" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="4 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/uicookies.com\/downloads\/everly\/","url":"https:\/\/uicookies.com\/downloads\/everly\/","name":"Everly — Free Couple's Wedding Website Template","isPartOf":{"@id":"https:\/\/uicookies.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/uicookies.com\/downloads\/everly\/#primaryimage"},"image":{"@id":"https:\/\/uicookies.com\/downloads\/everly\/#primaryimage"},"thumbnailUrl":"https:\/\/uicookies.com\/wp-content\/uploads\/2026\/07\/everly-top.jpg","datePublished":"2026-07-16T06:24:38+00:00","dateModified":"2026-07-16T10:28:43+00:00","description":"A romantic, editorial one-page wedding website with a live countdown, story timeline and built-in RSVP.","breadcrumb":{"@id":"https:\/\/uicookies.com\/downloads\/everly\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/uicookies.com\/downloads\/everly\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/uicookies.com\/downloads\/everly\/#primaryimage","url":"https:\/\/uicookies.com\/wp-content\/uploads\/2026\/07\/everly-top.jpg","contentUrl":"https:\/\/uicookies.com\/wp-content\/uploads\/2026\/07\/everly-top.jpg","width":1800,"height":1222},{"@type":"BreadcrumbList","@id":"https:\/\/uicookies.com\/downloads\/everly\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/uicookies.com\/"},{"@type":"ListItem","position":2,"name":"Downloads","item":"https:\/\/uicookies.com\/downloads\/"},{"@type":"ListItem","position":3,"name":"Everly — Free Couple&#8217;s Wedding Website Template"}]},{"@type":"WebSite","@id":"https:\/\/uicookies.com\/#website","url":"https:\/\/uicookies.com\/","name":"uiCookies","description":"Responsive HTML &amp; Bootstrap Website Templates","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/uicookies.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link href='https://fonts.googleapis.com' crossorigin='1' rel='preconnect' />
+<link href='https://fonts.gstatic.com' crossorigin='1' rel='preconnect' />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<style id="uic-fd-inline-css">
+
+		.uic-fd{margin:20px 0;text-align:left}
+		.uic-fd *{text-align:left}
+		.uic-fd .uic-fd__btn{text-align:center}
+		.uic-fd__form{display:flex;flex-direction:column;gap:14px}
+		.uic-fd__label{font-size:14px;font-weight:700;line-height:1.3;margin:0}
+		.uic-fd .uic-fd__input{width:100%;height:54px;padding:0 16px;border:2px solid #dfe3ea;border-radius:10px;
+			font-family:inherit;font-size:16px;color:#1b2230;background:#fff;transition:border-color .15s,box-shadow .15s}
+		.uic-fd .uic-fd__input::placeholder{color:#a2aab8}
+		.uic-fd .uic-fd__input:focus{outline:none;border-color:#4f46e5;box-shadow:0 0 0 4px rgba(79,70,229,.14)}
+		.uic-fd__check{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.5;color:#4b5563;cursor:pointer}
+		.uic-fd .uic-fd__check input{width:18px;height:18px;margin:1px 0 0;accent-color:#4f46e5;flex-shrink:0;cursor:pointer}
+		.uic-fd .uic-fd__btn{width:100%;min-height:54px;border:0;background:#4f46e5;color:#fff;font-family:inherit;
+			font-size:16px;font-weight:700;line-height:1.2;padding:14px 18px;border-radius:10px;cursor:pointer;
+			transition:background .15s,transform .1s}
+		.uic-fd .uic-fd__btn:hover{background:#4338ca}
+		.uic-fd .uic-fd__btn:active{transform:translateY(1px)}
+		.uic-fd__small{font-size:13px;color:#7b8494;line-height:1.55;margin:0}
+		.uic-fd__err{background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;font-size:14px;line-height:1.5;
+			padding:12px 14px;border-radius:10px;margin:0 0 14px}
+		.uic-fd__sent{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:20px}
+		.uic-fd__sent strong{display:block;font-size:17px;margin-bottom:8px;color:#14532d}
+		.uic-fd__sent p{font-size:14px;color:#3f6b50;line-height:1.6;margin:0 0 8px}
+		.uic-fd__sent p:last-child{margin-bottom:0}
+		.uic-fd__sent a{color:#15803d;font-weight:700;text-decoration:underline}
+		/* Off-screen rather than display:none — some bots skip hidden fields. */
+		.uic-fd__hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+		
+/*# sourceURL=uic-fd-inline-css */
+</style>
+<link rel='stylesheet' id='edd-related-downloads-css' href='https://uicookies.com/wp-content/plugins/easy-digital-downloads-related-downloads/edd-related-downloads.css?ver=7.1.1' media='all' />
+<style id="uic-honeypot-inline-css">
+.wpa-test-msg{background:#d1ecf1 !important;border:1px solid #bee5eb !important;border-radius:5px !important;color:#0c5460 !important;font-size:14px !important;padding:.75rem 1.25rem !important;font-family:Arial !important;margin-top:5px !important}span.wpa-button{display:inline-block !important;padding-top:5px !important;color:#fff !important;background-color:#6c757d !important;border-color:#6c757d !important;padding:5px 10px !important;border-radius:5px !important;margin-top:5px !important;cursor:pointer !important}#altEmail_container,.altEmail_container{position:absolute !important;overflow:hidden !important;display:inline !important;height:1px !important;width:1px !important;z-index:-1000 !important}
+/*# sourceURL=uic-honeypot-inline-css */
+</style>
+<link rel='stylesheet' id='uic-combined-css' href='https://uicookies.com/wp-content/uploads/uic-perf/uic-a39b740a9fdf.css' media='all' />
+<style id="uic-eeat-styles">.uic-author{display:flex;gap:18px;align-items:flex-start;border:1px solid #e4e7ef;border-radius:14px;padding:20px 22px;margin:36px 0 8px;background:#f7f8fc}.uic-author img.uic-av{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none;margin:0}.uic-author-body{flex:1;min-width:0}.uic-author .uic-author-name{margin:0 0 6px;font-weight:700;font-size:1.02rem;color:#1c2230}.uic-author p{margin:0 0 6px;font-size:.88rem;color:#5b6172;line-height:1.55}.uic-author-social{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 0!important}.uic-author-social a{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:#2271b1;text-decoration:none;border:1px solid #d7dbe6;border-radius:999px;padding:5px 12px;background:#fff;transition:background .15s,border-color .15s}.uic-author-social a:hover{background:#eef3fb;border-color:#2271b1}.uic-author-social svg{width:14px;height:14px;fill:currentColor}.uic-author-social .uic-about{border-style:dashed}</style><meta name="generator" content="Easy Digital Downloads v3.7.0" />
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Everly \u2014 Free Couple&#8217;s Wedding Website Template",
+    "description": "A romantic, editorial one-page wedding website with a live countdown, story timeline and built-in RSVP.",
+    "url": "https://uicookies.com/demo/theme/everly/",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Any",
+    "datePublished": "2026-07-16T06:24:38+00:00",
+    "dateModified": "2026-07-16T10:28:43+00:00",
+    "author": {
+        "@type": "Organization",
+        "name": "uiCookies",
+        "url": "https://uicookies.com"
+    },
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+    },
+    "image": "https://uicookies.com/wp-content/uploads/2026/07/everly-top-1000x750.jpg",
+    "keywords": "Wedding"
+}</script>
+	<style type="text/css">
+					/* Link color */
+			a,
+			#comments .bypostauthor .fn:before {
+				color: #3295e8;
+			}
+		
+				/* Header title color */
+		.hero-title h1 {
+			color: #ffffff;
+		}
+		
+					/* Header subtitle color */
+			.hero-title h3,
+			.hero-title p {
+				color: #b5bdc3;
+			}
+		
+					/* Main navigation link color */
+			.main-navigation a,
+			.site-description {
+				color: #ffffff;
+			}
+		
+					/* Footer navigation link color */
+			.site-footer a,
+			.site-footer .copyright a,
+			.site-footer,
+			.widget .menu li a:before {
+				color: #445a70;
+			}
+		
+					/* EDD related colors */
+			#content .fes-vendor-menu ul li.active,
+			#content .fes-vendor-menu ul li:hover {
+				border-top-color: #3295e8;
+			}
+		
+					/* Background color for various elements throughout the theme */
+			input[type="submit"],
+			.button,
+			.post-content .button,
+			.cta-button,
+			#content .contact-form input[type="submit"],
+			#commentform #submit,
+			.portfolio-wrapper .rslides_nav:hover,
+			.quantities-enabled .single-quantity-mode:not(.free-download) [id^="edd_purchase"] .edd_purchase_submit_wrapper,
+			[id^="edd_purchase"] .edd-add-to-cart:not(.download-meta-purchase),
+			#mailbag_mailchimp .mailbag-input .button,
+			input[type=checkbox]:checked,
+			input[type=radio]:checked,
+			#content input[type=submit].edd-submit,
+			.download-meta .edd_go_to_checkout,
+			.page-numbers.current,
+			.page-numbers:hover,
+			.rslides_nav:hover,
+			.main-navigation .edd_checkout,
+			#searchform #searchsubmit,
+			.edd-cart-added-alert,
+			.quantities-enabled [id^="edd_purchase"] .edd_purchase_submit_wrapper,
+			.post-password-form input[type="submit"] {
+				background: #3295e8;
+			}
+		
+					/* Background color for the header and footer */
+			.site-header, .site-footer {
+				background-color: #282e34;
+			}
+		
+					/* Background color for the first button in the header */
+			.button-one {
+				background: #3295e8;
+			}
+		
+					/* Background color for the second button in the header */
+			.button-two {
+				background: #2a50c1;
+			}
+		
+			</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Aigars Silkalns","url":"https://uicookies.com/about/","jobTitle":"Founder","worksFor":{"@type":"Organization","name":"uiCookies","url":"https://uicookies.com/"},"sameAs":["https://x.com/AigarsSilkalns","https://www.linkedin.com/in/silkalns"]}</script><link rel="icon" href="https://uicookies.com/wp-content/uploads/2017/08/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://uicookies.com/wp-content/uploads/2017/08/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://uicookies.com/wp-content/uploads/2017/08/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://uicookies.com/wp-content/uploads/2017/08/cropped-favicon-270x270.png" />
+<style id="wp-custom-css">
+/*
+Welcome to Custom CSS!
+
+To learn how this works, see https://wp.me/PEmnE-Bt
+*/
+#menu-header .menu-item:first-child {
+	display: none;
+}
+
+.disclaimer {
+    padding: 20px 30px;
+    background: #fff;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* Envato Style */
+
+.edd_purchase_710869{
+	display:none !important;
+}
+
+.post-710869 #content > span > article > div > div.post-featured-image{
+	margin-top:-31px !important;
+}
+
+/* Cookies Style */
+
+.download-count{
+    margin-bottom: 30px;
+    border-bottom: 2px solid #EEF2F5;
+    padding-bottom: 20px;
+    }
+.download-count .count{
+    font-weight: bold;
+    color: #468966;
+    font-size: 2em;
+    line-height: 1.5em;
+    }
+
+.download-count .label{
+    position: relative;
+    margin-left: 5px;
+    top: -5px;
+    font-size: 1.1em;
+    color: #435055;
+    }
+
+.uc-total-sale,
+.uc-free-download{
+    display: block;
+    }
+
+.uc-total-sale{
+    display: none;
+    }
+.footer-widget .button {
+  color: #fff;
+}
+.footer-widget {
+  display: block;
+  width: 100%;
+  padding: 6% 4%;
+  vertical-align: top;
+	border: none;
+}
+
+.footer-widgets .widget_mc4wp_form_widget .widget-title{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+ }
+
+
+.footer-widgets .widget_mc4wp_form_widget .mc4wp-form-fields{
+    width: 60%;
+    display: block;
+    margin: 20px auto 0;
+    position: relative;
+    }
+
+.footer-widgets .widget_mc4wp_form_widget input[type="email"] {
+    font-size: 24px;
+    height: 3em;
+    line-height: 3em;
+    background: rgba(0,0,0,.3);
+    color: #fff;
+    }
+
+.footer-widgets .widget_mc4wp_form_widget input:focus{
+    border-color: transparent;
+    }
+
+
+.footer-widgets .widget_mc4wp_form_widget input[type="submit"] {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    height: 3em;
+    }
+
+.footer-widgets  .mc4wp-alert{
+    text-align: center;
+    margin-top: 15px;
+    }
+
+@media only screen and (max-width: 768px) {
+    .footer-widgets .widget_mc4wp_form_widget .mc4wp-form-fields {
+        width        : 100%;
+        border-right : none;
+        }
+    }
+
+@media only screen and (max-width: 768px) {
+  .footer-widget {
+    width: 100%;
+    border-right: none;
+  }
+
+  .footer-widget.widget_nav_menu {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .footer-widget {
+    padding: 10% 5%;
+  }
+}
+.footer-widget:last-child {
+  margin-right: 0;
+}
+
+.footer-widgets aside .widget-title,
+.footer-widgets aside .widgettitle {
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 25px;
+  color: #fff;
+}
+@media only screen and (max-width: 480px) {
+  .footer-widgets aside .widget-title,
+  .footer-widgets aside .widgettitle {
+    font-size: 18px;
+  }
+}
+
+.footer-widgets aside ul {
+  margin: 0;
+}
+
+.footer-widgets aside ul.sub-menu,
+.footer-widgets aside .children {
+  margin: 4% 0 0 20px;
+}
+
+.footer-widgets aside ul.sub-menu li:last-child,
+.footer-widgets aside .children li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 2%;
+  border-bottom: none;
+}
+
+.site-footer .footer-widgets aside li {
+  margin-bottom: 4%;
+  padding-bottom: 4%;
+  list-style-type: none;
+  border-bottom: dotted 1px rgba(255, 255, 255, 0.15);
+}
+
+@media only screen and (max-width: 768px) {
+  .footer-widgets aside li {
+    margin-bottom: 2%;
+    padding-bottom: 2%;
+  }
+}
+.footer-widgets aside li:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.footer-widgets aside p:last-child {
+  margin-bottom: 0;
+}
+.upper-menu {
+    display: block;
+    margin: 0;
+    background: white;
+    min-height: 100px;
+    padding: 25px;
+}
+.main-navigation ul>li.current-menu-item>a, .main-navigation ul>li:hover>a {
+    -webkit-transition: .07s ease-in-out;
+    transition: .07s ease-in-out;
+    color: #7BC74D;
+}
+#isa-related-downloads a {
+    font-size: 14px;
+}
+.post-text h2 {
+    margin-top: 80px;
+ }
+.post-text p {
+    font-size: 16px;
+ }
+.grecaptcha-badge {display: none;} 
+.single-format-standard .post-text {
+    padding: 8%;
+}
+body {
+  height: 2800px;
+  background: #eee;
+}
+
+/* Add the following CSS to set the FancyBar appear from the bottom */
+
+#_fbn_ > * {
+  transition: all .7s ease-in-out;
+}
+
+._bsa_hide ._bsa_fancybar {
+  top: auto !important;
+  bottom: -100% !important;
+}
+._bsa_show ._bsa_fancybar {
+  top: auto !important;
+  bottom: 0 !important;
+}
+.search-cats a {
+    padding: 8px 15px;
+    display: inline-block;
+    border: none;
+    line-height: inherit;
+    background: #dde4e8;
+    color: #6F7F8A;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 19px;
+}
+.single-post .nav-links {
+    margin-top: 30px;
+}
+.hero-title, .site-main, .site-footer {
+	content-visibility: auto;
+}
+.post-btn {
+padding: 16px;
+color: #fff;
+border-radius: 6px;
+}
+.post-btn.dwn {
+background: #7bc74d;
+}
+.post-btn.prw {
+background: #5FD3EF;   
+}
+</style>
+<style id="uic-a11y-contrast">
+/* white-on-blue controls: 3.18 -> 4.54 */
+input[type="submit"],.button,.button-one,.cta-button,#big-search-submit,
+.post-content .button,.page-numbers.current,.edd-add-to-cart,
+.edd_purchase_submit_wrapper .button{background:#297abe}
+/* secondary grey button: 3.82 -> 4.57. The theme scopes these under #secondary
+   and #content, so the overrides need the same id-level weight. */
+.edd-demo-link,#secondary .edd-demo-link,#purchase-box .edd-demo-link{background:#687882}
+#secondary .edd-add-to-cart,#content .edd-add-to-cart,#purchase-box .edd-add-to-cart,
+#content .post-text .edd-add-to-cart,#content .download-wrapper .edd-add-to-cart{background:#297abe}
+/* download meta tags on white: 2.48 -> 4.63 */
+.meta-tag,#purchase-box .post-meta .meta-tag{color:#6e767b}
+/* post-nav "Previous"/"Next" labels: 3.45 -> 4.51 */
+.nav-previous .nav-text span,.nav-next .nav-text span{color:#6d7881}
+/* footer text on #282e34: 1.92 -> 4.60 */
+.site-footer,.site-footer a,.site-footer .copyright a,.widget .menu li a:before{color:#8997a5}
+/* category pills on #dde4e8: 3.22 -> 4.53 */
+.search-cats a{color:#5a6770}
+/* "Or browse by category:" on #eee: 2.96 -> 4.52 */
+.search-cat-text{color:#616e77}
+/* EDD price chip on #eaf0f4: 2.63 -> 4.56 */
+.edd_price,.download-meta-purchase,.download-meta-price-details a .edd_price{color:#616e77}
+/* download meta links on white: 3.22 -> 4.57 */
+.download-meta-name a,.edd-taxonomy-widget li a{color:#6c7782}
+/* pagination on #dde3e7: 2.77 -> 4.59 */
+.page-numbers{color:#5b656f}
+/* post meta / widget links: 3.18-3.58 -> 4.55+ */
+.posted-on,.post-date,.entry-meta,.entry-meta a{color:#6b7782}
+.widget a,.footer-widget a{color:#646f7a}
+.site-footer .widget a,.site-footer .footer-widget a{color:#8997a5}
+/* these two need id-level specificity to beat the theme's own rules */
+#secondary-page aside a{color:#6c7782}
+.post-meta a,#secondary .post-meta a,.meta-cat a{color:#646f7a}
+/* body link colour on white: 3.18 -> 4.54. Scoped rules for the dark header
+   and footer keep their own colours, which are more specific than this. */
+a{color:#297abe}
+/* inline <code>: the theme rule is .post-content code (0,1,1), so match it.
+   #c22d75 clears 4.5:1 on both the #f1f3f5 chip and a plain white background. */
+code,.post-content code,.post-text code{color:#c22d75}
+/* sidebar category links were 17px tall; WCAG 2.2 wants a 24px target */
+.edd-taxonomy-widget li a{display:inline-block;padding-top:4px;padding-bottom:4px;min-height:24px;line-height:16px}
+</style>
+	</head>
+
+<body class="wp-singular download-template-default single single-download postid-854002 single-format-standard wp-theme-checkout edd-js-none">
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+
+<div id="page">
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-inside">
+			<!-- Mobile menu toggle -->
+			<div class="menu-toggle">
+				<span><i class="fa fa-reorder"></i>Menu</span>
+				<span class="menu-close"><i class="fa fa-times"></i>Close Menu</span>
+			</div>
+
+			<!-- Header navigation menu -->
+			<nav role="navigation" class="site-navigation main-navigation">
+				<div class="assistive-text"><i class="fa fa-bars"></i> Menu</div>
+
+				<div id="menu" class="menu-header-container"><ul id="menu-header" class="menu"><li class="current-cart menu-item menu-item-has-children"><a href="https://uicookies.com/checkout/"><span class="edd-cart-quantity">0</span></a><ul class="sub-menu"><li class="widget"><div class="widget_edd_cart_widget"><p class="edd-cart-number-of-items" style="display:none;">Number of items in cart: <span class="edd-cart-quantity">0</span></p>
+<ul class="edd-cart">
+
+	<li class="cart_item empty"><span class="edd_empty_cart">Your cart is empty.</span></li>
+<li class="cart_item edd-cart-meta edd_total" style="display:none;">Total: <span class="cart-total">&#36;0.00</span></li>
+<li class="cart_item edd_checkout" style="display:none;"><a href="https://uicookies.com/checkout/">Checkout</a></li>
+
+</ul>
+</div></li></ul></li><li id="menu-item-822837" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-822837"><a href="https://uicookies.com/">Free Templates</a></li>
+<li id="menu-item-1555" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1555"><a href="https://uicookies.com/license/">Buy License</a></li>
+<li id="menu-item-1428" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-1428"><a href="https://uicookies.com/blog/">Blog</a></li>
+<li id="menu-item-3653" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3653"><a href="https://uicookies.com/contact/">Contact</a></li>
+<li class="menu-item menu-item-has-children header-search"><a href="#"><i class="fa fa-search"></i></a><ul class="sub-menu"><li class="drop-search"> 
+	<form method="get" id="searchform" action="https://uicookies.com/" role="search">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" placeholder="Search here..." value="" id="s" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form> </li></ul></li></ul></div>			</nav><!-- .site-navigation .main-navigation -->
+
+			
+				<!-- Show the logo image -->
+				<div class="logo">
+					<p class="logo-image">						<a href="https://uicookies.com/">
+							<img src="https://uicookies.com/wp-content/uploads/2019/01/uicookies-logo.png" alt="Everly — Free Couple&#8217;s Wedding Website Template" width="132" height="57" loading="eager" style="max-width:132px;height:auto" />
+						</a>
+					</p>				</div>
+
+			
+			<!-- Get page titles and homepage header buttons -->
+			
+
+<div class="hero-title">
+	<div class="hero-title-inside">
+		<h1 class="entry-title">
+			Everly — Free Couple&#8217;s Wedding Website Template		</h1>
+
+
+							
+
+								
+		
+
+			</div><!-- .hero-title-inside -->
+</div><!-- .hero-title -->
+
+		</div><!-- .header-inside -->
+
+		<!-- Get the header background image -->
+		
+	</header><!-- .site-header -->
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6VDM2B0LN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X6VDM2B0LN');
+</script>
+
+		<div id="main" class="site-main">
+			<div class="sticky-container">
+				<div id="primary">
+					<div id="content" class="site-content container" role="main">
+
+						
+							
+	<article class="with-featured-image post post-854002 type-download status-publish format-standard has-post-thumbnail hentry download_category-wedding edd-download edd-download-cat-wedding">
+		<div class="post-content">
+
+												<div class="post-featured-image"><img width="1800" height="1222" src="https://uicookies.com/wp-content/uploads/2026/07/everly-top.jpg" class="attachment-full size-full wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://uicookies.com/wp-content/uploads/2026/07/everly-top.jpg 1800w, https://uicookies.com/wp-content/uploads/2026/07/everly-top-150x102.jpg 150w, https://uicookies.com/wp-content/uploads/2026/07/everly-top-768x521.jpg 768w, https://uicookies.com/wp-content/uploads/2026/07/everly-top-1536x1043.jpg 1536w" sizes="(max-width: 1800px) 100vw, 1800px" /></div>
+<div class="envato-tagline" style="width: 100%;height: auto;margin-top: -10px;vertical-align: middle;padding: 20px;background: #525252;text-align: center;color: #f3f3f3;">
+<p style=" text-align: center; vertical-align: middle; line-height: 1.5; display: inline-block; vertical-align: middle; margin-bottom: 0px;">
+<a href="https://1.envato.market/c/1297116/275988/4415?subId1=uicookies_download_pages&amp;subid2=header_bar_top_jpg&amp;subid3=https%3a%2f%2fthemeforest.net%2fcategory%2fsite-templates&amp;u=https%3a%2f%2fthemeforest.net%2fcategory%2fsite-templates" target="_blank" style="color:white !important;">Need something else? Access over 16,000 HTML5 Templates with
+<img src="https://i.imgur.com/aRjHa0I.png" alt="" style=" position: relative; display: inline; max-width: 134px; margin-left: 3px;">
+</a>
+<a href="https://1.envato.market/c/1297116/275988/4415?subId1=uicookies_download_pages&amp;subid2=header_bar_top_jpg&amp;subid3=https%3a%2f%2fthemeforest.net%2fcategory%2fsite-templates&amp;u=https%3a%2f%2fthemeforest.net%2fcategory%2fsite-templates" target="_blank" style="border: 1px solid #5c812f;width: 180px;padding-top: 10px;padding-bottom: 10px;margin-left: 20px;border-radius: 6px;background-color: rgb(92, 129, 47);border-left-color: rgb(92, 129, 47);border-right-color: rgb(92, 129, 47);border-top-color: rgb(92, 129, 47);box-sizing:border-box;color:rgb(255, 255, 255);cursor:pointer;display:inline-block;font-family:proxima-nova-1, proxima-nova-2, arimo, Helvetica, sans-serif;font-size:16px;font-style:normal;font-weight:600;line-height:22.4px;transition-property:all;transition-timing-function:ease-in-out;vertical-align:baseline;-webkit-appearance:none;">Browse Now</a>
+</p>
+</div>
+
+							
+			<div class="post-text">
+				<!-- Title for improved structured data. Hidden because title is shown in the header -->
+				<h2 class="post-title"><a href="https://uicookies.com/downloads/everly/" rel="bookmark"><span itemprop="name">Everly — Free Couple&#8217;s Wedding Website Template</span></a></h2>
+
+				<p>Everly is a free, one-page Bootstrap 5 wedding website built around a botanical bordeaux-and-eucalyptus palette and Cormorant Garamond type instead of the usual cream-and-serif cliché. It ships as a single self-contained page with a live countdown, story timeline and working RSVP form — no jQuery, no plugins, and every icon is inline SVG, so it deploys cleanly even on strict-CSP hosts.</p>
+<p><a class="post-btn prw" href="https://uicookies.com/demo/theme/everly/" target="_blank" rel="noopener">Live Demo</a></p>
+<figure class="wp-block-image size-large"><img src="https://uicookies.com/wp-content/uploads/2026/07/everly-top.jpg" alt="Bridal bouquet of blush garden roses resting on a linen table, with the names Everly and Julian and the wedding date overlaid." loading="lazy" decoding="async" /></figure>
+<h2 class="wp-block-heading">Key features</h2>
+<ul>
+<li>Live JavaScript countdown in the hero plus a sticky header chip</li>
+<li>Front-end RSVP form with attendance, guest count, menu, song request and thank-you state</li>
+<li>Alternating &quot;Our Story&quot; timeline that reflows to one rail on mobile</li>
+<li>Full-bleed romantic hero with script couple names, date and venue</li>
+<li>Ceremony &amp; Reception detail cards with inline SVG icons</li>
+<li>Asymmetric gallery mosaic plus a six-person wedding-party grid</li>
+<li>Gift registry cards and a Travel &amp; Stay hotel room-block section</li>
+<li>Scroll-spy nav, IntersectionObserver reveals, skip link and focus styles</li>
+<li>Full prefers-reduced-motion support; no jQuery or icon fonts</li>
+</ul>
+<h2 class="wp-block-heading">Best for</h2>
+<ul>
+<li>Couples building their own wedding invitation site</li>
+<li>A single-page RSVP and details hub</li>
+<li>Designers wanting an editorial, non-cliché wedding look</li>
+<li>Deploying to static or strict-CSP hosts</li>
+<li>Personal or commercial wedding projects</li>
+</ul>
+<h2 class="wp-block-heading">At a glance</h2>
+<ul>
+<li>Framework: Bootstrap 5</li>
+<li>License: Free for personal and commercial use</li>
+<li>Pages: 1</li>
+<li>Responsive: Yes</li>
+<li>Style: Romantic botanical editorial — bordeaux, champagne gold &amp; eucalyptus</li>
+</ul>
+<figure class="wp-block-image size-large"><img src="https://uicookies.com/wp-content/uploads/2026/07/everly-fp.jpg" alt="Everly — full page preview" loading="lazy" decoding="async" /></figure>
+<h2 class="wp-block-heading">How to use it</h2>
+<p>Download the ZIP, unzip it, and open <code>index.html</code> — no build step, nothing to install. Edit the text and images, point any forms at your backend or a form service, and deploy the folder to any static host. Colours and fonts live in <code>css/style.css</code>; the interactions are in <code>js/main.js</code>.</p>
+<h2 class="wp-block-heading" id="faq">Frequently asked questions</h2>
+<style>.uic-faq{margin:1.4em 0}.uic-faq details{border:1px solid #e6e8eb;border-radius:12px;margin-bottom:12px;background:#fff;transition:border-color .2s,box-shadow .2s}.uic-faq details[open]{border-color:#d5d8dd;box-shadow:0 2px 16px rgba(20,24,31,.06)}.uic-faq summary{list-style:none;cursor:pointer;padding:20px 58px 20px 22px;font-weight:600;font-size:1.0625em;line-height:1.45;color:#16181d;position:relative;user-select:none}.uic-faq summary::-webkit-details-marker{display:none}.uic-faq summary::after{content:"";position:absolute;right:24px;top:24px;width:11px;height:11px;border-right:2px solid #9aa1ac;border-bottom:2px solid #9aa1ac;transform:rotate(45deg);transition:transform .2s}.uic-faq details[open] summary::after{transform:rotate(-135deg);top:29px}.uic-faq summary:hover{color:#000}.uic-faq summary:hover::after{border-color:#16181d}.uic-faq .uic-a{padding:2px 22px 22px;color:#4b5563;line-height:1.7}.uic-faq .uic-a p{margin:0 0 .7em}.uic-faq .uic-a p:last-child{margin-bottom:0}</style>
+<div class="uic-faq">
+<details>
+<summary>Is Everly really free to use?</summary>
+<div class="uic-a">
+<p>Yes. Everly is free for both personal and commercial projects, so you can use it for your own wedding or a paying client. An attribution link back to uiCookies is appreciated but not required. There are no license fees, sign-ups or usage limits.</p>
+</div>
+</details>
+<details>
+<summary>Do I need a build tool or coding skills to edit it?</summary>
+<div class="uic-a">
+<p>No build step is required. Everly is plain HTML, CSS and vanilla JavaScript, so you edit index.html directly in any text editor and open it in a browser to preview. Swapping names, dates, photos and copy is a matter of changing text and image paths — no npm, bundler or framework knowledge needed.</p>
+</div>
+</details>
+<details>
+<summary>How do I make the RSVP form actually collect replies?</summary>
+<div class="uic-a">
+<p>The form is intentionally front-end only, so on its own it validates input and shows a thank-you state but does not store anything. Point its form action at your own endpoint or a form service such as Formspree, Basin or Netlify Forms and the built-in validation and thank-you state keep working. It handles attendance choice, guest count, menu preference, song request and a note field.</p>
+</div>
+</details>
+<details>
+<summary>How do I change the wedding date and countdown?</summary>
+<div class="uic-a">
+<p>Edit the data-date attribute on the #countdown element in index.html using ISO format, for example 2026-09-26T16:00:00. Both the hero counter and the header &quot;days to go&quot; chip update from that single value, so you only change it in one place. The countdown is pure JavaScript with no external library.</p>
+</div>
+</details>
+<details>
+<summary>Can I change the colours and fonts?</summary>
+<div class="uic-a">
+<p>Yes. The bordeaux, champagne gold and eucalyptus palette is defined as CSS custom properties, so recolouring the whole template is a matter of editing a few variables at the top of the stylesheet. Typography uses Cormorant Garamond, which you can swap for another font by updating the font references. No preprocessor or recompile is needed.</p>
+</div>
+</details>
+<details>
+<summary>Is it responsive and mobile-friendly?</summary>
+<div class="uic-a">
+<p>Yes. Everly is built on Bootstrap 5 and is fully responsive across phones, tablets and desktops. The alternating &quot;Our Story&quot; timeline reflows to a single rail on mobile, and the gallery mosaic and wedding-party grid adapt to smaller screens. It works in all current versions of Chrome, Firefox, Safari and Edge.</p>
+</div>
+</details>
+<details>
+<summary>Does it depend on jQuery or icon fonts?</summary>
+<div class="uic-a">
+<p>No. All behaviour is vanilla JavaScript in js/main.js, with no jQuery or plugin dependencies. Every icon is inline SVG rather than an icon font, so there are no external script or font requests and the template deploys cleanly on strict-CSP static hosts.</p>
+</div>
+</details>
+<details>
+<summary>What sections are included?</summary>
+<div class="uic-a">
+<p>Everly is a single self-contained page with a hero, live countdown, alternating &quot;Our Story&quot; timeline, Ceremony &amp; Reception detail cards, an asymmetric photo gallery, a six-person wedding-party grid, a gift-registry section and a Travel &amp; Stay area with venue and hotel room-block cards. It is a static front-end, so it does not process payments or handle registry transactions — link those out to your registry and hotel providers.</p>
+</div>
+</details>
+</div>
+<p><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Everly — Free Couple's Wedding Website Template", "operatingSystem": "Any", "applicationCategory": "DesignApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Aigars Silkalns", "url": "https://uicookies.com/about/"}, "url": "https://uicookies.com/downloads/everly/"}</script></p>
+<p><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Everly really free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Everly is free for both personal and commercial projects, so you can use it for your own wedding or a paying client. An attribution link back to uiCookies is appreciated but not required. There are no license fees, sign-ups or usage limits."}}, {"@type": "Question", "name": "Do I need a build tool or coding skills to edit it?", "acceptedAnswer": {"@type": "Answer", "text": "No build step is required. Everly is plain HTML, CSS and vanilla JavaScript, so you edit index.html directly in any text editor and open it in a browser to preview. Swapping names, dates, photos and copy is a matter of changing text and image paths — no npm, bundler or framework knowledge needed."}}, {"@type": "Question", "name": "How do I make the RSVP form actually collect replies?", "acceptedAnswer": {"@type": "Answer", "text": "The form is intentionally front-end only, so on its own it validates input and shows a thank-you state but does not store anything. Point its form action at your own endpoint or a form service such as Formspree, Basin or Netlify Forms and the built-in validation and thank-you state keep working. It handles attendance choice, guest count, menu preference, song request and a note field."}}, {"@type": "Question", "name": "How do I change the wedding date and countdown?", "acceptedAnswer": {"@type": "Answer", "text": "Edit the data-date attribute on the #countdown element in index.html using ISO format, for example 2026-09-26T16:00:00. Both the hero counter and the header \"days to go\" chip update from that single value, so you only change it in one place. The countdown is pure JavaScript with no external library."}}, {"@type": "Question", "name": "Can I change the colours and fonts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The bordeaux, champagne gold and eucalyptus palette is defined as CSS custom properties, so recolouring the whole template is a matter of editing a few variables at the top of the stylesheet. Typography uses Cormorant Garamond, which you can swap for another font by updating the font references. No preprocessor or recompile is needed."}}, {"@type": "Question", "name": "Is it responsive and mobile-friendly?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Everly is built on Bootstrap 5 and is fully responsive across phones, tablets and desktops. The alternating \"Our Story\" timeline reflows to a single rail on mobile, and the gallery mosaic and wedding-party grid adapt to smaller screens. It works in all current versions of Chrome, Firefox, Safari and Edge."}}, {"@type": "Question", "name": "Does it depend on jQuery or icon fonts?", "acceptedAnswer": {"@type": "Answer", "text": "No. All behaviour is vanilla JavaScript in js/main.js, with no jQuery or plugin dependencies. Every icon is inline SVG rather than an icon font, so there are no external script or font requests and the template deploys cleanly on strict-CSP static hosts."}}, {"@type": "Question", "name": "What sections are included?", "acceptedAnswer": {"@type": "Answer", "text": "Everly is a single self-contained page with a hero, live countdown, alternating \"Our Story\" timeline, Ceremony & Reception detail cards, an asymmetric photo gallery, a six-person wedding-party grid, a gift-registry section and a Travel & Stay area with venue and hotel room-block cards. It is a static front-end, so it does not process payments or handle registry transactions — link those out to your registry and hotel providers."}}]}</script></p>
+<div class="uic-author"><img alt='Aigars Silkalns' src='https://secure.gravatar.com/avatar/ba8ffcefbaaec481373d85072fdfdae628449bf1ebae707ca57aa3b69dbbf350?s=128&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/ba8ffcefbaaec481373d85072fdfdae628449bf1ebae707ca57aa3b69dbbf350?s=256&#038;d=mm&#038;r=g 2x' class='avatar avatar-128 photo uic-av' height='128' width='128' /><div class="uic-author-body"><p class="uic-author-name">Designed &amp; written by Aigars Silkalns</p><p>Aigars Silkalns is a Latvian entrepreneur and web developer who founded Colorlib, a hub for distinctive WordPress themes. Trained in technology and design, he began as a freelancer and launched Colorlib in 2013, earning acclaim for user-friendly, modern, responsive themes. A champion of open source, Silkalns shares insights on web trends and entrepreneurship. His mission is to make web design simple and accessible, empowering people worldwide to build professional sites with ease.</p><p class="uic-author-social"><a href="https://x.com/AigarsSilkalns" target="_blank" rel="noopener me" aria-label="Aigars Silkalns on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a><a href="https://www.linkedin.com/in/silkalns" target="_blank" rel="noopener me" aria-label="Aigars Silkalns on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>LinkedIn</a><a class="uic-about" href="https://uicookies.com/about/">More about uiCookies &rarr;</a></p></div></div>			</div><!-- .post-text -->
+
+					</div><!-- .post-content -->
+	</article><!-- .post -->
+
+							<!-- Get the next/previous post navs -->
+							
+	<nav class="navigation post-navigation" aria-label="Post navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://uicookies.com/downloads/parcel/" rel="prev"><div class="nav-text"><span><i class="fa fa-angle-left"></i> Previous</span> <h3>Parcel — Free Single Luxury Property Website Template</h3></div></a></div><div class="nav-next"><a href="https://uicookies.com/downloads/vows/" rel="next"><div class="nav-text"><span>Next <i class="fa fa-angle-right"></i></span> <h3>Vows — Free Wedding Planner &amp; Venue Website Template</h3></div></a></div></div>
+	</nav>
+							<!-- Get the EDD reviews -->
+							
+						
+					</div><!-- #content .site-content -->
+				</div><!-- #primary .content-area -->
+
+				<div id="secondary">
+					<div id="sticker">
+						<div id="purchase-box" class="purchase-box">
+							
+							<div class="download-price download-aside">
+																	<div class="purchase-price">
+										Free									</div>
+								
+								
+										<div class="uic-fd" id="uic-fd">
+											<form class="uic-fd__form" method="post"
+					action="https://uicookies.com/wp-admin/admin-post.php">
+					<input type="hidden" name="action" value="uic_dl_request">
+					<input type="hidden" name="download_id" value="854002">
+					<input type="hidden" name="redirect_to" value="https://uicookies.com/downloads/everly/">
+					<label class="uic-fd__label" for="uic-fd-email">Your email address</label>
+					<input class="uic-fd__input" id="uic-fd-email" name="uic_email" type="email"
+						autocomplete="email" placeholder="you@example.com" required>
+
+										<div class="uic-fd__hp" aria-hidden="true">
+						<label for="uic-fd-website">Website</label>
+						<input id="uic-fd-website" name="uic_website" type="text" tabindex="-1" autocomplete="off">
+					</div>
+					<input type="hidden" name="uic_t" value="1790070655">
+
+					<label class="uic-fd__check">
+						<input type="checkbox" name="uic_optin" value="1">
+						<span>Email me when new free templates are released. No more than a couple a month.</span>
+					</label>
+
+					<button class="uic-fd__btn" type="submit">Get the download link</button>
+					<p class="uic-fd__small">We'll send a one-time link to confirm your address.
+						The download works whether or not you tick the box.</p>
+				</form>
+					</div>
+		
+								
+		<a class="edd-demo-link button" target="_blank" rel="nofollow noopener" href="https://uicookies.com/demo/theme/everly/">Demo</a>
+								</div><!-- .download-price -->
+
+							<div class='download-details download-aside'>				<div class="post-meta">
+					<!-- Get the download categories -->
+											<span class="meta-cat">
+							<i class="fa fa-folder"></i>
+							<a href="https://uicookies.com/downloads/category/wedding/" rel="tag">Wedding</a>						</span>
+					
+					<!-- Get the download tags -->
+									</div><!-- .post-meta -->
+			</div>						</div><!-- .purchase-box -->
+					</div><!-- #sticker -->
+				</div><!-- #secondary -->
+			</div><!-- #main .site-main -->
+		</div><!-- .sticky-container -->
+
+
+	</div><!-- #page -->
+
+	<footer id="colophon" class="site-footer">
+		<div class="site-footer-inside center">
+			
+			<div class="footer-copy">
+				<div class="copyright">
+					<div class="site-info">
+						
+						© 2016 - 2026 uiCookies. All Rights Reserved<span class="sep"> | </span>Responsive HTML &amp; Bootstrap Website Templates					</div><!-- .site-info -->
+				</div><!-- .copyright -->
+
+				<nav class="footer-navigation" role="navigation">
+									</nav><!-- .footer-navigation -->
+			</div><!-- .footer-copy -->
+		</div><!-- .site-footer-inside -->
+
+		<!-- Footer background image effect -->
+			</footer><!-- #colophon .site-footer -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/checkout/*","/*\\?(.+)","/checkout/*"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+	<style>.edd-js-none .edd-has-js, .edd-js .edd-no-js, body.edd-js input.edd-no-js { display: none; }</style>
+	<script>/* <![CDATA[ */(function(){var c = document.body.classList;c.remove('edd-js-none');c.add('edd-js');})();/* ]]> */</script>
+	<script type="application/ld+json">[{"@type":"Product","name":"Everly \u2014 Free Couple's Wedding Website Template","url":"https:\/\/uicookies.com\/downloads\/everly\/","brand":{"@type":"https:\/\/schema.org\/Brand","name":"uiCookies"},"sku":"854002","image":"https:\/\/uicookies.com\/wp-content\/uploads\/2026\/07\/everly-top-150x102.jpg","description":"A romantic, editorial one-page wedding website with a live countdown, story timeline and built-in RSVP.","offers":{"@type":"Offer","price":"0.00","priceCurrency":"USD","priceValidUntil":"","url":"https:\/\/uicookies.com\/downloads\/everly\/","availability":"https:\/\/schema.org\/InStock","seller":{"@type":"Organization","name":"uiCookies"}},"category":"Wedding","@context":"https:\/\/schema.org\/"}]</script><script id="jquery-core-js" src="https://uicookies.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://uicookies.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="wpascript-js" src="https://uicookies.com/wp-content/plugins/honeypot/includes/js/wpa.js?ver=3.0.0"></script>
+<script id="wpascript-js-after">
+wpa_field_info = {"wpa_field_name":"laycsj9200","wpa_field_value":188238,"wpa_add_test":"no"}
+//# sourceURL=wpascript-js-after
+</script>
+<script id="edd-ajax-js-extra">
+var edd_scripts = {"ajaxurl":"https://uicookies.com/wp-admin/admin-ajax.php","position_in_cart":"","has_purchase_links":"0","already_in_cart_message":"You have already added this item to your cart","empty_cart_message":"Your cart is empty","loading":"Loading","select_option":"Please select an option","is_checkout":"0","default_gateway":"paypal_commerce","redirect_to_checkout":"1","checkout_page":"https://uicookies.com/checkout/","permalinks":"1","quantities_enabled":"","taxes_enabled":"0","current_page":"854002"};
+//# sourceURL=edd-ajax-js-extra
+</script>
+<script id="edd-ajax-js" src="https://uicookies.com/wp-content/plugins/easy-digital-downloads/assets/build/js/frontend/edd-ajax.js?ver=3.7.0"></script>
+<script id="hoverIntent-js" src="https://uicookies.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2"></script>
+<script id="checkout-custom-js-js-extra">
+var checkout_masonry_js_vars = {"load_masonry":""};
+//# sourceURL=checkout-custom-js-js-extra
+</script>
+<script id="checkout-custom-js-js" src="https://uicookies.com/wp-content/themes/checkout/js/checkout.js?ver=1.0"></script>
+<script id="checkout-edd-js-js-extra">
+var checkout_load_js_vars = {"load_sticky":"true"};
+//# sourceURL=checkout-edd-js-js-extra
+</script>
+<script id="checkout-edd-js-js" src="https://uicookies.com/wp-content/themes/checkout/js/edd.js?ver=1.0"></script>
+</body>
+</html><!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Retrieved 1784 objects (509 KB) from Redis using PhpRedis (v6.3.0).
+-->

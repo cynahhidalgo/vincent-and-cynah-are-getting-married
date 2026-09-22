@@ -1,0 +1,319 @@
+/* Inspired by Wix template wh-1066 — Wedding Invitation (Pastoral) */
+
+.theme-pastoral-wix {
+  --pastoral-cream: #f7f4ef;
+  --pastoral-green: #5c6b52;
+  --pastoral-green-deep: #3d4a36;
+  --pastoral-burgundy: #722f37;
+  --pastoral-burgundy-deep: #4a1522;
+  background: var(--pastoral-cream);
+  color: #4a4540;
+}
+
+.theme-pastoral-wix .pastoral-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.theme-pastoral-wix .pastoral-nav.is-scrolled {
+  background: rgba(247, 244, 239, 0.95);
+  box-shadow: 0 1px 0 rgba(114, 47, 55, 0.12);
+}
+
+.theme-pastoral-wix .nav-brand {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--pastoral-burgundy-deep);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.theme-pastoral-wix .nav-menu {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.theme-pastoral-wix .nav-menu a {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--pastoral-green-deep);
+}
+
+.theme-pastoral-wix .nav-menu a:hover {
+  color: var(--pastoral-burgundy);
+}
+
+.theme-pastoral-wix .nav-toggle {
+  display: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--pastoral-burgundy);
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .theme-pastoral-wix .nav-toggle {
+    display: block;
+  }
+
+  .theme-pastoral-wix .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--pastoral-cream);
+    padding: 1rem 1.5rem 1.25rem;
+    border-bottom: 1px solid rgba(114, 47, 55, 0.15);
+  }
+
+  .theme-pastoral-wix .nav-menu.is-open {
+    display: flex;
+  }
+}
+
+.theme-pastoral-wix .parallax-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.theme-pastoral-wix .parallax-hero__bg {
+  position: absolute;
+  inset: -15% 0 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.theme-pastoral-wix .parallax-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(74, 21, 34, 0.35) 0%, rgba(61, 74, 54, 0.45) 100%);
+}
+
+.theme-pastoral-wix .parallax-hero__content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 6rem 1.25rem 4rem;
+  max-width: 40rem;
+}
+
+.theme-pastoral-wix .hero-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  opacity: 0.95;
+}
+
+.theme-pastoral-wix .hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.75rem, 10vw, 4.5rem);
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+  line-height: 1.05;
+}
+
+.theme-pastoral-wix .parallax-hero .hero-date {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 2rem;
+}
+
+.theme-pastoral-wix .btn-light {
+  background: #fff;
+  color: var(--pastoral-burgundy-deep);
+  border: none;
+  padding: 0.85rem 2rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.theme-pastoral-wix .scroll-cue {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+.theme-pastoral-wix .pastoral-section {
+  padding: clamp(3.5rem, 10vw, 6rem) 1.25rem;
+}
+
+.theme-pastoral-wix .section-inner {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.theme-pastoral-wix .pastoral-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  color: var(--pastoral-burgundy-deep);
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.theme-pastoral-wix .section-sub {
+  margin-top: 2.5rem;
+}
+
+.theme-pastoral-wix .story-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .theme-pastoral-wix .story-grid {
+    grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+.theme-pastoral-wix .story-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 20px 50px rgba(74, 21, 34, 0.15);
+}
+
+.theme-pastoral-wix .story-copy p {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #3d3835;
+}
+
+.theme-pastoral-wix .parallax-band {
+  height: min(42vh, 360px);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-pastoral-wix .parallax-band__bg {
+  position: absolute;
+  inset: -20% 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.theme-pastoral-wix .details-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .theme-pastoral-wix .details-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.theme-pastoral-wix .detail-card {
+  background: #fff;
+  padding: 1.25rem;
+  border-top: 3px solid var(--pastoral-burgundy);
+  text-align: center;
+}
+
+.theme-pastoral-wix .detail-card h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--pastoral-green-deep);
+  margin: 0 0 0.5rem;
+}
+
+.theme-pastoral-wix .calendar-wrap {
+  max-width: 22rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.theme-pastoral-wix .countdown-inline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+}
+
+.theme-pastoral-wix .countdown-inline .count-unit {
+  min-width: 4.5rem;
+  padding: 0.65rem;
+  background: var(--pastoral-burgundy-deep);
+  color: #fff;
+  text-align: center;
+}
+
+.theme-pastoral-wix .countdown-inline .count-unit small {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.theme-pastoral-wix .pastoral-gallery {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.theme-pastoral-wix .pastoral-program li {
+  background: transparent;
+  border-left: none;
+  border-bottom: 1px solid rgba(114, 47, 55, 0.15);
+  padding: 0.85rem 0;
+  margin: 0;
+}
+
+.theme-pastoral-wix .pastoral-rsvp {
+  background: linear-gradient(180deg, transparent, rgba(114, 47, 55, 0.06));
+}
+
+.theme-pastoral-wix .rsvp-panel {
+  max-width: 32rem;
+  text-align: center;
+}
+
+.theme-pastoral-wix .pastoral-footer {
+  text-align: center;
+  padding: 2.5rem 1.25rem 3rem;
+  background: var(--pastoral-burgundy-deep);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-pastoral-wix .pastoral-footer .hashtag {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.theme-pastoral-wix .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.theme-pastoral-wix .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}

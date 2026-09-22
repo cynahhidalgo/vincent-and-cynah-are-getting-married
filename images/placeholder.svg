@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 380" role="img" aria-label="Couple photo placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef4ea"/>
+      <stop offset="100%" stop-color="#ffd6e7"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="380" fill="url(#bg)"/>
+  <rect x="16" y="16" width="268" height="348" fill="none" stroke="#5a7a4e" stroke-width="2"/>
+  <rect x="16" y="16" width="268" height="348" fill="none" stroke="#6b1d3a" stroke-width="1" opacity="0.4"/>
+  <circle cx="150" cy="130" r="48" fill="none" stroke="#6b1d3a" stroke-width="1.2" opacity="0.5"/>
+  <path d="M70 320 Q150 240 230 320" fill="none" stroke="#5a7a4e" stroke-width="1.2" opacity="0.5"/>
+  <text x="150" y="360" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#4a0f24">Replace with your photo in config.js</text>
+</svg>

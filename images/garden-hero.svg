@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-label="Venue illustration">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf8f6"/>
+      <stop offset="100%" stop-color="#f0ebe6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="320" fill="url(#g)"/>
+  <path fill="#722f37" opacity="0.12" d="M0 200 Q200 140 400 180 T800 170 L800 320 L0 320Z"/>
+  <path fill="none" stroke="#c9a962" stroke-width="1" d="M400 50 L400 210 M320 120 Q400 85 480 120"/>
+  <text x="400" y="270" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#4a1522" letter-spacing="2">PAULINOS � UPPER LAMTANG</text>
+</svg>
