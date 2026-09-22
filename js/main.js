@@ -33,6 +33,7 @@
     setText("partner2-footer", cfg.partner2);
     setText("hashtag", cfg.hashtag ? `#${cfg.hashtag}` : "");
     setText("dateDisplay", cfg.dateDisplay);
+    setText("headerDate", cfg.headerDate || cfg.dateDisplay);
     setText("dateLong", cfg.dateLong || cfg.dateDisplay);
     setText("familiesLine", cfg.familiesLine);
     setText("storyIntro", cfg.storyIntro);
@@ -455,6 +456,113 @@
     );
   }
 
+  const WORD_REVEAL_SELECTORS = [
+    ".section-title",
+    ".detail-card h3",
+    ".sponsor-heading",
+    ".program-title",
+    ".story-slide-copy h3",
+    ".glimpse-card-body h3",
+    ".site-footer .hashtag",
+    "#where-to-stay .section-title",
+  ];
+
+  const ELEGANT_REVEAL_SELECTORS = [
+    ".section-sub",
+    ".lead",
+    ".details-summary",
+    ".detail-card .label",
+    ".detail-card .subtitle",
+    ".story-slide-copy .timeline-era",
+    ".glimpse-card-body .label",
+    ".glimpse-card-body .subtitle",
+    ".dress",
+    ".site-footer p",
+    "#where-to-stay .section-sub",
+  ];
+
+  const ELEGANT_REVEAL_BLOCKS =
+    ".hero-inner .families, .hero-inner .hero-names, .hero-inner .hero-meta, .hero-inner .countdown, .detail-card, .glimpse-card, .party-grid > li, .gallery-mosaic figure, .program-list li, .stay-card, .travel-card, .story-slideshow, .rsvp-form, .map-wrap";
+
+  function wrapWords(el) {
+    if (!el || el.dataset.wordRevealDone) return;
+    if (el.closest(".header-nav")) return;
+
+    const text = (el.textContent || "").trim();
+    if (!text) return;
+
+    el.textContent = "";
+    const parts = text.split(/(\s+)/);
+    let wordIndex = 0;
+
+    parts.forEach((part) => {
+      if (/^\s+$/.test(part)) {
+        el.appendChild(document.createTextNode(part));
+        return;
+      }
+      const span = document.createElement("span");
+      span.className = "word-reveal";
+      span.style.setProperty("--word-i", String(Math.min(wordIndex, 20)));
+      span.textContent = part;
+      el.appendChild(span);
+      wordIndex += 1;
+    });
+
+    el.classList.add("word-reveal-host");
+    el.dataset.wordRevealDone = "true";
+  }
+
+  function initScrollReveal() {
+    const markVisible = (el) => el.classList.add("is-visible");
+
+    if (prefersReducedMotion) {
+      WORD_REVEAL_SELECTORS.forEach((sel) => $$(sel).forEach((el) => markVisible(el)));
+      ELEGANT_REVEAL_SELECTORS.forEach((sel) =>
+        $$(sel).forEach((el) => {
+          el.classList.add("elegant-reveal");
+          markVisible(el);
+        })
+      );
+      $$(ELEGANT_REVEAL_BLOCKS).forEach((el) => {
+        el.classList.add("elegant-reveal");
+        markVisible(el);
+      });
+      return;
+    }
+
+    WORD_REVEAL_SELECTORS.forEach((sel) => $$(sel).forEach(wrapWords));
+    ELEGANT_REVEAL_SELECTORS.forEach((sel) =>
+      $$(sel).forEach((el) => el.classList.add("elegant-reveal"))
+    );
+
+    $$(ELEGANT_REVEAL_BLOCKS).forEach((el, i) => {
+      el.classList.add("elegant-reveal");
+      el.style.setProperty("--reveal-i", String(i % 8));
+    });
+
+    const targets = $$(".word-reveal-host, .elegant-reveal");
+    if (!targets.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
+    );
+
+    targets.forEach((el) => {
+      observer.observe(el);
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.94 && rect.bottom > 0) {
+        requestAnimationFrame(() => el.classList.add("is-visible"));
+      }
+    });
+  }
+
   function escapeHtml(str) {
     return String(str)
       .replace(/&/g, "&amp;")
@@ -465,9 +573,11 @@
 
   function boot() {
     applyConfig();
+    initScrollReveal();
     if (!cfg) {
       initRsvpForm();
       initHeaderScroll();
+      initCountdown();
     }
   }
 

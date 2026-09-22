@@ -6,6 +6,8 @@ window.WEDDING_CONFIG = {
 
   weddingDateTime: "2027-02-12T15:00:00+08:00",
   dateDisplay: "Friday, February 12 · 2027",
+  /** Short line under names in the header chip */
+  headerDate: "Feb 12 · 2027",
   dateLong: "Friday, February 12, 2027",
 
   calendarMonth: 2,
@@ -13,6 +15,14 @@ window.WEDDING_CONFIG = {
   calendarHighlightDay: 12,
 
   familiesLine: "With the love and blessing of their families",
+
+  welcome: {
+    eyebrow: "You're invited",
+    title: "Welcome",
+    subline: "We're so happy you're here. Step inside for our story, details, and RSVP.",
+    cta: "Open invitation",
+    invitationPath: "invitation.html",
+  },
 
   venue: {
     name: "Paulinos",
