@@ -11,29 +11,33 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&family=Great+Vibes&family=Pinyon+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/everly.css?v=40" />
+    <link rel="stylesheet" href="css/everly.css?v=46" />
   </head>
   <body class="everly welcome-page">
     <div class="welcome-screen" id="welcome-screen">
       <div class="welcome-scene" id="welcome-bg" aria-hidden="true"></div>
       <p class="welcome-headline" id="welcome-headline">WE ARE GETTING MARRIED</p>
+      <h1 class="welcome-couple" id="welcome-couple">
+        <span id="welcome-couple-p1">Vincent</span>
+        <span class="welcome-couple__and" aria-hidden="true">&amp;</span>
+        <span id="welcome-couple-p2">Cynah</span>
+      </h1>
       <div class="welcome-envelope" id="welcome-envelope">
         <div class="welcome-envelope__shell">
           <span class="welcome-envelope__shadow" aria-hidden="true"></span>
           <span class="welcome-envelope__back" aria-hidden="true"></span>
+          <img
+            class="welcome-envelope__style"
+            id="welcome-envelope-style"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
           <span class="welcome-envelope__liner" aria-hidden="true"></span>
           <img
             class="welcome-envelope__flower-frame"
             id="welcome-envelope-flowers"
             src="images/flower.png"
-            alt=""
-            aria-hidden="true"
-            decoding="async"
-          />
-          <img
-            class="welcome-envelope__monogram"
-            id="welcome-monogram"
-            src="images/vc%20monogram.png"
             alt=""
             aria-hidden="true"
             decoding="async"
@@ -63,7 +67,15 @@
             id="welcome-envelope-tap"
             aria-label="Tap to open the envelope"
           >
-            <span class="welcome-envelope__tap-text">Tap here</span>
+            <img
+              class="welcome-envelope__monogram"
+              id="welcome-monogram"
+              src="images/vc%20monogram.png"
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+            />
+            <span class="welcome-envelope__tap-text visually-hidden">Tap here</span>
           </button>
         </div>
         <a class="welcome-envelope__cta" id="welcome-enter" href="invitation.html" hidden>Open invitation</a>
@@ -98,6 +110,6 @@
     </div>
 
     <script src="js/config.js?v=12"></script>
-    <script src="js/welcome.js?v=13"></script>
+    <script src="js/welcome.js?v=15"></script>
   </body>
 </html>

@@ -30,6 +30,7 @@ window.WEDDING_CONFIG = {
     invitationPath: "invitation.html",
     monogram: "images/vc monogram.png",
     envelopeFlowers: "images/flower.png",
+    envelopeStyle: "images/envelope.webp",
   },
 
   venue: {

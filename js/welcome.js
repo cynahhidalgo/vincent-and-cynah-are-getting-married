@@ -16,6 +16,8 @@
   set("welcome-families", cfg.familiesLine);
   set("welcome-p1", cfg.partner1);
   set("welcome-p2", cfg.partner2);
+  set("welcome-couple-p1", cfg.partner1);
+  set("welcome-couple-p2", cfg.partner2);
 
   function assetPath(relative) {
     if (!relative) return "";
@@ -32,6 +34,14 @@
   const flowerPath = w.envelopeFlowers;
   if (flowerFrame && flowerPath) {
     flowerFrame.src = encodeURI(assetPath(flowerPath));
+  }
+
+  const envelopeStyle = document.getElementById("welcome-envelope-style");
+  const stylePath = w.envelopeStyle;
+  const shell = document.querySelector(".welcome-envelope__shell");
+  if (envelopeStyle && stylePath) {
+    envelopeStyle.src = encodeURI(assetPath(stylePath));
+    shell?.classList.add("has-envelope-style");
   }
 
   set("welcome-date", cfg.dateLong || cfg.dateDisplay);
