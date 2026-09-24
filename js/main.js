@@ -68,6 +68,7 @@
     initHeaderScroll();
     initScrollSpy();
     initCountdown();
+    initHeroMusic();
   }
 
   function initCountdown() {
@@ -477,6 +478,155 @@
       },
       { passive: true }
     );
+  }
+
+  let heroMusicPlayer = null;
+  let heroMusicPlayerReady = false;
+  let heroMusicWantsPlay = false;
+
+  function loadYouTubeIframeApi() {
+    return new Promise((resolve) => {
+      if (window.YT && window.YT.Player) {
+        resolve();
+        return;
+      }
+      const existing = document.querySelector('script[src*="youtube.com/iframe_api"]');
+      const finish = () => resolve();
+      const prevReady = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => {
+        prevReady?.();
+        finish();
+      };
+      if (!existing) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.head.appendChild(tag);
+      } else {
+        const poll = window.setInterval(() => {
+          if (window.YT && window.YT.Player) {
+            window.clearInterval(poll);
+            finish();
+          }
+        }, 50);
+        window.setTimeout(() => window.clearInterval(poll), 8000);
+      }
+    });
+  }
+
+  function initHeroMusic() {
+    const music = cfg?.heroMusic;
+    if (!music?.youtube) return;
+    if (prefersReducedMotion) return;
+
+    const videoId = youtubeIdFromUrl(music.youtube);
+    if (!videoId || videoId.length !== 11) return;
+
+    const section = document.getElementById("hero");
+    const host = document.getElementById("hero-music-host");
+    const btn = document.getElementById("hero-music-btn");
+    if (!section || !host) return;
+    if (btn) btn.hidden = false;
+
+    function safePause() {
+      if (!heroMusicPlayerReady || !heroMusicPlayer) return;
+      try {
+        heroMusicPlayer.pauseVideo();
+      } catch (_) {
+        /* player not ready */
+      }
+      heroMusicWantsPlay = false;
+    }
+
+    function safePlay(muted) {
+      heroMusicWantsPlay = true;
+      ensureHeroMusicPlayer(videoId, host, () => {
+        if (!heroMusicPlayerReady || !heroMusicPlayer) return;
+        try {
+          if (muted) heroMusicPlayer.mute();
+          heroMusicPlayer.playVideo();
+          if (!muted) heroMusicPlayer.unMute();
+        } catch (_) {
+          /* autoplay blocked */
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.some((e) => e.isIntersecting && e.intersectionRatio >= 0.35);
+        if (visible) safePlay(true);
+        else if (music.pauseWhenLeave !== false) safePause();
+      },
+      { threshold: [0, 0.35, 0.55] }
+    );
+    observer.observe(section);
+
+    if (btn) {
+      btn.addEventListener("click", () => {
+        const on = btn.getAttribute("aria-pressed") === "true";
+        ensureHeroMusicPlayer(videoId, host, () => {
+          if (!heroMusicPlayerReady || !heroMusicPlayer) return;
+          if (on) {
+            heroMusicPlayer.mute();
+            btn.setAttribute("aria-pressed", "false");
+            btn.setAttribute("aria-label", "Turn on wedding music");
+          } else {
+            heroMusicPlayer.unMute();
+            heroMusicPlayer.playVideo();
+            btn.setAttribute("aria-pressed", "true");
+            btn.setAttribute("aria-label", "Turn off wedding music");
+          }
+        });
+      });
+    }
+
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
+      safePlay(true);
+    }
+  }
+
+  function ensureHeroMusicPlayer(videoId, host, onReady) {
+    if (heroMusicPlayerReady && heroMusicPlayer) {
+      onReady?.();
+      return;
+    }
+    loadYouTubeIframeApi().then(() => {
+      if (heroMusicPlayerReady && heroMusicPlayer) {
+        onReady?.();
+        return;
+      }
+      heroMusicPlayer = new window.YT.Player(host, {
+        height: "1",
+        width: "1",
+        videoId,
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          loop: 1,
+          playlist: videoId,
+          modestbranding: 1,
+          playsinline: 1,
+          rel: 0,
+        },
+        events: {
+          onReady: () => {
+            heroMusicPlayerReady = true;
+            if (heroMusicWantsPlay) {
+              try {
+                heroMusicPlayer.mute();
+                heroMusicPlayer.playVideo();
+              } catch (_) {
+                /* ignore */
+              }
+            }
+            onReady?.();
+          },
+        },
+      });
+    });
   }
 
   function initScrollSpy() {

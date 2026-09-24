@@ -22,11 +22,14 @@ window.WEDDING_CONFIG = {
   familiesLine: "With the love and blessing of their families",
 
   welcome: {
+    headline: "WE ARE GETTING MARRIED",
     eyebrow: "You're invited",
     title: "Welcome",
     subline: "We're so happy you're here. Step inside for our story, details, and RSVP.",
     cta: "Open invitation",
     invitationPath: "invitation.html",
+    monogram: "images/vc monogram.png",
+    envelopeFlowers: "images/flower.png",
   },
 
   venue: {
@@ -146,6 +149,12 @@ window.WEDDING_CONFIG = {
 
   /** All site photos: project folder `images/` (same folder as this site). Paths are relative to index.html. */
   imagesBase: "images",
+
+  /** Background music on invitation hero — plays when the hero is on screen (muted until guest taps Music). */
+  heroMusic: {
+    youtube: "https://www.youtube.com/watch?v=PLrd-rILKtc",
+    pauseWhenLeave: true,
+  },
 
   images: {
     hero: "images/hero-bg.jpg",

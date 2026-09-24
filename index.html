@@ -11,24 +11,93 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&family=Great+Vibes&family=Pinyon+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/everly.css?v=14" />
+    <link rel="stylesheet" href="css/everly.css?v=40" />
   </head>
   <body class="everly welcome-page">
     <div class="welcome-screen" id="welcome-screen">
-      <div class="welcome-bg" id="welcome-bg" aria-hidden="true"></div>
-      <div class="welcome-inner">
-        <p class="welcome-eyebrow" id="welcome-eyebrow">You're invited</p>
-        <p class="welcome-families" id="welcome-families">With the love and blessing of their families</p>
-        <h1 class="welcome-names" id="welcome-names">
-          <span id="welcome-p1">Vincent</span><span class="amp"> &amp; </span><span id="welcome-p2">Cynah</span>
-        </h1>
-        <p class="welcome-date" id="welcome-date">Friday, February 12, 2027</p>
-        <p class="welcome-venue" id="welcome-venue">Paulinos · Upper Lamtang, La Trinidad, Benguet</p>
-        <p class="welcome-sub" id="welcome-sub"></p>
-        <a class="btn btn-primary welcome-enter" id="welcome-enter" href="invitation.html">Open invitation</a>
+      <div class="welcome-scene" id="welcome-bg" aria-hidden="true"></div>
+      <p class="welcome-headline" id="welcome-headline">WE ARE GETTING MARRIED</p>
+      <div class="welcome-envelope" id="welcome-envelope">
+        <div class="welcome-envelope__shell">
+          <span class="welcome-envelope__shadow" aria-hidden="true"></span>
+          <span class="welcome-envelope__back" aria-hidden="true"></span>
+          <span class="welcome-envelope__liner" aria-hidden="true"></span>
+          <img
+            class="welcome-envelope__flower-frame"
+            id="welcome-envelope-flowers"
+            src="images/flower.png"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
+          <img
+            class="welcome-envelope__monogram"
+            id="welcome-monogram"
+            src="images/vc%20monogram.png"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
+          <span class="welcome-envelope__wing welcome-envelope__wing--left" aria-hidden="true"></span>
+          <span class="welcome-envelope__wing welcome-envelope__wing--right" aria-hidden="true"></span>
+          <span class="welcome-envelope__side welcome-envelope__side--left" aria-hidden="true"></span>
+          <span class="welcome-envelope__side welcome-envelope__side--right" aria-hidden="true"></span>
+          <span class="welcome-envelope__thickness" aria-hidden="true"></span>
+          <span class="welcome-envelope__card" id="welcome-envelope-card" aria-hidden="true">
+            <span class="welcome-envelope__card-inner">
+              <p class="welcome-eyebrow" id="welcome-eyebrow">You're invited</p>
+              <p class="welcome-families" id="welcome-families">With the love and blessing of their families</p>
+              <h1 class="welcome-names" id="welcome-names">
+                <span id="welcome-p1">Vincent</span><span class="amp"> &amp; </span><span id="welcome-p2">Cynah</span>
+              </h1>
+              <p class="welcome-date" id="welcome-date">Friday, February 12, 2027</p>
+              <p class="welcome-venue" id="welcome-venue">Paulinos · Upper Lamtang, La Trinidad, Benguet</p>
+            </span>
+          </span>
+          <span class="welcome-envelope__flap-cast" aria-hidden="true"></span>
+          <span class="welcome-envelope__flap" aria-hidden="true"></span>
+          <span class="welcome-envelope__front" aria-hidden="true"></span>
+          <button
+            type="button"
+            class="welcome-envelope__seal"
+            id="welcome-envelope-tap"
+            aria-label="Tap to open the envelope"
+          >
+            <span class="welcome-envelope__tap-text">Tap here</span>
+          </button>
+        </div>
+        <a class="welcome-envelope__cta" id="welcome-enter" href="invitation.html" hidden>Open invitation</a>
+      </div>
+      <p class="welcome-sub" id="welcome-sub"></p>
+    </div>
+
+    <div class="welcome-invitation-modal" id="welcome-invitation-modal" hidden aria-hidden="true">
+      <div class="welcome-invitation-modal__backdrop" id="welcome-invitation-backdrop" aria-hidden="true"></div>
+      <div
+        class="welcome-invitation-modal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="welcome-invitation-modal-title"
+      >
+        <p class="visually-hidden" id="welcome-invitation-modal-title">Wedding invitation</p>
+        <button
+          type="button"
+          class="welcome-invitation-modal__close"
+          id="welcome-invitation-close"
+          aria-label="Close invitation"
+        >
+          ×
+        </button>
+        <iframe
+          class="welcome-invitation-modal__frame"
+          id="welcome-invitation-frame"
+          title="Vincent and Cynah wedding invitation"
+          loading="lazy"
+        ></iframe>
       </div>
     </div>
-    <script src="js/config.js?v=11"></script>
-    <script src="js/welcome.js?v=2"></script>
+
+    <script src="js/config.js?v=12"></script>
+    <script src="js/welcome.js?v=13"></script>
   </body>
 </html>

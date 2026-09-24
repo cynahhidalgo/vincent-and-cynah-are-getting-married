@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&family=Great+Vibes&family=Pinyon+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/everly.css?v=15" />
+    <link rel="stylesheet" href="css/everly.css?v=16" />
     <link rel="stylesheet" href="css/everly-uicookies.css?v=1" />
   </head>
   <body class="everly everly-template">
@@ -39,7 +39,9 @@
 
     <main id="top">
       <section class="hero" id="hero">
-        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-bg" id="hero-bg">
+          <div class="hero-music-host" id="hero-music-host" aria-hidden="true"></div>
+        </div>
         <div class="hero-inner">
           <p class="families" data-field="familiesLine">With the love and blessing of their families</p>
           <h1 class="hero-names">
@@ -58,6 +60,16 @@
             <div><span id="cd-secs">--</span><small>Seconds</small></div>
           </div>
         </div>
+        <button
+          type="button"
+          class="hero-music-btn"
+          id="hero-music-btn"
+          hidden
+          aria-pressed="false"
+          aria-label="Turn on wedding music"
+        >
+          ♫ Music
+        </button>
       </section>
 
       <section class="section" id="story">
@@ -336,8 +348,8 @@
       <p><span data-field="partner1-footer">Vincent</span> & <span data-field="partner2-footer">Cynah</span></p>
     </footer>
 
-    <script src="js/config.js?v=10"></script>
-    <script src="js/main.js?v=13"></script>
+    <script src="js/config.js?v=11"></script>
+    <script src="js/main.js?v=14"></script>
     <script>
       (function () {
         var daysEl = document.getElementById("cd-days");
