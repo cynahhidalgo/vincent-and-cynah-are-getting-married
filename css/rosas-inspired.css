@@ -1,0 +1,927 @@
+/* Original dark-rose wedding theme for Vincent & Cynah.
+   Inspired by vintage romantic stationery; no third-party template code or assets. */
+
+body.rosas-inspired {
+  --rose-950: #260c15;
+  --rose-900: #35101c;
+  --rose-850: #421522;
+  --rose-800: #541b2a;
+  --rose-700: #70263a;
+  --rose-600: #8b3850;
+  --rose-200: #d9a9b4;
+  --rose-100: #edd5da;
+  --gold-700: #8f692b;
+  --gold-500: #c6a15a;
+  --gold-300: #e3c98d;
+  --gold-100: #f1e3bd;
+  --paper: #f5eee8;
+  --paper-deep: #e8dcd4;
+  --ink: #2e2023;
+  --ink-soft: #69585b;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --script-display: "Great Vibes", "Pinyon Script", cursive;
+  --sans: "DM Sans", system-ui, sans-serif;
+  margin: 0;
+  color: var(--ink-soft);
+  background: var(--paper);
+}
+
+body.rosas-inspired::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: #260c15;
+  animation: rosas-page-reveal 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes rosas-page-reveal {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.rosas-inspired *,
+.rosas-inspired *::before,
+.rosas-inspired *::after {
+  box-sizing: border-box;
+}
+
+.rosas-inspired .container {
+  width: min(1120px, 90vw);
+}
+
+.rosas-inspired .container.narrow {
+  width: min(700px, 88vw);
+}
+
+/* Header */
+.rosas-inspired .site-header {
+  top: 0;
+  width: 100%;
+  max-width: none;
+  min-height: 4.75rem;
+  padding: 0.65rem clamp(1rem, 4vw, 3.5rem);
+  border: 0;
+  border-bottom: 1px solid rgba(227, 201, 141, 0.24);
+  border-radius: 0;
+  color: var(--gold-100);
+  background: rgba(38, 12, 21, 0.88);
+  box-shadow: 0 8px 30px rgba(20, 5, 10, 0.18);
+  backdrop-filter: blur(16px);
+  transform: translateX(-50%);
+}
+
+.rosas-inspired .header-chip {
+  padding-left: 2.8rem;
+  position: relative;
+}
+
+.rosas-inspired .header-chip::before {
+  content: "VC";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid var(--gold-500);
+  border-radius: 50%;
+  font-family: "Great Vibes", "Pinyon Script", cursive;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  color: var(--gold-300);
+  background: radial-gradient(circle at 38% 30%, rgba(227, 201, 141, 0.13), transparent 68%);
+  box-shadow:
+    inset 0 0 0 0.18rem rgba(198, 161, 90, 0.035),
+    0 0 0 rgba(227, 201, 141, 0);
+  animation: header-monogram-breathe 4s ease-in-out infinite;
+}
+
+@keyframes header-monogram-breathe {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+    box-shadow:
+      inset 0 0 0 0.18rem rgba(198, 161, 90, 0.035),
+      0 0 0 rgba(227, 201, 141, 0);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.08);
+    box-shadow:
+      inset 0 0 0 0.18rem rgba(198, 161, 90, 0.08),
+      0 0 16px rgba(227, 201, 141, 0.28);
+  }
+}
+
+.rosas-inspired .header-chip-names {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--gold-100);
+}
+
+.rosas-inspired .chip-date,
+.rosas-inspired .chip-days {
+  color: rgba(241, 227, 189, 0.68);
+}
+
+.rosas-inspired .header-nav a {
+  color: rgba(255, 246, 240, 0.72);
+}
+
+.rosas-inspired .header-nav a:hover,
+.rosas-inspired .header-nav a.is-active {
+  color: var(--gold-300);
+}
+
+/* Hero */
+.rosas-inspired .hero {
+  min-height: 100svh;
+  padding: 8rem 1.25rem 4rem;
+  isolation: isolate;
+  background: var(--rose-950);
+}
+
+.rosas-inspired .hero-bg {
+  transform: scale(1.02);
+}
+
+.rosas-inspired .hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 50% 38%, transparent 0 18%, rgba(38, 12, 21, 0.14) 55%),
+    linear-gradient(90deg, rgba(38, 12, 21, 0.76), rgba(38, 12, 21, 0.28) 48%, rgba(38, 12, 21, 0.74));
+}
+
+.rosas-inspired .hero-bg::after {
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(38, 12, 21, 0.46) 0%, rgba(53, 16, 28, 0.3) 42%, rgba(38, 12, 21, 0.86) 100%);
+}
+
+.rosas-inspired .hero-inner {
+  width: min(760px, 92vw);
+  max-width: none;
+  padding: clamp(2.5rem, 7vw, 4.5rem) clamp(1.2rem, 6vw, 4rem);
+  border: 1px solid rgba(227, 201, 141, 0.42);
+  outline: 1px solid rgba(227, 201, 141, 0.13);
+  outline-offset: 0.65rem;
+  background: linear-gradient(145deg, rgba(38, 12, 21, 0.62), rgba(84, 27, 42, 0.32));
+  box-shadow: 0 30px 80px rgba(18, 4, 8, 0.38);
+  backdrop-filter: blur(3px);
+}
+
+.rosas-inspired .hero-inner::before {
+  content: "THE WEDDING OF";
+  display: block;
+  margin-bottom: 1.4rem;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  color: var(--gold-300);
+}
+
+.rosas-inspired .families {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-style: italic;
+  color: rgba(255, 246, 240, 0.84);
+  margin-bottom: 1rem;
+}
+
+.rosas-inspired .hero-names {
+  margin-bottom: 1.2rem;
+  font-family: var(--serif);
+  font-size: clamp(3.2rem, 9vw, 6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  color: #fff8f3;
+  text-shadow: 0 5px 30px rgba(20, 4, 9, 0.48);
+}
+
+.rosas-inspired .hero-names .amp {
+  font-family: var(--serif);
+  font-size: 0.58em;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-300);
+  padding: 0 0.18em;
+}
+
+.rosas-inspired .hero-meta {
+  margin-bottom: 2rem;
+  font-family: var(--serif);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--gold-100);
+}
+
+.rosas-inspired .hero-meta [data-field="dateLong"] {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  font-size: 1.28em;
+  font-weight: 500;
+}
+
+.rosas-inspired .countdown {
+  gap: 0;
+  border-top: 1px solid rgba(227, 201, 141, 0.28);
+  border-bottom: 1px solid rgba(227, 201, 141, 0.28);
+}
+
+.rosas-inspired .countdown div {
+  min-width: clamp(4rem, 16vw, 7.5rem);
+  padding: 1rem clamp(0.5rem, 2vw, 1.4rem);
+  position: relative;
+}
+
+.rosas-inspired .countdown div + div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 25%;
+  bottom: 25%;
+  width: 1px;
+  background: rgba(227, 201, 141, 0.25);
+}
+
+.rosas-inspired .countdown span {
+  color: var(--gold-100);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+}
+
+.rosas-inspired .countdown small {
+  color: rgba(255, 246, 240, 0.62);
+}
+
+.rosas-inspired .hero-music-btn {
+  color: var(--gold-100);
+  background: rgba(53, 16, 28, 0.8);
+  border-color: rgba(227, 201, 141, 0.55);
+}
+
+/* Shared section composition */
+.rosas-inspired .section {
+  position: relative;
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.rosas-inspired .section-muted {
+  color: rgba(255, 246, 240, 0.75);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(139, 56, 80, 0.24), transparent 25rem),
+    linear-gradient(145deg, var(--rose-950), var(--rose-850));
+}
+
+.rosas-inspired .section::before {
+  content: "V  •  C";
+  display: block;
+  width: fit-content;
+  margin: 0 auto 1rem;
+  font-family: var(--serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  color: var(--gold-500);
+}
+
+.rosas-inspired .hero + .section::before {
+  display: block;
+}
+
+.rosas-inspired .section-title {
+  font-family: var(--serif);
+  font-size: clamp(2.7rem, 7vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--rose-850);
+}
+
+.rosas-inspired .section-title::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  margin: 1.1rem auto 0;
+  background: var(--gold-500);
+}
+
+.rosas-inspired .section-muted .section-title,
+.rosas-inspired .section-muted .sponsor-heading,
+.rosas-inspired .section-muted .details-summary {
+  color: var(--gold-100);
+}
+
+.rosas-inspired .section-sub {
+  color: var(--ink-soft);
+}
+
+.rosas-inspired .section-muted .section-sub,
+.rosas-inspired .section-muted .dress {
+  color: rgba(255, 246, 240, 0.72);
+}
+
+.rosas-inspired .lead {
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  color: var(--rose-850);
+}
+
+/* Story */
+.rosas-inspired .story-slideshow {
+  max-width: 1180px;
+}
+
+.rosas-inspired .story-slide {
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.rosas-inspired .timeline-visual {
+  aspect-ratio: 4 / 5;
+  border-radius: 0;
+  border: 1px solid rgba(112, 38, 58, 0.16);
+  box-shadow: 18px 18px 0 var(--rose-100);
+}
+
+.rosas-inspired .timeline-era {
+  color: var(--gold-700);
+}
+
+.rosas-inspired .timeline-copy h3 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--rose-850);
+}
+
+.rosas-inspired .story-slideshow-btn {
+  background: transparent;
+  border-color: var(--gold-500);
+  color: var(--rose-700);
+}
+
+.rosas-inspired .story-slideshow-dot {
+  background: var(--rose-200);
+}
+
+.rosas-inspired .story-slideshow-dot.is-active {
+  background: var(--gold-500);
+}
+
+/* Details */
+.rosas-inspired .detail-cards {
+  gap: clamp(1.2rem, 4vw, 2.5rem);
+}
+
+.rosas-inspired .detail-card {
+  color: rgba(255, 246, 240, 0.7);
+  background: rgba(255, 246, 240, 0.045);
+  border: 1px solid rgba(227, 201, 141, 0.24);
+  box-shadow: 0 24px 60px rgba(18, 4, 8, 0.24);
+}
+
+.rosas-inspired .detail-card-media {
+  aspect-ratio: 4 / 3;
+  background: var(--rose-900);
+}
+
+.rosas-inspired .detail-card-media img {
+  filter: sepia(0.08) saturate(0.82) contrast(1.05);
+}
+
+.rosas-inspired .detail-card-body {
+  padding: 2.2rem;
+}
+
+.rosas-inspired .detail-card .label,
+.rosas-inspired .glimpse-card-body .label {
+  color: var(--gold-500);
+}
+
+.rosas-inspired .detail-card h3 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--gold-100);
+}
+
+.rosas-inspired .detail-card .subtitle {
+  color: var(--rose-200);
+}
+
+.rosas-inspired .detail-icon {
+  color: var(--gold-500);
+}
+
+.rosas-inspired .program-list li {
+  border-color: rgba(227, 201, 141, 0.18);
+}
+
+.rosas-inspired .prog-time {
+  color: var(--gold-300);
+}
+
+/* Buttons */
+.rosas-inspired .btn-primary,
+.rosas-inspired .detail-card .btn-primary {
+  color: var(--rose-950);
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+}
+
+.rosas-inspired .btn-outline {
+  color: var(--gold-100);
+  border: 1px solid var(--gold-500);
+  background: transparent;
+}
+
+.rosas-inspired .btn-primary,
+.rosas-inspired .btn-outline {
+  padding: 0.9rem 1.5rem;
+  border-radius: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+
+/* Gallery */
+.rosas-inspired .section-glimpses {
+  background: var(--paper);
+}
+
+.rosas-inspired .glimpse-card {
+  border: 0;
+  background: #fffaf6;
+  box-shadow: 0 18px 50px rgba(53, 16, 28, 0.1);
+}
+
+.rosas-inspired .glimpse-card-body h3 {
+  color: var(--rose-850);
+}
+
+.rosas-inspired .glimpse-card-body .card-link {
+  color: var(--rose-700);
+  border-color: var(--gold-500);
+}
+
+.rosas-inspired .gallery-mosaic {
+  gap: 0.8rem;
+}
+
+.rosas-inspired .gallery-mosaic figure {
+  border: 5px solid #fffaf6;
+  box-shadow: 0 12px 34px rgba(53, 16, 28, 0.12);
+}
+
+/* Formal invitation entourage */
+.rosas-inspired #sponsors {
+  background: var(--rose-950);
+}
+
+.rosas-inspired .entourage-motif {
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
+
+.rosas-inspired .entourage-motif-title {
+  margin: 0 0 1.2rem;
+  color: var(--gold-100);
+  font-family: var(--serif-display);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-weight: 400;
+}
+
+.rosas-inspired .entourage-motif-swatches {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.55rem, 2vw, 1rem);
+}
+
+.rosas-inspired .entourage-motif-swatch {
+  width: clamp(2.8rem, 7vw, 4.25rem);
+  aspect-ratio: 1;
+  border: 2px solid rgba(255, 250, 246, 0.9);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px rgba(227, 201, 141, 0.38),
+    0 8px 22px rgba(25, 5, 12, 0.28);
+  transition: transform 250ms ease;
+}
+
+.rosas-inspired .entourage-motif-swatch:hover {
+  transform: translateY(-0.3rem);
+}
+
+.rosas-inspired .entourage-invitation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 4vw, 3rem);
+  max-width: 62rem;
+  margin: 3rem auto 0;
+}
+
+.rosas-inspired .entourage-invitation-card {
+  margin: 0;
+  padding: clamp(0.55rem, 1.5vw, 0.85rem);
+  border: 1px solid rgba(227, 201, 141, 0.42);
+  background: rgba(255, 250, 246, 0.06);
+  box-shadow: 0 24px 60px rgba(25, 5, 12, 0.34);
+}
+
+.rosas-inspired .entourage-invitation-card a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #fffaf6;
+}
+
+.rosas-inspired .entourage-invitation-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  transition: transform 450ms ease, filter 450ms ease;
+}
+
+.rosas-inspired .entourage-invitation-zoom {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.5rem 0.7rem;
+  color: var(--gold-100);
+  background: rgba(57, 8, 24, 0.9);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.rosas-inspired .entourage-invitation-card a:hover img,
+.rosas-inspired .entourage-invitation-card a:focus-visible img {
+  transform: scale(1.015);
+  filter: brightness(0.92);
+}
+
+.rosas-inspired .entourage-invitation-card a:hover .entourage-invitation-zoom,
+.rosas-inspired .entourage-invitation-card a:focus-visible .entourage-invitation-zoom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rosas-inspired .entourage-invitation-card figcaption {
+  padding: 0.9rem 0.35rem 0.25rem;
+  color: var(--gold-100);
+  font-family: var(--serif-display);
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* RSVP */
+.rosas-inspired #rsvp {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(217, 169, 180, 0.35), transparent 32rem),
+    var(--paper);
+}
+
+.rosas-inspired .rsvp-form {
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border: 1px solid rgba(112, 38, 58, 0.18);
+  background: rgba(255, 250, 246, 0.8);
+  box-shadow: 0 25px 70px rgba(53, 16, 28, 0.1);
+}
+
+.rosas-inspired .rsvp-form label {
+  color: var(--rose-700);
+}
+
+.rosas-inspired .rsvp-form input,
+.rosas-inspired .rsvp-form select,
+.rosas-inspired .rsvp-form textarea {
+  border: 0;
+  border-bottom: 1px solid rgba(112, 38, 58, 0.32);
+  border-radius: 0;
+  color: var(--ink);
+  background: transparent;
+}
+
+.rosas-inspired .rsvp-form input:focus,
+.rosas-inspired .rsvp-form select:focus,
+.rosas-inspired .rsvp-form textarea:focus {
+  outline: 0;
+  border-color: var(--gold-700);
+  box-shadow: 0 1px 0 var(--gold-700);
+}
+
+/* Guestbook */
+.rosas-inspired .guestbook-form,
+.rosas-inspired .seating-form {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border: 1px solid rgba(227, 201, 141, 0.25);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.rosas-inspired .guestbook-form label,
+.rosas-inspired .seating-form label {
+  display: grid;
+  gap: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+}
+
+.rosas-inspired .guestbook-form input,
+.rosas-inspired .guestbook-form textarea,
+.rosas-inspired .seating-form input {
+  padding: 0.8rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(227, 201, 141, 0.38);
+  border-radius: 0;
+  font: inherit;
+  color: #fff8f3;
+  background: transparent;
+}
+
+.rosas-inspired .guestbook-form input:focus,
+.rosas-inspired .guestbook-form textarea:focus,
+.rosas-inspired .seating-form input:focus {
+  outline: 0;
+  border-color: var(--gold-300);
+}
+
+.rosas-inspired .guestbook-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.rosas-inspired .guestbook-entry {
+  min-height: 10rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(227, 201, 141, 0.2);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.rosas-inspired .guestbook-entry p {
+  margin: 0 0 1rem;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(255, 246, 240, 0.82);
+}
+
+.rosas-inspired .guestbook-entry h3 {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+}
+
+.rosas-inspired .guestbook-section .form-hint {
+  color: rgba(255, 246, 240, 0.48);
+}
+
+/* Seating lookup */
+.rosas-inspired .seating-form {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  border-color: rgba(112, 38, 58, 0.18);
+  background: rgba(255, 250, 246, 0.72);
+  box-shadow: 0 20px 60px rgba(53, 16, 28, 0.08);
+}
+
+.rosas-inspired .seating-form label {
+  color: var(--rose-700);
+}
+
+.rosas-inspired .seating-form input {
+  color: var(--ink);
+  border-color: rgba(112, 38, 58, 0.28);
+}
+
+.rosas-inspired .seating-result {
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(112, 38, 58, 0.16);
+  background: #fffaf6;
+}
+
+.rosas-inspired .seating-result.is-found {
+  border-color: var(--gold-500);
+}
+
+.rosas-inspired .seating-result h3 {
+  margin: 0.25rem 0;
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--rose-850);
+}
+
+.rosas-inspired .seating-result-label {
+  color: var(--gold-700);
+}
+
+/* Gift registry */
+.rosas-inspired .registry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.rosas-inspired .registry-card {
+  padding: clamp(1.5rem, 4vw, 2.4rem);
+  text-align: center;
+  border: 1px solid rgba(227, 201, 141, 0.24);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.rosas-inspired .registry-number {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-500);
+}
+
+.rosas-inspired .registry-card h3 {
+  margin: 0.5rem 0;
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--gold-100);
+}
+
+.rosas-inspired .registry-card p {
+  min-height: 4.5rem;
+  color: rgba(255, 246, 240, 0.68);
+}
+
+.rosas-inspired .registry-pending {
+  display: inline-block;
+  padding: 0.8rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(227, 201, 141, 0.56);
+  border: 1px solid rgba(227, 201, 141, 0.2);
+}
+
+/* Stay and travel */
+.rosas-inspired .stay-card {
+  border: 1px solid rgba(112, 38, 58, 0.14);
+  background: #fffaf6;
+  box-shadow: 0 18px 45px rgba(53, 16, 28, 0.08);
+}
+
+.rosas-inspired .stay-card--featured {
+  border-color: var(--gold-500);
+}
+
+.rosas-inspired .stay-name,
+.rosas-inspired .travel-card h3 {
+  color: var(--rose-850);
+}
+
+.rosas-inspired .stay-badge,
+.rosas-inspired .stay-book {
+  color: var(--rose-700);
+}
+
+.rosas-inspired .travel-card {
+  color: rgba(255, 246, 240, 0.74);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(227, 201, 141, 0.25);
+}
+
+.rosas-inspired .travel-card h3 {
+  color: var(--gold-100);
+}
+
+.rosas-inspired .text-link {
+  color: var(--gold-300);
+}
+
+.rosas-inspired .map-wrap {
+  border: 1px solid rgba(227, 201, 141, 0.24);
+}
+
+/* Footer */
+.rosas-inspired .site-footer {
+  padding: 5rem 1rem;
+  color: rgba(255, 246, 240, 0.68);
+  background: var(--rose-950);
+  border-top: 1px solid rgba(227, 201, 141, 0.2);
+}
+
+.rosas-inspired .site-footer::before {
+  content: "V  &  C";
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--script-display);
+  font-size: 3rem;
+  color: var(--gold-300);
+}
+
+.rosas-inspired .site-footer .hashtag {
+  color: var(--gold-100);
+}
+
+@media (max-width: 768px) {
+  .rosas-inspired .site-header {
+    min-height: 4rem;
+    padding: 0.55rem 1rem;
+    justify-content: center;
+  }
+
+  .rosas-inspired .header-chip {
+    align-items: flex-start;
+  }
+
+  .rosas-inspired .hero {
+    padding-top: 6rem;
+  }
+
+  .rosas-inspired .hero-inner {
+    outline-offset: 0.35rem;
+  }
+
+  .rosas-inspired .hero-name-line {
+    white-space: normal;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .rosas-inspired .countdown div {
+    min-width: 25%;
+    padding-inline: 0.3rem;
+  }
+
+  .rosas-inspired .timeline-visual {
+    aspect-ratio: 4 / 3;
+    box-shadow: 10px 10px 0 var(--rose-100);
+  }
+
+  .rosas-inspired .detail-card-body {
+    padding: 1.6rem;
+  }
+
+  .rosas-inspired .seating-form {
+    grid-template-columns: 1fr;
+  }
+
+  .rosas-inspired .entourage-invitation-grid {
+    grid-template-columns: 1fr;
+    max-width: 32rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .rosas-inspired .hero-names {
+    font-size: clamp(2.55rem, 13vw, 3.8rem);
+  }
+
+  .rosas-inspired .hero-inner::before {
+    letter-spacing: 0.28em;
+    text-indent: 0.28em;
+  }
+
+  .rosas-inspired .countdown small {
+    font-size: 0.48rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.rosas-inspired::before {
+    display: none;
+    animation: none;
+  }
+
+  .rosas-inspired .header-chip::before {
+    animation: none;
+  }
+
+  .rosas-inspired .hero-bg {
+    transform: none;
+  }
+}

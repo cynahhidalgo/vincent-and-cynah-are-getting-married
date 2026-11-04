@@ -1,10 +1,27 @@
-/**
- * Everly-style wedding site — edit your details here.
- * Official UICookies Everly template: https://uicookies.com/downloads/everly/
- * (Unzip download into `_everly_tpl/` to compare; this site keeps your content in config.js.)
- */
+/** Vincent & Cynah wedding site — edit shared invitation details here. */
 window.WEDDING_CONFIG = {
-  template: "uicookies-everly",
+  template: "original-dark-rose-romantic",
+  templateDesign: {
+    name: "Rosas-inspired",
+    style: "Vintage Elegant / Romantic",
+    category: "Romantic & Poetic",
+    tagline: "A love that lingers in deep romance and quiet elegance",
+    colors: {
+      darkRose: "#35101c",
+      antiqueGold: "#c6a15a",
+      softIvory: "#f5eee8",
+    },
+  },
+  features: {
+    rsvp: true,
+    guestbook: true,
+    seating: true,
+    giftRegistry: true,
+    schedule: true,
+    gallery: true,
+    accommodations: true,
+    travel: true,
+  },
   partner1: "Vincent",
   partner2: "Cynah",
   hashtag: "VincentAndCynah",
@@ -22,10 +39,13 @@ window.WEDDING_CONFIG = {
   familiesLine: "With the love and blessing of their families",
 
   welcome: {
-    headline: "WE ARE GETTING MARRIED",
+    headline: "WEDDING INVITATION",
     eyebrow: "You're invited",
-    title: "Welcome",
-    subline: "We're so happy you're here. Step inside for our story, details, and RSVP.",
+    title: "Welcome to our celebration",
+    inviteLine: "You are warmly invited",
+    ceremonyLine: "1:00 PM · Church Ceremony",
+    receptionLine: "3:00 PM · Reception at Paulinos",
+    subline: "Tap to enter our celebration.",
     cta: "Open invitation",
     invitationPath: "invitation.html",
     monogram: "images/vc monogram.png",
@@ -80,13 +100,12 @@ window.WEDDING_CONFIG = {
   ceremony: {
     label: "Ceremony",
     title: "The Vows",
-    subtitle: "Garden ceremony",
+    subtitle: "Church ceremony",
     image: "images/ceremony.jpeg",
     imageAlt: "Garden ceremony at Paulinos",
     bullets: [
-      "3:00 PM — ceremony begins (guests from 2:30 PM)",
-      "Outdoor garden ceremony, approximately 45 minutes",
-      "Paulinos · Upper Lamtang",
+      "1:00 PM — church ceremony begins (guests from 12:30 PM)",
+      "Church ceremony, approximately 45 minutes",
     ],
     linkLabel: "Getting there",
     linkTarget: "#travel",
@@ -101,7 +120,7 @@ window.WEDDING_CONFIG = {
     image: "images/reception.jpeg",
     imageAlt: "Reception at Paulinos terrace and hall",
     bullets: [
-      "Cocktails 4:00 PM · Dinner 6:30 PM",
+      "3:00 PM — reception and cocktails · Dinner 6:30 PM",
       "Open bar, dinner & dancing",
       "Upper Lamtang, La Trinidad, Benguet",
     ],
@@ -114,9 +133,9 @@ window.WEDDING_CONFIG = {
     "Garden formal — think soft linens, florals, and burgundy accents. Evenings in the mountains turn cool; bring a wrap.",
 
   program: [
-    { time: "2:30 pm", title: "Guest arrival", note: "Paulinos" },
-    { time: "3:00 pm", title: "Ceremony", note: "Garden" },
-    { time: "4:00 pm", title: "Cocktails & photos", note: "" },
+    { time: "12:30 pm", title: "Guest arrival", note: "Church" },
+    { time: "1:00 pm", title: "Church ceremony", note: "" },
+    { time: "3:00 pm", title: "Reception & cocktails", note: "Paulinos" },
     { time: "6:30 pm", title: "Dinner", note: "" },
     { time: "8:30 pm", title: "Dancing", note: "Until late" },
   ],
@@ -143,8 +162,85 @@ window.WEDDING_CONFIG = {
     { names: ["", ""] },
   ],
 
+  entourageInvitation: {
+    title: "Our Entourage",
+    intro:
+      "View the formal invitation pages containing the complete list of our wedding entourage.",
+    motifTitle: "Color Motif",
+    motif: [
+      { name: "Dusty burgundy", color: "#913f51" },
+      { name: "Warm taupe", color: "#b6a49b" },
+      { name: "Deep wine", color: "#45191b" },
+      { name: "Mocha", color: "#806f61" },
+      { name: "Soft ivory", color: "#e5e5e3" },
+    ],
+    images: [
+      {
+        src: "images/entourage-page-1.jpg",
+        alt: "Formal invitation entourage page 1",
+        caption: "Entourage page 1",
+      },
+      {
+        src: "images/entourage-page-2.jpg",
+        alt: "Formal invitation entourage page 2",
+        caption: "Entourage page 2",
+      },
+    ],
+  },
+
   rsvpDeadline: "Kindly reply by January 20, 2027 so we can save you a seat.",
   googleFormUrl: "",
+
+  guestbook: {
+    title: "Messages & Memories",
+    intro: "Leave us a note, a wish, or a favorite memory to carry into our next chapter.",
+    storageKey: "vincent-cynah-guestbook",
+    localOnlyNote:
+      "Messages are stored on this browser until a shared guestbook service is connected.",
+    messages: [
+      {
+        name: "Vincent & Cynah",
+        message: "Thank you for being part of our story. We cannot wait to celebrate with you.",
+      },
+    ],
+  },
+
+  seating: {
+    title: "Find Your Seat",
+    intro: "Enter the guest name used on your invitation to view the assigned table.",
+    notFound:
+      "We could not find that name yet. Please check the spelling or contact Vincent and Cynah.",
+    assignments: [
+      // Add confirmed guests here, for example:
+      // { name: "Juan Dela Cruz", table: "Table 5", note: "Garden Hall" },
+    ],
+  },
+
+  giftRegistry: {
+    title: "Gift Registry",
+    intro:
+      "Your presence is the greatest gift. If you would still like to bless our new chapter, these options are available.",
+    items: [
+      {
+        title: "Wedding Fund",
+        description: "Help us begin our married life and create a home together.",
+        url: "",
+        linkLabel: "Registry details coming soon",
+      },
+      {
+        title: "Honeymoon Fund",
+        description: "Contribute toward the adventures and memories of our first journey as newlyweds.",
+        url: "",
+        linkLabel: "Details coming soon",
+      },
+    ],
+  },
+
+  sharing: {
+    slug: "vincent-and-cynah",
+    title: "Vincent & Cynah — February 12, 2027",
+    description: "Join us for our wedding celebration at Paulinos, Upper Lamtang.",
+  },
 
   couplePhoto: "images/placeholder.svg",
 

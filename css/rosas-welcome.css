@@ -1,0 +1,699 @@
+/* Original Rosas-style welcome cover for Vincent & Cynah. */
+
+html,
+body.rosas-welcome-page {
+  min-height: 100%;
+}
+
+body.rosas-welcome-page {
+  margin: 0;
+  overflow-x: hidden;
+  color: #f8eee8;
+  background: #260c15;
+}
+
+.rosas-welcome {
+  --rose-950: #260c15;
+  --rose-900: #35101c;
+  --rose-800: #541b2a;
+  --gold: #c6a15a;
+  --gold-soft: #e3c98d;
+  --ivory: #f8eee8;
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  text-align: center;
+  background: var(--rose-950);
+}
+
+.rosas-welcome__background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: url("../images/hero-bg.jpg") center / cover no-repeat;
+  transform: scale(1.04);
+  animation: rosas-cover-drift 18s ease-in-out infinite alternate;
+}
+
+.rosas-welcome__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(84, 27, 42, 0.28), rgba(38, 12, 21, 0.84) 70%),
+    linear-gradient(180deg, rgba(38, 12, 21, 0.58), rgba(38, 12, 21, 0.9));
+}
+
+.rosas-welcome__card {
+  position: relative;
+  width: min(660px, 92vw);
+  padding: clamp(2.5rem, 7vw, 5rem) clamp(1.25rem, 7vw, 4.5rem);
+  border: 1px solid rgba(227, 201, 141, 0.5);
+  outline: 1px solid rgba(227, 201, 141, 0.14);
+  outline-offset: 0.6rem;
+  background:
+    linear-gradient(145deg, rgba(38, 12, 21, 0.74), rgba(84, 27, 42, 0.52));
+  box-shadow: 0 30px 90px rgba(18, 4, 8, 0.48);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transform: translateY(1rem) scale(0.985);
+  transition:
+    opacity 1.1s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.rosas-welcome.is-ready .rosas-welcome__card {
+  opacity: 1;
+  transform: none;
+}
+
+.rosas-welcome__monogram {
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-indent: 0.12em;
+  color: var(--gold-soft);
+  box-shadow:
+    inset 0 0 0 0.35rem rgba(198, 161, 90, 0.05),
+    0 0 0 1px rgba(227, 201, 141, 0.08);
+}
+
+.rosas-welcome__eyebrow,
+.rosas-welcome__families,
+.rosas-welcome__date,
+.rosas-welcome__venue {
+  margin: 0;
+}
+
+.rosas-welcome__eyebrow {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.38em;
+  text-indent: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.rosas-welcome__families {
+  margin-top: 1.2rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1rem, 2.7vw, 1.3rem);
+  font-style: italic;
+  color: rgba(248, 238, 232, 0.72);
+}
+
+.rosas-welcome__names {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 0.18em;
+  margin: 1.1rem 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.1rem, 10vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--ivory);
+  text-shadow: 0 4px 30px rgba(18, 4, 8, 0.45);
+}
+
+.rosas-welcome__and {
+  font-size: 0.52em;
+  font-style: italic;
+  color: var(--gold-soft);
+}
+
+.rosas-welcome__date {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  color: var(--gold-soft);
+}
+
+.rosas-welcome__venue {
+  margin-top: 0.35rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: clamp(0.65rem, 1.8vw, 0.78rem);
+  letter-spacing: 0.1em;
+  color: rgba(248, 238, 232, 0.62);
+}
+
+.rosas-welcome__divider {
+  width: min(13rem, 48vw);
+  height: 1px;
+  margin: 1.8rem auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.rosas-welcome__button {
+  min-width: 12rem;
+  display: inline-block;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid var(--gold);
+  color: var(--rose-950);
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 12px 35px rgba(18, 4, 8, 0.28);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.rosas-welcome__button:hover,
+.rosas-welcome__button:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 16px 40px rgba(18, 4, 8, 0.38);
+  outline: 1px solid rgba(227, 201, 141, 0.7);
+  outline-offset: 4px;
+}
+
+.rosas-welcome__hint {
+  margin: 0.9rem 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(248, 238, 232, 0.52);
+}
+
+@keyframes rosas-cover-drift {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.09) translate3d(-0.5%, -0.5%, 0);
+  }
+}
+
+@media (max-width: 520px) {
+  .rosas-welcome {
+    padding: 1.25rem;
+  }
+
+  .rosas-welcome__card {
+    padding: 2.25rem 1rem;
+    outline-offset: 0.35rem;
+  }
+
+  .rosas-welcome__monogram {
+    width: 3.8rem;
+    height: 3.8rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .rosas-welcome__names {
+    font-size: clamp(2.7rem, 15vw, 4.2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rosas-welcome__background {
+    animation: none;
+    transform: none;
+  }
+
+  .rosas-welcome__card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Editorial split cover */
+.rosas-editorial-welcome {
+  --editorial-rose: #3b101b;
+  --editorial-rose-deep: #260811;
+  --editorial-ivory: #f3e5d3;
+  --editorial-gold: #c8a568;
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  align-items: stretch;
+  overflow: hidden;
+  color: var(--editorial-ivory);
+  background:
+    radial-gradient(circle at 26% 48%, rgba(112, 32, 50, 0.18), transparent 35rem),
+    var(--editorial-rose);
+  transition:
+    opacity 0.55s ease,
+    transform 0.62s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.55s ease;
+}
+
+.rosas-editorial-welcome::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 90px rgba(34, 8, 12, 0.25);
+}
+
+.rosas-editorial-welcome__content {
+  position: relative;
+  z-index: 3;
+  width: min(33rem, 72%);
+  align-self: center;
+  justify-self: center;
+  padding: 7rem 0 3rem;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition:
+    opacity 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.12s,
+    transform 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.12s;
+}
+
+.rosas-editorial-welcome.is-ready .rosas-editorial-welcome__content {
+  opacity: 1;
+  transform: none;
+}
+
+.rosas-editorial-welcome__eyebrow {
+  margin: 0 0 1rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--editorial-gold);
+}
+
+.rosas-editorial-welcome__title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: -0.015em;
+  color: var(--editorial-ivory);
+}
+
+.rosas-editorial-welcome__title > span {
+  display: inline;
+}
+
+.rosas-editorial-welcome__and {
+  padding: 0 0.1em;
+  font-size: 0.6em;
+  font-style: italic;
+  color: var(--editorial-gold);
+}
+
+.rosas-editorial-welcome__title small {
+  display: block;
+  margin-top: 0.22em;
+  font: inherit;
+  letter-spacing: 0;
+}
+
+.rosas-editorial-welcome__invite {
+  margin: clamp(2rem, 5vh, 3.2rem) 0 1.65rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-style: italic;
+  color: var(--editorial-ivory);
+}
+
+.rosas-editorial-welcome__details {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(243, 229, 211, 0.9);
+}
+
+.rosas-editorial-welcome__details p {
+  margin: 0;
+}
+
+#welcome-date {
+  margin-bottom: 0.2rem;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 500;
+}
+
+.rosas-editorial-welcome__reception-line {
+  white-space: nowrap;
+  font-size: clamp(0.72rem, 1.2vw, 0.9rem);
+}
+
+.rosas-editorial-welcome__divider {
+  width: 100%;
+  height: 1px;
+  margin: 1.7rem 0 1rem;
+  background: linear-gradient(90deg, rgba(200, 165, 104, 0.52), transparent);
+}
+
+.rosas-editorial-welcome__rsvp,
+.rosas-editorial-welcome__seating {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.9rem;
+  color: rgba(200, 165, 104, 0.68);
+}
+
+.rosas-editorial-welcome__seating {
+  margin-top: 0.45rem;
+  color: rgba(243, 229, 211, 0.42);
+}
+
+.rosas-editorial-welcome__button {
+  display: inline-block;
+  min-width: 9.5rem;
+  margin-top: 1.35rem;
+  padding: 0.72rem 1.4rem;
+  border: 1px solid rgba(243, 229, 211, 0.84);
+  border-radius: 999px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--editorial-ivory);
+  background: transparent;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.rosas-editorial-welcome__button:hover,
+.rosas-editorial-welcome__button:focus-visible {
+  color: var(--editorial-rose-deep);
+  background: var(--editorial-ivory);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.welcome-page-leaving .rosas-editorial-welcome {
+  opacity: 0.32;
+  transform: scale(0.985);
+  filter: blur(4px);
+}
+
+.welcome-page-leaving .rosas-editorial-welcome__button {
+  pointer-events: none;
+}
+
+.welcome-flower-shower {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.welcome-flower-particle {
+  position: absolute;
+  top: -10vh;
+  left: var(--flower-x);
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--flower-size);
+  line-height: 1;
+  color: #c86361;
+  opacity: 0;
+  text-shadow:
+    0 1px 0 #f2b7a2,
+    0 2px 5px rgba(38, 12, 21, 0.45);
+  filter: saturate(1.2);
+  animation: welcome-flower-fall var(--flower-duration) cubic-bezier(0.2, 0.65, 0.35, 1)
+    var(--flower-delay) forwards;
+}
+
+.welcome-flower-particle:nth-child(3n) {
+  color: #8f3042;
+}
+
+.welcome-flower-particle:nth-child(4n) {
+  color: #e5a47f;
+}
+
+.welcome-flower-particle:nth-child(5n) {
+  color: #c8a568;
+}
+
+@keyframes welcome-flower-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -8vh, 0) rotate(0deg) scale(0.65);
+  }
+  12% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0.96;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--flower-drift), 118vh, 0) rotate(var(--flower-turn)) scale(1.05);
+  }
+}
+
+.rosas-editorial-welcome__photo {
+  position: relative;
+  z-index: 1;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  margin: clamp(2rem, 6vh, 4.5rem) clamp(2rem, 5vw, 5rem) 0 0;
+  min-height: calc(100svh - clamp(2rem, 6vh, 4.5rem));
+  border-radius: 0 10rem 0 0;
+  overflow: hidden;
+  background: #260811;
+  box-shadow: -20px 0 45px rgba(34, 8, 12, 0.18);
+  opacity: 0;
+  transform: translateX(1.5rem);
+  transition:
+    opacity 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s,
+    transform 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s;
+}
+
+.rosas-editorial-welcome__photo::before {
+  content: "";
+  position: absolute;
+  inset: -3%;
+  background:
+    linear-gradient(180deg, rgba(38, 8, 17, 0.25), rgba(38, 8, 17, 0.58)),
+    url("../images/hero-bg.jpg") 58% center / cover no-repeat;
+  animation: welcome-photo-drift 14s ease-in-out infinite alternate;
+}
+
+.rosas-editorial-welcome__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 18%, rgba(38, 8, 17, 0.16) 52%, rgba(38, 8, 17, 0.6) 100%),
+    linear-gradient(115deg, transparent 25%, rgba(227, 201, 141, 0.12) 48%, transparent 66%);
+  background-size: 100% 100%, 220% 100%;
+  animation: welcome-gold-sheen 7s ease-in-out infinite;
+}
+
+.rosas-editorial-welcome.is-ready .rosas-editorial-welcome__photo {
+  opacity: 1;
+  transform: none;
+}
+
+.rosas-editorial-welcome__monogram {
+  position: relative;
+  z-index: 2;
+  width: clamp(12rem, 25vw, 18rem);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(227, 201, 141, 0.62);
+  border-radius: 50%;
+  color: #f3e5d3;
+  background: rgba(38, 8, 17, 0.28);
+  box-shadow:
+    inset 0 0 50px rgba(38, 8, 17, 0.38),
+    0 20px 60px rgba(20, 3, 8, 0.34);
+  backdrop-filter: blur(3px);
+  animation: welcome-monogram-float 5s ease-in-out infinite;
+}
+
+.rosas-editorial-welcome__monogram-ring {
+  position: absolute;
+  inset: 0.65rem;
+  border: 1px solid rgba(227, 201, 141, 0.24);
+  border-radius: 50%;
+  animation: welcome-monogram-spin 28s linear infinite;
+}
+
+.rosas-editorial-welcome__monogram-ring::before,
+.rosas-editorial-welcome__monogram-ring::after {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  color: #e3c98d;
+  font-size: 0.7rem;
+  transform: translateX(-50%);
+}
+
+.rosas-editorial-welcome__monogram-ring::before {
+  top: -0.42rem;
+}
+
+.rosas-editorial-welcome__monogram-ring::after {
+  bottom: -0.42rem;
+}
+
+.rosas-editorial-welcome__initials {
+  margin: -0.2rem 0 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(4.5rem, 10vw, 7rem);
+  font-weight: 400;
+  line-height: 1;
+  color: #f3e5d3;
+  text-shadow: 0 4px 24px rgba(20, 3, 8, 0.55);
+}
+
+.rosas-editorial-welcome__initials i {
+  position: relative;
+  z-index: 1;
+  margin: 0 -0.04em;
+  font-family: "Great Vibes", "Pinyon Script", cursive;
+  font-size: 0.52em;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  color: #e3c98d;
+  transform: translateY(-0.08em);
+  text-shadow: 0 2px 14px rgba(20, 3, 8, 0.5);
+}
+
+.rosas-editorial-welcome__monogram-date {
+  position: absolute;
+  bottom: 20%;
+  margin: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: clamp(0.55rem, 1.2vw, 0.7rem);
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
+  color: #e3c98d;
+}
+
+@keyframes welcome-photo-drift {
+  from {
+    transform: scale(1.02) translate3d(-0.5%, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(1%, -1%, 0);
+  }
+}
+
+@keyframes welcome-gold-sheen {
+  0%,
+  25% {
+    background-position: center, 120% center;
+  }
+  75%,
+  100% {
+    background-position: center, -120% center;
+  }
+}
+
+@keyframes welcome-monogram-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-0.5rem) scale(1.015);
+  }
+}
+
+@keyframes welcome-monogram-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .rosas-editorial-welcome {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(18rem, 42svh);
+  }
+
+  .rosas-editorial-welcome__content {
+    width: min(34rem, 82vw);
+    padding: 8rem 0 3rem;
+  }
+
+  .rosas-editorial-welcome__photo {
+    grid-row: 2;
+    min-height: 26rem;
+    margin: 0 clamp(1rem, 5vw, 3rem);
+    border-radius: 0 7rem 0 0;
+  }
+
+  .rosas-editorial-welcome__photo::before {
+    background-position: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .rosas-editorial-welcome__content {
+    width: min(86vw, 30rem);
+    padding-top: 6.5rem;
+  }
+
+  .rosas-editorial-welcome__title {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+    line-height: 0.9;
+  }
+
+  .rosas-editorial-welcome__title > span {
+    display: inline;
+  }
+
+  .rosas-editorial-welcome__photo {
+    min-height: 21rem;
+    border-radius: 0 5rem 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rosas-editorial-welcome__content,
+  .rosas-editorial-welcome__photo {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .rosas-editorial-welcome {
+    transition: none;
+  }
+
+  .welcome-flower-shower {
+    display: none;
+  }
+
+  .rosas-editorial-welcome__photo::before,
+  .rosas-editorial-welcome__photo::after,
+  .rosas-editorial-welcome__monogram,
+  .rosas-editorial-welcome__monogram-ring {
+    animation: none;
+  }
+}

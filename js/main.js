@@ -36,9 +36,20 @@
     setText("headerDate", cfg.headerDate || cfg.dateDisplay);
     setText("dateLong", cfg.dateLong || cfg.dateDisplay);
     setText("familiesLine", cfg.familiesLine);
+    setText("ceremonyLine", cfg.welcome?.ceremonyLine);
+    setText("receptionLine", cfg.welcome?.receptionLine);
     setText("storyIntro", cfg.storyIntro);
     setText("dressCode", cfg.dressCode);
     setText("rsvpDeadline", cfg.rsvpDeadline);
+    setText("guestbookTitle", cfg.guestbook?.title);
+    setText("guestbookIntro", cfg.guestbook?.intro);
+    setText("guestbookNote", cfg.guestbook?.localOnlyNote);
+    setText("seatingTitle", cfg.seating?.title);
+    setText("seatingIntro", cfg.seating?.intro);
+    setText("registryTitle", cfg.giftRegistry?.title);
+    setText("registryIntro", cfg.giftRegistry?.intro);
+    setText("entourageTitle", cfg.entourageInvitation?.title);
+    setText("entourageIntro", cfg.entourageInvitation?.intro);
     setText("whereToStayTitle", cfg.whereToStay?.title);
     setText("whereToStayNote", cfg.whereToStay?.note);
     setText("travelHeading", cfg.travel?.heading);
@@ -58,11 +69,13 @@
 
     renderStorySlideshow(cfg.storyTimeline);
     renderDetailCards(cfg.ceremony, cfg.reception);
-    renderGlimpseCards(cfg.ceremony, cfg.reception);
     renderProgram(cfg.program);
-    renderSponsors("#principal-sponsors", cfg.principalSponsors, "Principal sponsor");
-    renderSponsors("#secondary-sponsors", cfg.secondarySponsors, "Secondary sponsor");
+    renderEntourageInvitation(cfg.entourageInvitation);
     renderGallery(cfg.images?.gallery);
+    applyFeatureVisibility(cfg.features);
+    initGuestbook(cfg.guestbook);
+    initSeatingLookup(cfg.seating);
+    renderGiftRegistry(cfg.giftRegistry);
     setupGoogleForm(cfg.googleFormUrl);
     initRsvpForm();
     initHeaderScroll();
@@ -310,35 +323,51 @@
     });
   }
 
-  function sponsorPairNames(pair) {
-    if (Array.isArray(pair?.names) && pair.names.length) {
-      return [pair.names[0] || "", pair.names[1] || ""];
-    }
-    return [pair?.name1 || "", pair?.name2 || ""];
-  }
+  function renderEntourageInvitation(invitation = {}) {
+    const grid = $("#entourage-invitation-grid");
+    if (!grid) return;
+    grid.innerHTML = "";
 
-  function sponsorNameLine(text, emptyLabel) {
-    const trimmed = (text || "").trim();
-    if (!trimmed) {
-      return `<span class="party-name party-name-empty">${escapeHtml(emptyLabel)}</span>`;
-    }
-    return `<strong class="party-name">${escapeHtml(trimmed)}</strong>`;
-  }
+    const motif = $("#entourage-motif");
+    if (motif) {
+      motif.innerHTML = "";
+      if (invitation.motif?.length) {
+        const title = document.createElement("h3");
+        title.className = "entourage-motif-title";
+        title.textContent = invitation.motifTitle || "Color Motif";
+        motif.appendChild(title);
 
-  function renderSponsors(selector, pairs, roleLabel) {
-    const list = $(selector);
-    if (!list || !pairs) return;
-    list.innerHTML = "";
-    pairs.forEach((pair, i) => {
-      const [n1, n2] = sponsorPairNames(pair);
-      const li = document.createElement("li");
-      li.innerHTML = `
-        <span class="role">${escapeHtml(roleLabel)} ${i + 1}</span>
-        <div class="party-names">
-          ${sponsorNameLine(n1, "Name")}
-          ${sponsorNameLine(n2, "Name")}
-        </div>`;
-      list.appendChild(li);
+        const swatches = document.createElement("div");
+        swatches.className = "entourage-motif-swatches";
+        invitation.motif.forEach((item) => {
+          const swatch = document.createElement("span");
+          swatch.className = "entourage-motif-swatch";
+          swatch.style.backgroundColor = item.color || "transparent";
+          swatch.title = item.name || "Wedding motif color";
+          swatch.setAttribute("aria-label", item.name || "Wedding motif color");
+          swatches.appendChild(swatch);
+        });
+        motif.appendChild(swatches);
+      }
+    }
+
+    (invitation.images || []).forEach((item, index) => {
+      const src = imgSrc(item.src);
+      if (!src) return;
+
+      const figure = document.createElement("figure");
+      figure.className = "entourage-invitation-card";
+      const alt = item.alt || `Formal invitation entourage page ${index + 1}`;
+      const caption = item.caption
+        ? `<figcaption>${escapeHtml(item.caption)}</figcaption>`
+        : "";
+      figure.innerHTML = `
+        <a href="${escapeHtml(src)}" target="_blank" rel="noopener" aria-label="Open ${escapeHtml(alt)} full size">
+          <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy" />
+          <span class="entourage-invitation-zoom" aria-hidden="true">View full page</span>
+        </a>
+        ${caption}`;
+      grid.appendChild(figure);
     });
   }
 
@@ -405,6 +434,140 @@
       const fig = document.createElement("figure");
       fig.innerHTML = `<img src="${escapeHtml(imgSrc(src))}" alt="Little Glimpses ${i + 1}" loading="lazy" />`;
       grid.appendChild(fig);
+    });
+  }
+
+  function applyFeatureVisibility(features = {}) {
+    const featureTargets = {
+      rsvp: ["#rsvp"],
+      guestbook: ["#guestbook"],
+      seating: ["#seating"],
+      giftRegistry: ["#registry"],
+      schedule: [".program-wrap"],
+      gallery: ["#gallery"],
+      accommodations: ["#where-to-stay"],
+      travel: ["#travel"],
+    };
+
+    Object.entries(featureTargets).forEach(([feature, selectors]) => {
+      if (features[feature] !== false) return;
+      selectors.forEach((selector) => {
+        $$(selector).forEach((el) => {
+          el.hidden = true;
+        });
+      });
+      const sectionId = selectors.find((selector) => selector.startsWith("#"))?.slice(1);
+      if (sectionId) {
+        $$(`.header-nav a[href="#${sectionId}"]`).forEach((link) => {
+          link.hidden = true;
+        });
+      }
+    });
+  }
+
+  function guestbookStorageRead(key) {
+    if (!key) return [];
+    try {
+      const parsed = JSON.parse(localStorage.getItem(key) || "[]");
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (_) {
+      return [];
+    }
+  }
+
+  function guestbookStorageWrite(key, messages) {
+    if (!key) return;
+    try {
+      localStorage.setItem(key, JSON.stringify(messages));
+    } catch (_) {
+      /* Browser storage may be unavailable in private contexts. */
+    }
+  }
+
+  function renderGuestbookMessages(messages) {
+    const list = $("#guestbook-list");
+    if (!list) return;
+    list.innerHTML = "";
+    messages.forEach((entry) => {
+      const article = document.createElement("article");
+      article.className = "guestbook-entry";
+      article.innerHTML = `
+        <p>${escapeHtml(entry.message || "")}</p>
+        <h3>${escapeHtml(entry.name || "Guest")}</h3>`;
+      list.appendChild(article);
+    });
+  }
+
+  function initGuestbook(guestbook = {}) {
+    const form = $("#guestbook-form");
+    const key = guestbook.storageKey || "wedding-guestbook";
+    const seeded = Array.isArray(guestbook.messages) ? guestbook.messages : [];
+    let localMessages = guestbookStorageRead(key);
+    renderGuestbookMessages([...seeded, ...localMessages].reverse());
+    if (!form) return;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const name = String(data.get("name") || "").trim();
+      const message = String(data.get("message") || "").trim();
+      if (!name || !message) return;
+      localMessages.push({ name, message, createdAt: new Date().toISOString() });
+      guestbookStorageWrite(key, localMessages);
+      renderGuestbookMessages([...seeded, ...localMessages].reverse());
+      form.reset();
+    });
+  }
+
+  function normalizeGuestName(value) {
+    return String(value || "")
+      .trim()
+      .toLocaleLowerCase()
+      .replace(/\s+/g, " ");
+  }
+
+  function initSeatingLookup(seating = {}) {
+    const form = $("#seating-form");
+    const result = $("#seating-result");
+    if (!form || !result) return;
+    const assignments = Array.isArray(seating.assignments) ? seating.assignments : [];
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const query = normalizeGuestName(data.get("guestName"));
+      const match = assignments.find((entry) => normalizeGuestName(entry.name) === query);
+      result.hidden = false;
+      result.classList.toggle("is-found", Boolean(match));
+      if (!match) {
+        result.innerHTML = `<p>${escapeHtml(seating.notFound || "No seating assignment was found.")}</p>`;
+        return;
+      }
+      result.innerHTML = `
+        <p class="seating-result-label">Welcome, ${escapeHtml(match.name)}</p>
+        <h3>${escapeHtml(match.table || "Table assignment pending")}</h3>
+        ${match.note ? `<p>${escapeHtml(match.note)}</p>` : ""}`;
+    });
+  }
+
+  function renderGiftRegistry(registry = {}) {
+    const grid = $("#registry-grid");
+    if (!grid) return;
+    const items = Array.isArray(registry.items) ? registry.items : [];
+    grid.innerHTML = "";
+    items.forEach((item, index) => {
+      const article = document.createElement("article");
+      article.className = "registry-card";
+      const label = item.linkLabel || "View registry";
+      const action = item.url
+        ? `<a class="btn btn-outline" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`
+        : `<span class="registry-pending">${escapeHtml(label)}</span>`;
+      article.innerHTML = `
+        <span class="registry-number">${String(index + 1).padStart(2, "0")}</span>
+        <h3>${escapeHtml(item.title || "Registry")}</h3>
+        <p>${escapeHtml(item.description || "")}</p>
+        ${action}`;
+      grid.appendChild(article);
     });
   }
 
@@ -678,6 +841,9 @@
     ".program-title",
     ".story-slide-copy h3",
     ".glimpse-card-body h3",
+    ".guestbook-entry h3",
+    ".registry-card h3",
+    ".seating-result h3",
     ".site-footer .hashtag",
     "#where-to-stay .section-title",
   ];
@@ -691,13 +857,15 @@
     ".story-slide-copy .timeline-era",
     ".glimpse-card-body .label",
     ".glimpse-card-body .subtitle",
+    ".guestbook-entry p",
+    ".registry-card p",
     ".dress",
     ".site-footer p",
     "#where-to-stay .section-sub",
   ];
 
   const ELEGANT_REVEAL_BLOCKS =
-    ".hero-inner .families, .hero-inner .hero-names, .hero-inner .hero-meta, .hero-inner .countdown, .detail-card, .glimpse-card, .party-grid > li, .gallery-mosaic figure, .program-list li, .stay-card, .travel-card, .story-slideshow, .rsvp-form, .map-wrap";
+    ".hero-inner .families, .hero-inner .hero-names, .hero-inner .hero-meta, .hero-inner .countdown, .detail-card, .glimpse-card, .entourage-motif, .entourage-invitation-card, .gallery-mosaic figure, .program-list li, .stay-card, .travel-card, .story-slideshow, .rsvp-form, .guestbook-form, .guestbook-entry, .seating-form, .seating-result, .registry-card, .map-wrap";
 
   function wrapWords(el) {
     if (!el || el.dataset.wordRevealDone) return;
