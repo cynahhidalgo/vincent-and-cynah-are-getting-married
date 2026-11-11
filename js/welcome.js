@@ -80,40 +80,16 @@
 
   const modalMotionMs = prefersReducedMotion ? 120 : 920;
 
-  function createFlowerShower() {
-    if (prefersReducedMotion) return;
-    const shower = document.createElement("div");
-    shower.className = "welcome-flower-shower";
-    shower.setAttribute("aria-hidden", "true");
-    const flowers = ["🌹"];
-
-    for (let i = 0; i < 26; i += 1) {
-      const flower = document.createElement("span");
-      flower.className = "welcome-flower-particle";
-      flower.textContent = flowers[i % flowers.length];
-      flower.style.setProperty("--flower-x", `${Math.random() * 100}vw`);
-      flower.style.setProperty("--flower-drift", `${Math.round(Math.random() * 180 - 90)}px`);
-      flower.style.setProperty("--flower-delay", `${(Math.random() * 0.5).toFixed(2)}s`);
-      flower.style.setProperty("--flower-duration", "1.5s");
-      flower.style.setProperty("--flower-size", `${(0.8 + Math.random() * 1.05).toFixed(2)}rem`);
-      flower.style.setProperty("--flower-turn", `${Math.round(Math.random() * 540 - 270)}deg`);
-      shower.appendChild(flower);
-    }
-
-    document.body.appendChild(shower);
-  }
-
   function navigateToInvitation() {
     if (isNavigating) return;
     isNavigating = true;
-    createFlowerShower();
     if (enter) enter.textContent = "Opening invitation…";
     document.body.classList.add("welcome-page-leaving");
     window.setTimeout(
       () => {
         window.location.href = path;
       },
-      prefersReducedMotion ? 0 : 2150
+      prefersReducedMotion ? 0 : 700
     );
   }
 

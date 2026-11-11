@@ -34,7 +34,7 @@ body.rosas-welcome-page {
   position: absolute;
   inset: 0;
   z-index: -3;
-  background: url("../images/hero-bg.jpg") center / cover no-repeat;
+  background: url("../images/hero-sun-moon-lake-final.jpg") center / cover no-repeat;
   transform: scale(1.04);
   animation: rosas-cover-drift 18s ease-in-out infinite alternate;
 }
@@ -252,10 +252,7 @@ body.rosas-welcome-page {
   background:
     radial-gradient(circle at 26% 48%, rgba(112, 32, 50, 0.18), transparent 35rem),
     var(--editorial-rose);
-  transition:
-    opacity 0.55s ease,
-    transform 0.62s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.55s ease;
+  transition: opacity 0.7s ease;
 }
 
 .rosas-editorial-welcome::after {
@@ -283,6 +280,15 @@ body.rosas-welcome-page {
 .rosas-editorial-welcome.is-ready .rosas-editorial-welcome__content {
   opacity: 1;
   transform: none;
+}
+
+.rosas-editorial-welcome__save-date {
+  margin: 0 0 0.35rem;
+  font-family: "Pinyon Script", "Great Vibes", cursive;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--editorial-gold);
 }
 
 .rosas-editorial-welcome__eyebrow {
@@ -402,68 +408,11 @@ body.rosas-welcome-page {
 }
 
 .welcome-page-leaving .rosas-editorial-welcome {
-  opacity: 0.32;
-  transform: scale(0.985);
-  filter: blur(4px);
+  opacity: 0;
 }
 
 .welcome-page-leaving .rosas-editorial-welcome__button {
   pointer-events: none;
-}
-
-.welcome-flower-shower {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.welcome-flower-particle {
-  position: absolute;
-  top: -10vh;
-  left: var(--flower-x);
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: var(--flower-size);
-  line-height: 1;
-  color: #c86361;
-  opacity: 0;
-  text-shadow:
-    0 1px 0 #f2b7a2,
-    0 2px 5px rgba(38, 12, 21, 0.45);
-  filter: saturate(1.2);
-  animation: welcome-flower-fall var(--flower-duration) cubic-bezier(0.2, 0.65, 0.35, 1)
-    var(--flower-delay) forwards;
-}
-
-.welcome-flower-particle:nth-child(3n) {
-  color: #8f3042;
-}
-
-.welcome-flower-particle:nth-child(4n) {
-  color: #e5a47f;
-}
-
-.welcome-flower-particle:nth-child(5n) {
-  color: #c8a568;
-}
-
-@keyframes welcome-flower-fall {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -8vh, 0) rotate(0deg) scale(0.65);
-  }
-  12% {
-    opacity: 1;
-  }
-  72% {
-    opacity: 0.96;
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(var(--flower-drift), 118vh, 0) rotate(var(--flower-turn)) scale(1.05);
-  }
 }
 
 .rosas-editorial-welcome__photo {
@@ -491,7 +440,7 @@ body.rosas-welcome-page {
   inset: -3%;
   background:
     linear-gradient(180deg, rgba(38, 8, 17, 0.25), rgba(38, 8, 17, 0.58)),
-    url("../images/hero-bg.jpg") 58% center / cover no-repeat;
+    url("../images/hero-sun-moon-lake-final.jpg") 58% center / cover no-repeat;
   animation: welcome-photo-drift 14s ease-in-out infinite alternate;
 }
 
@@ -512,8 +461,12 @@ body.rosas-welcome-page {
 }
 
 .rosas-editorial-welcome__monogram {
-  position: relative;
+  position: static;
   z-index: 2;
+  align-self: center;
+  justify-self: center;
+  margin: 0;
+  opacity: 0.5;
   width: clamp(12rem, 25vw, 18rem);
   aspect-ratio: 1;
   display: grid;
@@ -562,25 +515,26 @@ body.rosas-welcome-page {
   justify-content: center;
   gap: 0;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(4.5rem, 10vw, 7rem);
-  font-weight: 400;
+  font-size: clamp(4.1rem, 9vw, 6.4rem);
+  font-weight: 500;
   line-height: 1;
+  letter-spacing: 0.025em;
   color: #f3e5d3;
-  text-shadow: 0 4px 24px rgba(20, 3, 8, 0.55);
+  text-shadow: 0 3px 18px rgba(20, 3, 8, 0.42);
 }
 
 .rosas-editorial-welcome__initials i {
   position: relative;
   z-index: 1;
-  margin: 0 -0.04em;
-  font-family: "Great Vibes", "Pinyon Script", cursive;
-  font-size: 0.52em;
+  margin: 0 0.04em;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.46em;
   font-weight: 400;
-  font-style: normal;
+  font-style: italic;
   line-height: 1;
   color: #e3c98d;
-  transform: translateY(-0.08em);
-  text-shadow: 0 2px 14px rgba(20, 3, 8, 0.5);
+  transform: translateY(-0.04em);
+  text-shadow: none;
 }
 
 .rosas-editorial-welcome__monogram-date {
@@ -684,10 +638,6 @@ body.rosas-welcome-page {
 
   .rosas-editorial-welcome {
     transition: none;
-  }
-
-  .welcome-flower-shower {
-    display: none;
   }
 
   .rosas-editorial-welcome__photo::before,

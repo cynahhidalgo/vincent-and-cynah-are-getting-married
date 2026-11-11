@@ -26,7 +26,7 @@ window.WEDDING_CONFIG = {
   partner2: "Cynah",
   hashtag: "VincentAndCynah",
 
-  weddingDateTime: "2027-02-12T15:00:00+08:00",
+  weddingDateTime: "2027-02-12T12:00:00+08:00",
   dateDisplay: "Friday, February 12 · 2027",
   /** Short line under names in the header chip */
   headerDate: "Feb 12 · 2027",
@@ -39,12 +39,16 @@ window.WEDDING_CONFIG = {
   familiesLine: "With the love and blessing of their families",
 
   welcome: {
-    headline: "WEDDING INVITATION",
+    headline: "For the Wedding Ceremony of",
     eyebrow: "You're invited",
     title: "Welcome to our celebration",
     inviteLine: "You are warmly invited",
-    ceremonyLine: "1:00 PM · Church Ceremony",
-    receptionLine: "3:00 PM · Reception at Paulinos",
+    ceremonyLine: "12:00 PM · Ceremony · Episcopal Church, Pico, La Trinidad",
+    receptionLine: "4:00 PM · Reception · Paulino's Event Hall and Cafe",
+    ceremonyTime: "12:00 PM",
+    ceremonyVenue: "Episcopal Church, Pico, La Trinidad",
+    receptionTime: "4:00 PM",
+    receptionVenue: "Paulino's Event Hall and Cafe",
     subline: "Tap to enter our celebration.",
     cta: "Open invitation",
     invitationPath: "invitation.html",
@@ -54,9 +58,9 @@ window.WEDDING_CONFIG = {
   },
 
   venue: {
-    name: "Paulinos",
-    area: "Upper Lamtang, La Trinidad, Benguet",
-    time: "Three o'clock in the afternoon",
+    name: "Paulino's Event Hall and Cafe",
+    area: "Upper Lamtang",
+    time: "Four o'clock in the afternoon",
     year: "2027",
   },
 
@@ -64,48 +68,103 @@ window.WEDDING_CONFIG = {
     "Request the honour of your presence at their wedding celebration among the gardens of Upper Lamtang.",
 
   storyIntro:
-    "After years of adventures, laughter, and growing together, we're ready to say I do — and we'd be honoured to celebrate with you.",
+    "Somewhere between our college days, shared dreams, and countless adventures, we unknowingly stole each other's hearts. What began as friendship became a love story, and now, we're ready to make it forever.",
 
   storyTimeline: [
     {
-      era: "May 2029",
+      era: "May 2019",
       place: "Baguio City",
-      title: "Where we met",
+      title: "Where It All Started",
       text: "We were classmates, colleagues, and friends throughout college, sharing the same university and dreams. After graduation, our friendship blossomed into love—and the rest became our story.",
-      image: "images/testimage.jpg",
+      images: [
+        {
+          src: "images/story-where-it-all-started.jpg",
+          alt: "Vincent and Cynah together at Sun Moon Lake",
+        },
+        {
+          src: "images/hero-sun-moon-lake-final.jpg",
+          alt: "Vincent and Cynah at Shuishe Pier",
+        },
+        {
+          src: "images/sun-moon-lake-taiwan-2.webp",
+          alt: "A memory from Vincent and Cynah's Sun Moon Lake trip",
+        },
+      ],
     },
     {
       era: "Spring 2021",
       place: "The mountains",
       title: "Our Journey",
       text: "From our first jobs and travels to our first adventures, milestones, failures, and lessons, we've experienced life side by side. Through every high and low, we've grown together—and we'll keep choosing each other, wherever life takes us.",
-      image: "images/sun-moon-lake-taiwan-2.webp",
+      images: [
+        {
+          src: "images/sun-moon-lake-taiwan-2.webp",
+          alt: "Vincent and Cynah during their journey together",
+        },
+        {
+          src: "images/hero-sun-moon-lake-final.jpg",
+          alt: "Vincent and Cynah at Shuishe Pier",
+        },
+        {
+          src: "images/story-where-it-all-started.jpg",
+          alt: "A shared adventure at Sun Moon Lake",
+        },
+      ],
     },
     {
       era: "Winter 2025",
       place: "Upper Lamtang",
       title: "The proposal",
       text: "Among pine and mist, one question and one answer — and a quiet promise to build a life together.",
+      images: [
+        { src: "images/proposal-photo-01.jpg", alt: "Vincent and Cynah — proposal chapter photo 1" },
+        { src: "images/proposal-photo-02.jpg", alt: "Vincent and Cynah — proposal chapter photo 2" },
+        { src: "images/proposal-photo-03.jpg", alt: "Vincent and Cynah — proposal chapter photo 3" },
+        { src: "images/proposal-photo-04.jpg", alt: "Vincent and Cynah — proposal chapter photo 4" },
+      ],
       youtube: "HMcqWDKdfPo",
       youtubeAutoplay: true,
     },
     {
       era: "February 2027",
-      place: "Paulinos",
+      place: "Paulino's Event Hall and Cafe",
       title: "Forever begins",
-      text: "Now we gather the people we love most at Paulinos to make it official. Bring your dancing shoes and a tissue or two.",
+      text: "Now we gather the people we love most at Paulino's Event Hall and Cafe to make it official. Bring your dancing shoes and a tissue or two.",
+      images: [
+        { src: "images/forever-begins-final-01.jpg", alt: "Vincent and Cynah — Forever Begins photo 1" },
+        { src: "images/forever-begins-final-02.jpg", alt: "Vincent and Cynah — Forever Begins photo 2" },
+        { src: "images/forever-begins-final-03.jpg", alt: "Vincent and Cynah — Forever Begins photo 3" },
+        { src: "images/forever-begins-final-04.jpg", alt: "Vincent and Cynah — Forever Begins photo 4" },
+        { src: "images/forever-begins-final-05.jpg", alt: "Vincent and Cynah — Forever Begins photo 5" },
+        { src: "images/forever-begins-final-06.jpg", alt: "Vincent and Cynah — Forever Begins photo 6" },
+        { src: "images/forever-begins-final-07.jpg", alt: "Vincent and Cynah — Forever Begins photo 7" },
+        { src: "images/forever-begins-final-08.jpg", alt: "Vincent and Cynah — Forever Begins photo 8" },
+        { src: "images/forever-begins-final-09.jpg", alt: "Vincent and Cynah — Forever Begins photo 9" },
+        { src: "images/forever-begins-final-10.jpg", alt: "Vincent and Cynah — Forever Begins photo 10" },
+        { src: "images/forever-begins-final-11.jpg", alt: "Vincent and Cynah — Forever Begins photo 11" },
+        { src: "images/forever-begins-final-12.jpg", alt: "Vincent and Cynah — Forever Begins photo 12" },
+        { src: "images/forever-begins-final-13.jpg", alt: "Vincent and Cynah — Forever Begins photo 13" },
+        { src: "images/forever-begins-final-14.jpg", alt: "Vincent and Cynah — Forever Begins photo 14" },
+        { src: "images/forever-begins-final-15.jpg", alt: "Vincent and Cynah — Forever Begins photo 15" },
+        { src: "images/forever-begins-final-16.jpg", alt: "Vincent and Cynah — Forever Begins photo 16" },
+        { src: "images/forever-begins-final-17.jpg", alt: "Vincent and Cynah — Forever Begins photo 17" },
+        { src: "images/forever-begins-final-18.jpg", alt: "Vincent and Cynah — Forever Begins photo 18" },
+        { src: "images/forever-begins-final-19.jpg", alt: "Vincent and Cynah — Forever Begins photo 19" },
+        { src: "images/forever-begins-final-20.jpg", alt: "Vincent and Cynah — Forever Begins photo 20" },
+        { src: "images/forever-begins-final-21.jpg", alt: "Vincent and Cynah — Forever Begins photo 21" },
+      ],
     },
   ],
 
   ceremony: {
     label: "Ceremony",
     title: "The Vows",
-    subtitle: "Church ceremony",
+    subtitle: "Holy Guardian Angels Parish (Episcopal Church)",
     image: "images/ceremony.jpeg",
-    imageAlt: "Garden ceremony at Paulinos",
+    imageAlt: "Ceremony at Holy Guardian Angels Parish",
     bullets: [
-      "1:00 PM — church ceremony begins (guests from 12:30 PM)",
-      "Church ceremony, approximately 45 minutes",
+      "12:00 PM — church ceremony begins (guests from 11:30 AM)",
+      "Pico, La Trinidad",
     ],
     linkLabel: "Getting there",
     linkTarget: "#travel",
@@ -116,11 +175,11 @@ window.WEDDING_CONFIG = {
   reception: {
     label: "Reception",
     title: "The Feast",
-    subtitle: "Paulinos terrace & hall",
+    subtitle: "Paulino's Event Hall and Cafe",
     image: "images/reception.jpeg",
-    imageAlt: "Reception at Paulinos terrace and hall",
+    imageAlt: "Reception at Paulino's Event Hall and Cafe",
     bullets: [
-      "3:00 PM — reception and cocktails · Dinner 6:30 PM",
+      "4:00 PM — reception and cocktails · Dinner 6:30 PM",
       "Open bar, dinner & dancing",
       "Upper Lamtang, La Trinidad, Benguet",
     ],
@@ -133,9 +192,9 @@ window.WEDDING_CONFIG = {
     "Garden formal — think soft linens, florals, and burgundy accents. Evenings in the mountains turn cool; bring a wrap.",
 
   program: [
-    { time: "12:30 pm", title: "Guest arrival", note: "Church" },
-    { time: "1:00 pm", title: "Church ceremony", note: "" },
-    { time: "3:00 pm", title: "Reception & cocktails", note: "Paulinos" },
+    { time: "11:30 am", title: "Guest arrival", note: "Holy Guardian Angels Parish" },
+    { time: "12:00 pm", title: "Church ceremony", note: "Pico, La Trinidad" },
+    { time: "4:00 pm", title: "Reception & cocktails", note: "Paulino's Event Hall and Cafe" },
     { time: "6:30 pm", title: "Dinner", note: "" },
     { time: "8:30 pm", title: "Dancing", note: "Until late" },
   ],
@@ -168,11 +227,12 @@ window.WEDDING_CONFIG = {
       "View the formal invitation pages containing the complete list of our wedding entourage.",
     motifTitle: "Color Motif",
     motif: [
-      { name: "Dusty burgundy", color: "#913f51" },
-      { name: "Warm taupe", color: "#b6a49b" },
-      { name: "Deep wine", color: "#45191b" },
-      { name: "Mocha", color: "#806f61" },
-      { name: "Soft ivory", color: "#e5e5e3" },
+      { name: "Burgundy", color: "#800020" },
+      { name: "Dusty Pink", color: "#d8a7ad" },
+      { name: "Maroon", color: "#57001f" },
+      { name: "Champagne", color: "#e8d5b7" },
+      { name: "Pine Green", color: "#244735" },
+      { name: "Natural Pine Wood", color: "#b58b60" },
     ],
     images: [
       {
@@ -188,7 +248,7 @@ window.WEDDING_CONFIG = {
     ],
   },
 
-  rsvpDeadline: "Kindly reply by January 20, 2027 so we can save you a seat.",
+  rsvpDeadline: "Kindly reply by January 2, 2027 so we can save you a seat.",
   googleFormUrl: "",
 
   guestbook: {
@@ -239,7 +299,7 @@ window.WEDDING_CONFIG = {
   sharing: {
     slug: "vincent-and-cynah",
     title: "Vincent & Cynah — February 12, 2027",
-    description: "Join us for our wedding celebration at Paulinos, Upper Lamtang.",
+    description: "Join us for our wedding celebration at Paulino's Event Hall and Cafe, Upper Lamtang.",
   },
 
   couplePhoto: "images/placeholder.svg",
@@ -249,14 +309,16 @@ window.WEDDING_CONFIG = {
 
   /** Background music on invitation hero — plays when the hero is on screen (muted until guest taps Music). */
   heroMusic: {
-    youtube: "https://www.youtube.com/watch?v=PLrd-rILKtc",
-    pauseWhenLeave: true,
+    audio: "audio/tahanan-piano-cover.mp3",
+    autoplay: true,
+    loop: true,
+    pauseWhenLeave: false,
   },
 
   images: {
-    hero: "images/hero-bg.jpg",
+    hero: "images/hero-sun-moon-lake-70.jpg",
     gallery: [
-      "images/image-1.jpeg",
+      "images/moment-before-i-do-01.jpg",
       "images/image-2.jpeg",
       "images/image-3.jpeg",
       "images/image-4.jpeg",
@@ -269,7 +331,7 @@ window.WEDDING_CONFIG = {
   whereToStay: {
     title: "Where to Stay",
     note:
-      "Most guests stay in Baguio City or La Trinidad and ride up to Paulinos for the day. Book early for February — it's peak season in the mountains.",
+      "Most guests stay in Baguio City or La Trinidad and ride up to Paulino's Event Hall and Cafe for the day. Book early for February — it's peak season in the mountains.",
     suggestedCheckIn: "2027-02-11",
     suggestedCheckOut: "2027-02-13",
     places: [
@@ -277,7 +339,7 @@ window.WEDDING_CONFIG = {
         name: "Hotel name",
         type: "Hotel",
         note: "Add a short note for guests — location, vibe, or why you recommend it.",
-        distance: "— min from Paulinos",
+        distance: "— min from Paulino's Event Hall and Cafe",
         priceHint: "",
         image: "images/placeholder.svg",
         featured: true,
@@ -289,7 +351,7 @@ window.WEDDING_CONFIG = {
         name: "Room block hotel",
         type: "Room block",
         note: "If you have a group rate, mention the block code and book-by date here.",
-        distance: "— min from Paulinos",
+        distance: "— min from Paulino's Event Hall and Cafe",
         priceHint: "Group rate available",
         image: "images/placeholder.svg",
         featured: false,
@@ -301,15 +363,15 @@ window.WEDDING_CONFIG = {
   },
 
   travel: {
-    heading: "Paulinos sits in Upper Lamtang, La Trinidad — about 15 minutes from Baguio City. Make a weekend of it.",
-    venueLine: "Paulinos, Upper Lamtang, La Trinidad, Benguet",
+    heading: "Paulino's Event Hall and Cafe sits in Upper Lamtang, La Trinidad — about 15 minutes from Baguio City. Make a weekend of it.",
+    venueLine: "Paulino's Event Hall and Cafe, Upper Lamtang, La Trinidad, Benguet",
     note: "Parking on site. We recommend arriving early for the garden ceremony.",
   },
 
   map: {
-    caption: "Paulinos · Upper Lamtang",
+    caption: "Paulino's Event Hall and Cafe · Upper Lamtang",
     embedUrl:
       "https://www.openstreetmap.org/export/embed.html?bbox=120.575%2C16.435%2C120.605%2C16.465&layer=mapnik&marker=16.45%2C120.59",
-    linkUrl: "https://maps.google.com/?q=Paulinos+Upper+Lamtang+La+Trinidad+Benguet",
+    linkUrl: "https://maps.google.com/?q=Paulino%27s+Event+Hall+and+Cafe+Upper+Lamtang+La+Trinidad+Benguet",
   },
 };

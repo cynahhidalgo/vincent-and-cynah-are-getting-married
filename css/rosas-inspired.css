@@ -94,9 +94,12 @@ body.rosas-inspired::before {
   transform: translateY(-50%);
   border: 1px solid var(--gold-500);
   border-radius: 50%;
-  font-family: "Great Vibes", "Pinyon Script", cursive;
-  font-size: 0.82rem;
-  letter-spacing: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
   color: var(--gold-300);
   background: radial-gradient(circle at 38% 30%, rgba(227, 201, 141, 0.13), transparent 68%);
   box-shadow:
@@ -187,6 +190,7 @@ body.rosas-inspired::before {
   margin-bottom: 1.4rem;
   font-family: var(--sans);
   font-size: 0.65rem;
+  font-weight: 700;
   letter-spacing: 0.42em;
   text-indent: 0.42em;
   color: var(--gold-300);
@@ -196,6 +200,7 @@ body.rosas-inspired::before {
   font-family: var(--serif);
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   font-style: italic;
+  font-weight: 600;
   color: rgba(255, 246, 240, 0.84);
   margin-bottom: 1rem;
 }
@@ -221,23 +226,42 @@ body.rosas-inspired::before {
 }
 
 .rosas-inspired .hero-meta {
+  max-width: 42rem;
   margin-bottom: 2rem;
-  font-family: var(--serif);
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  margin-inline: auto;
+  font-family: var(--sans);
+  font-size: clamp(0.78rem, 1.6vw, 0.95rem);
+  line-height: 1.75;
+  letter-spacing: 0.035em;
+  text-align: left;
   color: var(--gold-100);
 }
 
 .rosas-inspired .hero-meta [data-field="dateLong"] {
-  display: inline-block;
-  margin-bottom: 0.3rem;
-  font-size: 1.28em;
-  font-weight: 500;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  font-weight: inherit;
+  letter-spacing: normal;
+}
+
+.rosas-inspired .hero-event-line {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-family: var(--serif);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 .rosas-inspired .countdown {
   gap: 0;
   border-top: 1px solid rgba(227, 201, 141, 0.28);
   border-bottom: 1px solid rgba(227, 201, 141, 0.28);
+  background:
+    linear-gradient(rgba(38, 12, 21, 0.7), rgba(38, 12, 21, 0.7)),
+    url("../images/hero-sun-moon-lake-70.jpg") center 42% / cover no-repeat;
+  box-shadow: inset 0 0 36px rgba(18, 4, 8, 0.3);
 }
 
 .rosas-inspired .countdown div {
@@ -266,6 +290,8 @@ body.rosas-inspired::before {
 }
 
 .rosas-inspired .hero-music-btn {
+  position: fixed;
+  z-index: 20;
   color: var(--gold-100);
   background: rgba(53, 16, 28, 0.8);
   border-color: rgba(227, 201, 141, 0.55);
@@ -309,6 +335,10 @@ body.rosas-inspired::before {
   color: var(--rose-850);
 }
 
+.rosas-inspired #story .section-title {
+  font-size: clamp(2.35rem, 5.8vw, 3.9rem);
+}
+
 .rosas-inspired .section-title::after {
   content: "";
   display: block;
@@ -338,6 +368,15 @@ body.rosas-inspired::before {
   color: var(--rose-850);
 }
 
+.rosas-inspired #story .lead {
+  max-width: 52rem;
+  margin-inline: auto;
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: 0.008em;
+  text-wrap: balance;
+}
+
 /* Story */
 .rosas-inspired .story-slideshow {
   max-width: 1180px;
@@ -347,11 +386,90 @@ body.rosas-inspired::before {
   gap: clamp(2rem, 6vw, 5rem);
 }
 
+@media (min-width: 768px) {
+  .rosas-inspired .story-slideshow {
+    max-width: 1320px;
+  }
+
+  .rosas-inspired .story-slide {
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  }
+}
+
 .rosas-inspired .timeline-visual {
+  position: relative;
   aspect-ratio: 4 / 5;
   border-radius: 0;
   border: 1px solid rgba(112, 38, 58, 0.16);
   box-shadow: 18px 18px 0 var(--rose-100);
+}
+
+.rosas-inspired .story-photo-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.rosas-inspired .timeline-visual .story-photo {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.65s ease;
+}
+
+.rosas-inspired .timeline-visual .story-photo.is-active {
+  opacity: 1;
+}
+
+.rosas-inspired .story-photo-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid rgba(227, 201, 141, 0.46);
+  border-radius: 2rem;
+  background: rgba(38, 12, 21, 0.76);
+  backdrop-filter: blur(6px);
+  transform: translateX(-50%);
+}
+
+.rosas-inspired .story-photo-btn,
+.rosas-inspired .story-photo-dot {
+  border: 0;
+  color: var(--gold-100);
+  background: transparent;
+  cursor: pointer;
+}
+
+.rosas-inspired .story-photo-btn {
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.rosas-inspired .story-photo-dots {
+  display: flex;
+  gap: 0.38rem;
+}
+
+.rosas-inspired .story-photo-dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(255, 246, 240, 0.5);
+}
+
+.rosas-inspired .story-photo-dot.is-active {
+  background: var(--gold-300);
+  transform: scale(1.25);
 }
 
 .rosas-inspired .timeline-era {
@@ -501,7 +619,15 @@ body.rosas-inspired::before {
 .rosas-inspired .entourage-motif-swatches {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: clamp(0.55rem, 2vw, 1rem);
+}
+
+.rosas-inspired .entourage-motif-color {
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  min-width: clamp(4.5rem, 9vw, 6.5rem);
 }
 
 .rosas-inspired .entourage-motif-swatch {
@@ -517,6 +643,16 @@ body.rosas-inspired::before {
 
 .rosas-inspired .entourage-motif-swatch:hover {
   transform: translateY(-0.3rem);
+}
+
+.rosas-inspired .entourage-motif-name {
+  max-width: 7rem;
+  color: rgba(255, 246, 240, 0.78);
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  line-height: 1.35;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
 .rosas-inspired .entourage-invitation-grid {

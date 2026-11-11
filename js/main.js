@@ -38,6 +38,10 @@
     setText("familiesLine", cfg.familiesLine);
     setText("ceremonyLine", cfg.welcome?.ceremonyLine);
     setText("receptionLine", cfg.welcome?.receptionLine);
+    setText("ceremonyTime", cfg.welcome?.ceremonyTime);
+    setText("ceremonyVenue", cfg.welcome?.ceremonyVenue);
+    setText("receptionTime", cfg.welcome?.receptionTime);
+    setText("receptionVenue", cfg.welcome?.receptionVenue);
     setText("storyIntro", cfg.storyIntro);
     setText("dressCode", cfg.dressCode);
     setText("rsvpDeadline", cfg.rsvpDeadline);
@@ -96,15 +100,84 @@
   }
 
   function storySlideVisual(item) {
-    if (item.youtube) {
+    if (item.youtube && !item.images?.length) {
       const id = escapeHtml(youtubeIdFromUrl(item.youtube));
       const autoplay = item.youtubeAutoplay !== false;
       return `<div class="timeline-visual timeline-visual--video"${autoplay ? ' data-youtube-autoplay="true"' : ""}><iframe data-youtube-id="${id}" src="https://www.youtube.com/embed/${id}?rel=0" title="${escapeHtml(item.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
     }
-    if (item.image) {
-      return `<div class="timeline-visual"><img src="${escapeHtml(imgSrc(item.image))}" alt="${escapeHtml(item.title)}" loading="lazy" /></div>`;
+    const pictures = item.images?.length ? item.images : item.image ? [item.image] : [];
+    if (pictures.length) {
+      const images = pictures
+        .map((picture, index) => {
+          const src = typeof picture === "string" ? picture : picture.src;
+          const alt = typeof picture === "string" ? item.title : picture.alt || item.title;
+          return `<img class="story-photo${index === 0 ? " is-active" : ""}" src="${escapeHtml(imgSrc(src))}" alt="${escapeHtml(alt)}" loading="${index === 0 ? "eager" : "lazy"}" />`;
+        })
+        .join("");
+      const controls =
+        pictures.length > 1
+          ? `<div class="story-photo-controls">
+              <button type="button" class="story-photo-btn story-photo-prev" aria-label="Previous photo">‹</button>
+              <div class="story-photo-dots" role="tablist" aria-label="Choose a photo">
+                ${pictures
+                  .map(
+                    (_, index) =>
+                      `<button type="button" class="story-photo-dot${index === 0 ? " is-active" : ""}" aria-label="Photo ${index + 1} of ${pictures.length}" aria-selected="${index === 0}"></button>`
+                  )
+                  .join("")}
+              </div>
+              <button type="button" class="story-photo-btn story-photo-next" aria-label="Next photo">›</button>
+            </div>`
+          : "";
+      return `<div class="timeline-visual story-photo-slideshow"><div class="story-photo-stage">${images}</div>${controls}</div>`;
     }
     return `<div class="timeline-visual timeline-visual--empty" aria-hidden="true"></div>`;
+  }
+
+  function initStoryPhotoSlides() {
+    $$(".story-photo-slideshow").forEach((slideshow) => {
+      const photos = Array.from(slideshow.querySelectorAll(".story-photo"));
+      const dots = Array.from(slideshow.querySelectorAll(".story-photo-dot"));
+      if (photos.length < 2) return;
+      let photoIndex = 0;
+      let photoTimer;
+
+      const scheduleNextPhoto = () => {
+        if (photoTimer) window.clearTimeout(photoTimer);
+        if (prefersReducedMotion) return;
+        photoTimer = window.setTimeout(() => {
+          const storySlide = slideshow.closest(".story-slide");
+          if (storySlide?.getAttribute("aria-hidden") === "false") showPhoto(photoIndex + 1);
+          else scheduleNextPhoto();
+        }, 2000);
+      };
+
+      const showPhoto = (index) => {
+        photoIndex = ((index % photos.length) + photos.length) % photos.length;
+        photos.forEach((photo, i) => photo.classList.toggle("is-active", i === photoIndex));
+        dots.forEach((dot, i) => {
+          const active = i === photoIndex;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-selected", String(active));
+        });
+
+        const activePhoto = photos[photoIndex];
+        const fitBoxToPhoto = () => {
+          if (activePhoto.naturalWidth && activePhoto.naturalHeight) {
+            slideshow.style.aspectRatio = `${activePhoto.naturalWidth} / ${activePhoto.naturalHeight}`;
+          }
+        };
+        if (activePhoto.complete) fitBoxToPhoto();
+        else activePhoto.addEventListener("load", fitBoxToPhoto, { once: true });
+
+        scheduleNextPhoto();
+      };
+
+      slideshow.querySelector(".story-photo-prev")?.addEventListener("click", () => showPhoto(photoIndex - 1));
+      slideshow.querySelector(".story-photo-next")?.addEventListener("click", () => showPhoto(photoIndex + 1));
+      dots.forEach((dot, index) => dot.addEventListener("click", () => showPhoto(index)));
+      showPhoto(0);
+    });
   }
 
   function storySlideCopy(item) {
@@ -117,7 +190,6 @@
   }
 
   let storySlideIndex = 0;
-  let storyAutoplayTimer;
 
   function setStorySlideYoutubeState(slide, active) {
     const wrap = slide?.querySelector(".timeline-visual--video[data-youtube-autoplay]");
@@ -153,6 +225,7 @@
       dot.setAttribute("aria-selected", selected ? "true" : "false");
       dot.tabIndex = selected ? 0 : -1;
     });
+
   }
 
   function initStorySlideshow(total) {
@@ -162,7 +235,6 @@
 
     const step = (delta) => {
       goToStorySlide(storySlideIndex + delta, total);
-      restartStoryAutoplay(total);
     };
 
     prev?.addEventListener("click", () => step(-1));
@@ -191,16 +263,7 @@
       { passive: true }
     );
 
-    function restartStoryAutoplay(totalSlides) {
-      if (storyAutoplayTimer) clearInterval(storyAutoplayTimer);
-      if (prefersReducedMotion || totalSlides < 2) return;
-      storyAutoplayTimer = setInterval(() => {
-        goToStorySlide(storySlideIndex + 1, totalSlides);
-      }, 9000);
-    }
-
     goToStorySlide(0, total);
-    restartStoryAutoplay(total);
   }
 
   function renderStorySlideshow(items) {
@@ -227,11 +290,11 @@
       dot.setAttribute("aria-label", `${item.title || "Story"} — slide ${i + 1} of ${items.length}`);
       dot.addEventListener("click", () => {
         goToStorySlide(i, items.length);
-        if (storyAutoplayTimer) clearInterval(storyAutoplayTimer);
       });
       dotsWrap.appendChild(dot);
     });
 
+    initStoryPhotoSlides();
     initStorySlideshow(items.length);
   }
 
@@ -269,19 +332,6 @@
     }
   }
 
-  const DETAIL_ICON_SVG = {
-    ceremony: `<svg class="detail-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><circle cx="11" cy="18" r="5.5"/><circle cx="21" cy="18" r="5.5"/><path d="M11 12.5V10M21 12.5V10"/></svg>`,
-    reception: `<svg class="detail-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M10 8h12v3c0 4-2.5 6.5-6 6.5S10 15 10 11V8z"/><path d="M16 17.5V24M12 24h8"/></svg>`,
-  };
-
-  function detailIconKey(block) {
-    if (block?.icon && DETAIL_ICON_SVG[block.icon]) return block.icon;
-    const label = String(block?.label || "").toLowerCase();
-    if (label.includes("ceremony")) return "ceremony";
-    if (label.includes("reception")) return "reception";
-    return null;
-  }
-
   function cardHtml(block, options = {}) {
     const includeMedia = options.includeMedia !== false;
     const bullets = (block.bullets || []).map((b) => `<li>${escapeHtml(b)}</li>`).join("");
@@ -294,10 +344,7 @@
         ? `<a class="${btnClass}" href="${href}">${label}</a>`
         : `<a class="card-link" href="${href}">${label}</a>`
       : "";
-    const iconKey = detailIconKey(block);
-    const icon = iconKey ? DETAIL_ICON_SVG[iconKey] : "";
     const body = `
-      ${icon}
       <p class="label">${escapeHtml(block.label)}</p>
       <h3>${escapeHtml(block.title)}</h3>
       <p class="subtitle">${escapeHtml(block.subtitle)}</p>
@@ -340,12 +387,22 @@
         const swatches = document.createElement("div");
         swatches.className = "entourage-motif-swatches";
         invitation.motif.forEach((item) => {
+          const color = document.createElement("div");
+          color.className = "entourage-motif-color";
+          color.setAttribute("aria-label", item.name || "Wedding motif color");
+
           const swatch = document.createElement("span");
           swatch.className = "entourage-motif-swatch";
           swatch.style.backgroundColor = item.color || "transparent";
           swatch.title = item.name || "Wedding motif color";
-          swatch.setAttribute("aria-label", item.name || "Wedding motif color");
-          swatches.appendChild(swatch);
+          swatch.setAttribute("aria-hidden", "true");
+
+          const name = document.createElement("small");
+          name.className = "entourage-motif-name";
+          name.textContent = item.name || "Motif color";
+
+          color.append(swatch, name);
+          swatches.appendChild(color);
         });
         motif.appendChild(swatches);
       }
@@ -432,7 +489,7 @@
     grid.innerHTML = "";
     items.forEach((src, i) => {
       const fig = document.createElement("figure");
-      fig.innerHTML = `<img src="${escapeHtml(imgSrc(src))}" alt="Little Glimpses ${i + 1}" loading="lazy" />`;
+      fig.innerHTML = `<img src="${escapeHtml(imgSrc(src))}" alt="Moments Before I Do ${i + 1}" loading="lazy" />`;
       grid.appendChild(fig);
     });
   }
@@ -678,16 +735,20 @@
 
   function initHeroMusic() {
     const music = cfg?.heroMusic;
-    if (!music?.youtube) return;
-    if (prefersReducedMotion) return;
-
-    const videoId = youtubeIdFromUrl(music.youtube);
-    if (!videoId || videoId.length !== 11) return;
-
     const section = document.getElementById("hero");
     const host = document.getElementById("hero-music-host");
     const btn = document.getElementById("hero-music-btn");
-    if (!section || !host) return;
+    if (!music || !section || !btn) return;
+
+    if (music.audio) {
+      initLocalHeroMusic(music, section, btn);
+      return;
+    }
+
+    if (!music.youtube || prefersReducedMotion || !host) return;
+    const videoId = youtubeIdFromUrl(music.youtube);
+    if (!videoId || videoId.length !== 11) return;
+
     if (btn) btn.hidden = false;
 
     function safePause() {
@@ -747,6 +808,61 @@
     if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
       safePlay(true);
     }
+  }
+
+  function initLocalHeroMusic(music, section, btn) {
+    const audio = new Audio(encodeURI(music.audio));
+    audio.loop = music.loop !== false;
+    audio.preload = "metadata";
+    let enabled = music.autoplay === true;
+    let heroVisible = true;
+
+    btn.hidden = false;
+
+    function updateButton() {
+      btn.setAttribute("aria-pressed", String(enabled));
+      btn.setAttribute("aria-label", enabled ? "Turn off wedding music" : "Turn on wedding music");
+    }
+
+    function playIfAllowed() {
+      if (!enabled || (!heroVisible && music.pauseWhenLeave !== false)) return;
+      audio.play().catch(() => {
+        /* Browsers may wait for the guest's first interaction before allowing audio. */
+      });
+    }
+
+    btn.addEventListener("click", () => {
+      enabled = !enabled;
+      updateButton();
+      if (enabled) playIfAllowed();
+      else audio.pause();
+    });
+
+    audio.addEventListener("ended", () => {
+      if (audio.loop) return;
+      enabled = false;
+      updateButton();
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        heroVisible = entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.2);
+        if (heroVisible) playIfAllowed();
+        else if (music.pauseWhenLeave !== false) audio.pause();
+      },
+      { threshold: [0, 0.2, 0.5] }
+    );
+    observer.observe(section);
+    updateButton();
+    playIfAllowed();
+
+    const resumeAfterBlockedAutoplay = () => {
+      if (enabled && (heroVisible || music.pauseWhenLeave === false) && audio.paused) {
+        audio.play().catch(() => {});
+      }
+    };
+    document.addEventListener("pointerdown", resumeAfterBlockedAutoplay, { once: true });
+    document.addEventListener("keydown", resumeAfterBlockedAutoplay, { once: true });
   }
 
   function ensureHeroMusicPlayer(videoId, host, onReady) {
