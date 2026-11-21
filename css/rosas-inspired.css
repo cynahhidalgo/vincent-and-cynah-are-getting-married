@@ -175,13 +175,14 @@ body.rosas-inspired::before {
 .rosas-inspired .hero-inner {
   width: min(760px, 92vw);
   max-width: none;
+  transform: translateY(clamp(14rem, 22vh, 17rem));
   padding: clamp(2.5rem, 7vw, 4.5rem) clamp(1.2rem, 6vw, 4rem);
   border: 1px solid rgba(227, 201, 141, 0.42);
   outline: 1px solid rgba(227, 201, 141, 0.13);
   outline-offset: 0.65rem;
-  background: linear-gradient(145deg, rgba(38, 12, 21, 0.62), rgba(84, 27, 42, 0.32));
+  background: linear-gradient(145deg, rgba(38, 12, 21, 0.48), rgba(67, 19, 34, 0.26));
   box-shadow: 0 30px 80px rgba(18, 4, 8, 0.38);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
 }
 
 .rosas-inspired .hero-inner::before {
@@ -291,7 +292,15 @@ body.rosas-inspired::before {
 
 .rosas-inspired .hero-music-btn {
   position: fixed;
-  z-index: 20;
+  z-index: 120;
+  width: 2.8rem;
+  height: 2.8rem;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 1.15rem;
+  letter-spacing: 0;
   color: var(--gold-100);
   background: rgba(53, 16, 28, 0.8);
   border-color: rgba(227, 201, 141, 0.55);
@@ -363,18 +372,113 @@ body.rosas-inspired::before {
   color: rgba(255, 246, 240, 0.72);
 }
 
+.rosas-inspired .registry-section {
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+}
+
+.rosas-inspired .registry-section::before {
+  margin-bottom: 0.4rem;
+}
+
+.rosas-inspired .registry-section .section-title {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2.35rem, 6vw, 3.8rem);
+}
+
+.rosas-inspired .registry-section .section-title::after {
+  margin-top: 0.7rem;
+}
+
+.rosas-inspired .registry-section .section-sub {
+  max-width: 44rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.rosas-inspired #where-to-stay .stay-note {
+  max-width: 46rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  line-height: 1.45;
+}
+
 .rosas-inspired .lead {
   font-size: clamp(1.25rem, 3vw, 1.7rem);
   color: var(--rose-850);
 }
 
 .rosas-inspired #story .lead {
+  --note-line: 1.75rem;
+  position: relative;
   max-width: 52rem;
   margin-inline: auto;
+  padding: clamp(1.65rem, 4vw, 2.25rem) clamp(1.25rem, 4vw, 2.25rem) clamp(1.65rem, 4vw, 2.25rem) clamp(2.5rem, 6vw, 3.5rem);
+  border: 1px solid rgba(91, 70, 45, 0.38);
+  outline: 5px solid rgba(244, 231, 209, 0.72);
+  outline-offset: -10px;
+  background:
+    radial-gradient(circle at 3% 3%, rgba(71, 103, 72, 0.16), transparent 12rem),
+    radial-gradient(circle at 97% 96%, rgba(112, 38, 58, 0.11), transparent 14rem),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--note-line) - 1px),
+      rgba(91, 103, 72, 0.16) var(--note-line)
+    ),
+    #f5ead7;
+  box-shadow:
+    0 22px 55px rgba(53, 35, 20, 0.16),
+    0 2px 0 rgba(255, 252, 241, 0.82) inset;
+  white-space: pre-line;
   font-weight: 400;
-  line-height: 1.22;
-  letter-spacing: 0.008em;
-  text-wrap: balance;
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  font-style: italic;
+  line-height: var(--note-line);
+  letter-spacing: 0.012em;
+  text-align: left;
+  text-wrap: pretty;
+  color: #553b35;
+}
+
+.rosas-inspired #story .lead::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(2rem, 5vw, 3rem);
+  width: 1px;
+  background: rgba(112, 65, 55, 0.3);
+}
+
+.rosas-inspired #story .lead::after {
+  content: "❧";
+  position: absolute;
+  top: 0.65rem;
+  right: 1rem;
+  color: rgba(63, 91, 61, 0.58);
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2.15rem);
+  line-height: 1;
+}
+
+@media (max-width: 520px) {
+  .rosas-inspired #story .container.narrow {
+    width: 94vw;
+  }
+
+  .rosas-inspired #story .lead {
+    --note-line: 1.5rem;
+    padding: 1.35rem 0.9rem 1.5rem 2.15rem;
+    outline-width: 3px;
+    outline-offset: -7px;
+    font-size: 0.92rem;
+  }
+
+  .rosas-inspired #story .lead::before {
+    left: 1.45rem;
+  }
 }
 
 /* Story */
@@ -384,6 +488,10 @@ body.rosas-inspired::before {
 
 .rosas-inspired .story-slide {
   gap: clamp(2rem, 6vw, 5rem);
+}
+
+.rosas-inspired #story {
+  padding-bottom: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -431,10 +539,10 @@ body.rosas-inspired::before {
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.4rem 0.55rem;
+  gap: 0.3rem;
+  padding: 0.32rem;
   border: 1px solid rgba(227, 201, 141, 0.46);
-  border-radius: 2rem;
+  border-radius: 0.2rem;
   background: rgba(38, 12, 21, 0.76);
   backdrop-filter: blur(6px);
   transform: translateX(-50%);
@@ -449,12 +557,22 @@ body.rosas-inspired::before {
 }
 
 .rosas-inspired .story-photo-btn {
-  width: 1.9rem;
+  width: auto;
   height: 1.9rem;
-  padding: 0;
-  font-family: var(--serif);
-  font-size: 1.25rem;
+  padding: 0 0.65rem;
+  font-family: var(--sans);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
   line-height: 1;
+}
+
+.rosas-inspired .story-photo-btn:hover,
+.rosas-inspired .story-photo-btn:focus-visible {
+  color: var(--rose-950);
+  background: var(--gold-100);
+  outline: none;
 }
 
 .rosas-inspired .story-photo-dots {
@@ -463,7 +581,7 @@ body.rosas-inspired::before {
 }
 
 .rosas-inspired .story-photo-counter {
-  min-width: 3.8rem;
+  min-width: 3.4rem;
   color: var(--gold-100);
   font-family: var(--sans);
   font-size: 0.62rem;
@@ -511,6 +629,12 @@ body.rosas-inspired::before {
 /* Details */
 .rosas-inspired .detail-cards {
   gap: clamp(1.2rem, 4vw, 2.5rem);
+  margin-bottom: 0;
+}
+
+.rosas-inspired .details-section {
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
 }
 
 .rosas-inspired .detail-card {
@@ -545,7 +669,19 @@ body.rosas-inspired::before {
 }
 
 .rosas-inspired .detail-card .subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.35;
   color: var(--rose-200);
+}
+
+.rosas-inspired #reception-card .subtitle {
+  font-size: clamp(1.45rem, 2.5vw, 1.8rem);
+}
+
+.rosas-inspired .detail-card li {
+  margin-bottom: 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
 }
 
 .rosas-inspired .detail-icon {
@@ -599,6 +735,62 @@ body.rosas-inspired::before {
 .rosas-inspired .glimpse-card-body .card-link {
   color: var(--rose-700);
   border-color: var(--gold-500);
+}
+
+.rosas-inspired .moments-video {
+  width: min(58rem, 100%);
+  aspect-ratio: 16 / 9;
+  margin: 2.5rem auto 3.5rem;
+  padding: clamp(0.4rem, 1vw, 0.65rem);
+  border: 1px solid rgba(112, 38, 58, 0.18);
+  background: #fffaf6;
+  box-shadow: 0 18px 52px rgba(53, 16, 28, 0.1);
+}
+
+.rosas-inspired .moments-video-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.rosas-inspired .moments-video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.55rem;
+  color: var(--gold-100);
+  background:
+    linear-gradient(rgba(38, 12, 21, 0.68), rgba(38, 12, 21, 0.82)),
+    url("../images/hero-sun-moon-lake-70.jpg") center / cover no-repeat;
+}
+
+.rosas-inspired .moments-video-play {
+  width: 3.5rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding-left: 0.2rem;
+  border: 1px solid rgba(241, 227, 189, 0.72);
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.rosas-inspired .moments-video-placeholder p {
+  margin: 0.25rem 0 0;
+  font-family: var(--serif-display);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: 0.05em;
+}
+
+.rosas-inspired .moments-video-placeholder small {
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 246, 240, 0.65);
 }
 
 .rosas-inspired .gallery-mosaic {
@@ -755,7 +947,7 @@ body.gallery-lightbox-open {
 
 .rosas-inspired .entourage-motif {
   max-width: 58rem;
-  margin: 2.75rem auto 0;
+  margin: 2.25rem auto 0;
   padding: 0 clamp(0.5rem, 3vw, 2rem);
   text-align: center;
 }
@@ -765,7 +957,7 @@ body.gallery-lightbox-open {
   align-items: center;
   justify-content: center;
   gap: clamp(0.8rem, 2vw, 1.4rem);
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.35rem;
   color: var(--gold-100);
   font-family: var(--serif-display);
   font-size: clamp(1.25rem, 2.5vw, 1.65rem);
@@ -789,19 +981,19 @@ body.gallery-lightbox-open {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: clamp(1.15rem, 3.25vw, 2.4rem);
+  gap: clamp(0.85rem, 2vw, 1.5rem);
 }
 
 .rosas-inspired .entourage-motif-color {
   display: grid;
   justify-items: center;
   align-content: start;
-  gap: 0.7rem;
-  min-width: clamp(4.75rem, 8vw, 6rem);
+  gap: 0.5rem;
+  min-width: clamp(4.5rem, 7vw, 5.25rem);
 }
 
 .rosas-inspired .entourage-motif-swatch {
-  width: clamp(3rem, 5vw, 3.65rem);
+  width: clamp(2.7rem, 4.2vw, 3.2rem);
   aspect-ratio: 1;
   border: 1px solid rgba(255, 250, 246, 0.9);
   border-radius: 50%;
@@ -819,21 +1011,27 @@ body.gallery-lightbox-open {
 }
 
 .rosas-inspired .entourage-motif-name {
-  max-width: 6rem;
+  max-width: 5.5rem;
   color: rgba(255, 246, 240, 0.7);
   font-family: var(--sans);
-  font-size: 0.57rem;
+  font-size: 0.53rem;
   line-height: 1.4;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
 .rosas-inspired .entourage-motif-color:last-child {
-  min-width: 10rem;
+  min-width: 7.5rem;
 }
 
 .rosas-inspired .entourage-motif-color:last-child .entourage-motif-name {
-  max-width: 10rem;
+  max-width: 7.5rem;
+}
+
+@media (min-width: 780px) {
+  .rosas-inspired .entourage-motif-swatches {
+    flex-wrap: nowrap;
+  }
 }
 
 .rosas-inspired .entourage-motif-note {
@@ -1089,7 +1287,7 @@ body.gallery-lightbox-open {
 }
 
 .rosas-inspired .registry-card {
-  padding: clamp(1.5rem, 4vw, 2.4rem);
+  padding: clamp(1rem, 2.5vw, 1.5rem);
   text-align: center;
   border: 1px solid rgba(227, 201, 141, 0.24);
   background: rgba(255, 255, 255, 0.035);
@@ -1103,16 +1301,70 @@ body.gallery-lightbox-open {
 }
 
 .rosas-inspired .registry-card h3 {
-  margin: 0.5rem 0;
+  margin: 0.25rem 0 0.35rem;
   font-family: var(--serif);
-  font-size: 2rem;
+  font-size: clamp(1.65rem, 4vw, 2rem);
   font-weight: 400;
   color: var(--gold-100);
 }
 
 .rosas-inspired .registry-card p {
-  min-height: 4.5rem;
+  min-height: 0;
+  margin: 0;
+  line-height: 1.45;
   color: rgba(255, 246, 240, 0.68);
+}
+
+.rosas-inspired .registry-qr {
+  display: grid;
+  place-items: center;
+  width: min(15rem, 88%);
+  aspect-ratio: 1;
+  margin: 0.8rem auto 0;
+  padding: 0.7rem;
+  overflow: hidden;
+  color: var(--rose-850);
+  background: #fffaf3;
+  border: 1px solid rgba(227, 201, 141, 0.75);
+  box-shadow:
+    0 14px 36px rgba(31, 7, 14, 0.18),
+    inset 0 0 0 5px rgba(112, 38, 58, 0.035);
+}
+
+.rosas-inspired .registry-qr img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rosas-inspired .registry-qr--placeholder {
+  position: relative;
+  align-content: center;
+  gap: 0.55rem;
+  background:
+    linear-gradient(90deg, var(--gold-500) 18px, transparent 18px) top left / 34px 1px no-repeat,
+    linear-gradient(var(--gold-500) 18px, transparent 18px) top left / 1px 34px no-repeat,
+    linear-gradient(-90deg, var(--gold-500) 18px, transparent 18px) top right / 34px 1px no-repeat,
+    linear-gradient(-180deg, var(--gold-500) 18px, transparent 18px) top right / 1px 34px no-repeat,
+    linear-gradient(90deg, var(--gold-500) 18px, transparent 18px) bottom left / 34px 1px no-repeat,
+    linear-gradient(0deg, var(--gold-500) 18px, transparent 18px) bottom left / 1px 34px no-repeat,
+    linear-gradient(-90deg, var(--gold-500) 18px, transparent 18px) bottom right / 34px 1px no-repeat,
+    linear-gradient(0deg, var(--gold-500) 18px, transparent 18px) bottom right / 1px 34px no-repeat,
+    #fffaf3;
+}
+
+.rosas-inspired .registry-qr--placeholder > span {
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  letter-spacing: 0.08em;
+}
+
+.rosas-inspired .registry-qr--placeholder > small {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rose-600);
 }
 
 .rosas-inspired .registry-pending {
@@ -1135,6 +1387,23 @@ body.gallery-lightbox-open {
 
 .rosas-inspired .stay-card--featured {
   border-color: var(--gold-500);
+}
+
+.rosas-inspired .stay-card-media {
+  display: block;
+  background-color: #fffaf3;
+  background-repeat: no-repeat;
+}
+
+.rosas-inspired .stay-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: auto;
+}
+
+.rosas-inspired .stay-actions .stay-book {
+  margin-top: 0;
 }
 
 .rosas-inspired .stay-name,
@@ -1203,6 +1472,7 @@ body.gallery-lightbox-open {
 
   .rosas-inspired .hero-inner {
     outline-offset: 0.35rem;
+    transform: translateY(2rem);
   }
 
   .rosas-inspired .hero-name-line {

@@ -47,7 +47,7 @@
     shell?.classList.add("has-envelope-style");
   }
 
-  set("welcome-date", cfg.dateLong || cfg.dateDisplay);
+  set("welcome-date", w.dateLine || cfg.dateLong || cfg.dateDisplay);
   set("welcome-rsvp", cfg.rsvpDeadline);
   set(
     "welcome-venue",

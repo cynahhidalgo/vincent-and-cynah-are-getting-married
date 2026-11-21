@@ -266,7 +266,7 @@ body.rosas-welcome-page {
 .rosas-editorial-welcome__content {
   position: relative;
   z-index: 3;
-  width: min(33rem, 72%);
+  width: min(38rem, 78%);
   align-self: center;
   justify-self: center;
   padding: 7rem 0 3rem;
@@ -285,16 +285,16 @@ body.rosas-welcome-page {
 .rosas-editorial-welcome__save-date {
   margin: 0 0 0.35rem;
   font-family: "Pinyon Script", "Great Vibes", cursive;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-size: clamp(3.2rem, 5.6vw, 5.2rem);
   font-weight: 400;
   line-height: 0.9;
   color: var(--editorial-gold);
 }
 
 .rosas-editorial-welcome__eyebrow {
-  margin: 0 0 1rem;
+  margin: 1.15rem 0 0.75rem;
   font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 0.58rem;
+  font-size: 0.66rem;
   letter-spacing: 0.38em;
   text-transform: uppercase;
   color: var(--editorial-gold);
@@ -303,7 +303,7 @@ body.rosas-welcome-page {
 .rosas-editorial-welcome__title {
   margin: 0;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(3.6rem, 5.7vw, 5.8rem);
   font-weight: 500;
   line-height: 0.82;
   letter-spacing: -0.015em;
@@ -331,12 +331,13 @@ body.rosas-welcome-page {
 .rosas-editorial-welcome__invite {
   margin: clamp(2rem, 5vh, 3.2rem) 0 1.65rem;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   font-style: italic;
   color: var(--editorial-ivory);
 }
 
 .rosas-editorial-welcome__details {
+  margin-top: clamp(1.75rem, 4vh, 2.75rem);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1rem;
   line-height: 1.55;
@@ -348,9 +349,27 @@ body.rosas-welcome-page {
 }
 
 #welcome-date {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.65rem, 1.5vw, 1rem);
   margin-bottom: 0.2rem;
-  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.11em;
+  color: var(--editorial-ivory);
+}
+
+#welcome-date::before,
+#welcome-date::after {
+  content: "";
+  width: clamp(1.75rem, 3.5vw, 3rem);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(200, 165, 104, 0.15), rgba(200, 165, 104, 0.72));
+}
+
+#welcome-date::after {
+  transform: scaleX(-1);
 }
 
 .rosas-editorial-welcome__reception-line {
@@ -369,7 +388,7 @@ body.rosas-welcome-page {
 .rosas-editorial-welcome__seating {
   margin: 0;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: rgba(200, 165, 104, 0.68);
 }
 
@@ -380,13 +399,13 @@ body.rosas-welcome-page {
 
 .rosas-editorial-welcome__button {
   display: inline-block;
-  min-width: 9.5rem;
+  min-width: 12rem;
   margin-top: 1.35rem;
-  padding: 0.72rem 1.4rem;
+  padding: 0.85rem 1.7rem;
   border: 1px solid rgba(243, 229, 211, 0.84);
   border-radius: 999px;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 0.75rem;
+  font-size: 0.86rem;
   letter-spacing: 0.1em;
   text-align: center;
   text-transform: uppercase;

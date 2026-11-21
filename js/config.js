@@ -26,7 +26,7 @@ window.WEDDING_CONFIG = {
   partner2: "Cynah",
   hashtag: "VincentAndCynah",
 
-  weddingDateTime: "2027-02-12T12:00:00+08:00",
+  weddingDateTime: "2027-02-12T13:00:00+08:00",
   dateDisplay: "Friday, February 12 · 2027",
   /** Short line under names in the header chip */
   headerDate: "Feb 12 · 2027",
@@ -43,14 +43,15 @@ window.WEDDING_CONFIG = {
     eyebrow: "You're invited",
     title: "Welcome to our celebration",
     inviteLine: "You are warmly invited",
-    ceremonyLine: "12:00 PM · Ceremony · Episcopal Church, Pico, La Trinidad",
-    receptionLine: "4:00 PM · Reception · Paulino's Event Hall and Cafe",
-    ceremonyTime: "12:00 PM",
+    dateLine: "February 12, 2027",
+    ceremonyLine: "1:00 PM · Ceremony · Episcopal Church, Pico, La Trinidad",
+    receptionLine: "Reception Follows at Paulino's Event Hall and Cafe",
+    ceremonyTime: "1:00 PM",
     ceremonyVenue: "Episcopal Church, Pico, La Trinidad",
     receptionTime: "4:00 PM",
     receptionVenue: "Paulino's Event Hall and Cafe",
     subline: "Tap to enter our celebration.",
-    cta: "Open invitation",
+    cta: "Tap to see more details",
     invitationPath: "invitation.html",
     monogram: "images/vc monogram.png",
     envelopeFlowers: "images/flower.png",
@@ -68,7 +69,15 @@ window.WEDDING_CONFIG = {
     "Request the honour of your presence at their wedding celebration among the gardens of Upper Lamtang.",
 
   storyIntro:
-    "Somewhere between our college days, shared dreams, and countless adventures, we unknowingly stole each other's hearts. What began as friendship became a love story, and now, we're ready to make it forever.",
+    `Vincent and I first met in college. We were in the same school, sharing the same activities, research projects, competitions, and even our final projects. Back then, we had no idea that all those little moments together would eventually lead to something more.
+
+As time went by, we discovered how much we had in common. Simple things became part of our everyday lives — eating out, having long conversations, going on motorcycle rides around Baguio, and simply enjoying each other's company.
+
+Somewhere along the way, those ordinary moments became something special. We realized how much we enjoyed being together, from our endless talks and spontaneous adventures to the travels we planned and the dreams we started building together.
+
+Looking back, we never imagined that a college friendship would turn into a lifetime of love and partnership. And now, after 7 years of growing, learning, and making memories together, we're excited to begin our next chapter as husband and wife.
+
+We are happy to share this special milestone with you, and it would mean so much to have you celebrate with us as we say I DO!`,
 
   storyTimeline: [
     {
@@ -183,43 +192,43 @@ window.WEDDING_CONFIG = {
   ],
 
   ceremony: {
-    label: "Ceremony",
-    title: "The Vows",
+    label: "",
+    title: "Ceremony",
     subtitle: "Holy Guardian Angels Parish (Episcopal Church)",
     image: "images/ceremony.jpeg",
     imageAlt: "Ceremony at Holy Guardian Angels Parish",
     bullets: [
-      "12:00 PM — church ceremony begins (guests from 11:30 AM)",
       "Pico, La Trinidad",
     ],
-    linkLabel: "Getting there",
-    linkTarget: "#travel",
+    linkLabel: "View Map Location",
+    linkTarget: "https://maps.app.goo.gl/BCfGbU2PHK1PRWM27",
     linkAsButton: true,
     linkButtonStyle: "outline",
+    linkExternal: true,
   },
 
   reception: {
-    label: "Reception",
-    title: "The Feast",
+    label: "",
+    title: "Reception",
     subtitle: "Paulino's Event Hall and Cafe",
     image: "images/reception.jpeg",
     imageAlt: "Reception at Paulino's Event Hall and Cafe",
     bullets: [
-      "4:00 PM — reception and cocktails · Dinner 6:30 PM",
-      "Open bar, dinner & dancing",
       "Upper Lamtang, La Trinidad, Benguet",
     ],
-    linkLabel: "Reserve your seat",
-    linkTarget: "#rsvp",
+    linkLabel: "View Map Location",
+    linkTarget: "https://maps.app.goo.gl/8WwXo5oCvhQvdLA69",
     linkAsButton: true,
+    linkButtonStyle: "outline",
+    linkExternal: true,
   },
 
   dressCode:
     "Garden formal — think soft linens, florals, and burgundy accents. Evenings in the mountains turn cool; bring a wrap.",
 
   program: [
-    { time: "11:30 am", title: "Guest arrival", note: "Holy Guardian Angels Parish" },
-    { time: "12:00 pm", title: "Church ceremony", note: "Pico, La Trinidad" },
+    { time: "12:30 pm", title: "Guest arrival", note: "Holy Guardian Angels Parish" },
+    { time: "1:00 pm", title: "Church ceremony", note: "Pico, La Trinidad" },
     { time: "4:00 pm", title: "Reception & cocktails", note: "Paulino's Event Hall and Cafe" },
     { time: "6:30 pm", title: "Dinner", note: "" },
     { time: "8:30 pm", title: "Dancing", note: "Until late" },
@@ -331,19 +340,21 @@ window.WEDDING_CONFIG = {
   giftRegistry: {
     title: "Gift Registry",
     intro:
-      "Your presence is the greatest gift. If you would still like to bless our new chapter, these options are available.",
+      "Having you celebrate with us is already more than enough. Your presence is the greatest gift we could ask for. However, if you wish to bless us as we begin our journey as husband and wife, we would sincerely appreciate cash gifts to help us build our future together.",
     items: [
       {
-        title: "Wedding Fund",
-        description: "Help us begin our married life and create a home together.",
-        url: "",
-        linkLabel: "Registry details coming soon",
+        title: "GCash QR Code",
+        description: "Scan this QR code to send your gift through GCash.",
+        qrImage: "",
+        qrAlt: "Vincent and Cynah GCash QR code",
+        qrPlaceholder: "Add GCash QR Code",
       },
       {
-        title: "Honeymoon Fund",
-        description: "Contribute toward the adventures and memories of our first journey as newlyweds.",
-        url: "",
-        linkLabel: "Details coming soon",
+        title: "Bank QR Code",
+        description: "Scan this QR code to send your gift through our bank.",
+        qrImage: "",
+        qrAlt: "Vincent and Cynah bank QR code",
+        qrPlaceholder: "Add Bank QR Code",
       },
     ],
   },
@@ -368,7 +379,7 @@ window.WEDDING_CONFIG = {
   },
 
   images: {
-    hero: "images/hero-sun-moon-lake-70.jpg",
+    hero: "images/hero-sun-moon-lake-40.jpg",
     gallery: [
       "images/moments-forever-01.jpg",
       "images/moments-forever-02.jpg",
@@ -409,33 +420,35 @@ window.WEDDING_CONFIG = {
   whereToStay: {
     title: "Where to Stay",
     note:
-      "Most guests stay in Baguio City or La Trinidad and ride up to Paulino's Event Hall and Cafe for the day. Book early for February — it's peak season in the mountains.",
+      "While we wish we could accommodate everyone, we're unable to provide lodging for our guests. However, we've listed a few nearby transient homes and accommodations for your reference. If you plan to stay overnight, we kindly encourage you to book early, as our wedding falls during the peak season of Panagbenga and the Strawberry Festival, when accommodations are often in high demand. We hope this helps make your visit more convenient!",
     suggestedCheckIn: "2027-02-11",
     suggestedCheckOut: "2027-02-13",
     places: [
       {
-        name: "Hotel name",
-        type: "Hotel",
-        note: "Add a short note for guests — location, vibe, or why you recommend it.",
-        distance: "— min from Paulino's Event Hall and Cafe",
+        name: "Balay Ni Thong",
+        type: "Transient | House",
+        note: "Clean, spacious, and comfortable transient rooms in a peaceful mountain setting.",
+        distance: "4 min drive from Paulino's Event Hall and Cafe",
         priceHint: "",
-        image: "images/placeholder.svg",
-        featured: true,
-        coupleStaying: false,
-        bookingUrl: "",
-        bookingLabel: "See availability",
-      },
-      {
-        name: "Room block hotel",
-        type: "Room block",
-        note: "If you have a group rate, mention the block code and book-by date here.",
-        distance: "— min from Paulino's Event Hall and Cafe",
-        priceHint: "Group rate available",
-        image: "images/placeholder.svg",
+        image: "images/stay-balay-ni-thong.jpg",
         featured: false,
         coupleStaying: false,
-        bookingUrl: "",
-        bookingLabel: "Book room block",
+        facebookUrl: "https://www.facebook.com/1103744956155097",
+        mapUrl:
+          "https://www.google.com/maps/dir/?api=1&destination=CHR2%2B747%2C%20Pico%20Lamtang%20Road%2C%20La%20Trinidad%2C%20Benguet",
+      },
+      {
+        name: "Woodlands Guest House",
+        type: "Transient | House",
+        note: "A peaceful nature-inspired guest house with cozy rooms and beautiful mountain views.",
+        distance: "8 min drive from Paulino's Event Hall and Cafe",
+        priceHint: "",
+        image: "images/stay-woodlands-guest-house.jpg",
+        featured: false,
+        coupleStaying: false,
+        facebookUrl: "https://www.facebook.com/766003489936640",
+        mapUrl:
+          "https://www.google.com/maps/dir/?api=1&destination=16.442065%2C120.557933",
       },
     ],
   },

@@ -114,23 +114,13 @@
           return `<img class="story-photo${index === 0 ? " is-active" : ""}" src="${escapeHtml(imgSrc(src))}" alt="${escapeHtml(alt)}" loading="${index === 0 ? "eager" : "lazy"}" />`;
         })
         .join("");
-      const position =
-        pictures.length <= 10
-          ? `<div class="story-photo-dots" role="tablist" aria-label="Choose a photo">
-              ${pictures
-                .map(
-                  (_, index) =>
-                    `<button type="button" class="story-photo-dot${index === 0 ? " is-active" : ""}" aria-label="Photo ${index + 1} of ${pictures.length}" aria-selected="${index === 0}"></button>`
-                )
-                .join("")}
-            </div>`
-          : `<span class="story-photo-counter" aria-live="polite">1 / ${pictures.length}</span>`;
+      const position = `<span class="story-photo-counter" aria-live="polite">1 / ${pictures.length}</span>`;
       const controls =
         pictures.length > 1
           ? `<div class="story-photo-controls">
-              <button type="button" class="story-photo-btn story-photo-prev" aria-label="Previous photo">‹</button>
+              <button type="button" class="story-photo-btn story-photo-prev" aria-label="Previous photo">Prev</button>
               ${position}
-              <button type="button" class="story-photo-btn story-photo-next" aria-label="Next photo">›</button>
+              <button type="button" class="story-photo-btn story-photo-next" aria-label="Next photo">Next</button>
             </div>`
           : "";
       return `<div class="timeline-visual story-photo-slideshow"><div class="story-photo-stage">${images}</div>${controls}</div>`;
@@ -334,15 +324,16 @@
     const bullets = (block.bullets || []).map((b) => `<li>${escapeHtml(b)}</li>`).join("");
     const href = escapeHtml(block.linkTarget || "#");
     const label = escapeHtml(block.linkLabel);
+    const externalAttrs = block.linkExternal ? ' target="_blank" rel="noopener noreferrer"' : "";
     const btnClass =
       block.linkButtonStyle === "outline" ? "btn btn-outline detail-card-btn" : "btn btn-primary detail-card-btn";
     const link = block.linkLabel
       ? block.linkAsButton
-        ? `<a class="${btnClass}" href="${href}">${label}</a>`
-        : `<a class="card-link" href="${href}">${label}</a>`
+        ? `<a class="${btnClass}" href="${href}"${externalAttrs}>${label}</a>`
+        : `<a class="card-link" href="${href}"${externalAttrs}>${label}</a>`
       : "";
     const body = `
-      <p class="label">${escapeHtml(block.label)}</p>
+      ${block.label ? `<p class="label">${escapeHtml(block.label)}</p>` : ""}
       <h3>${escapeHtml(block.title)}</h3>
       <p class="subtitle">${escapeHtml(block.subtitle)}</p>
       <ul>${bullets}</ul>
@@ -473,15 +464,26 @@
         place.bookingUrl && place.bookingLabel
           ? `<a class="btn btn-primary stay-book" href="${escapeHtml(place.bookingUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(place.bookingLabel)}</a>`
           : "";
+      const facebook = place.facebookUrl
+        ? `<a class="btn btn-outline stay-book" href="${escapeHtml(place.facebookUrl)}" target="_blank" rel="noopener noreferrer">View Facebook</a>`
+        : "";
+      const directions = place.mapUrl
+        ? `<a class="btn btn-primary stay-book" href="${escapeHtml(place.mapUrl)}" target="_blank" rel="noopener noreferrer">Directions</a>`
+        : "";
+      const actions = [facebook, directions, booking].filter(Boolean).join("");
+      const mediaStyle = `background-image:url('${escapeHtml(imgSrc(place.image || "images/placeholder.svg"))}')`;
+      const media = place.facebookUrl
+        ? `<a class="stay-card-media" style="${mediaStyle}" href="${escapeHtml(place.facebookUrl)}" target="_blank" rel="noopener noreferrer" role="img" aria-label="View ${escapeHtml(place.name || "place to stay")} on Facebook"></a>`
+        : `<div class="stay-card-media" style="${mediaStyle}" role="img" aria-label="${escapeHtml(place.name || "Place to stay")}"></div>`;
 
       article.innerHTML = `
-        <div class="stay-card-media" style="background-image:url('${escapeHtml(place.image || "images/placeholder.svg")}')" role="img" aria-label="${escapeHtml(place.name || "Place to stay")}"></div>
+        ${media}
         <div class="stay-card-body">
           <div class="stay-badges">${badges.join("")}</div>
           <h3 class="stay-name">${escapeHtml(place.name || "Place to stay")}</h3>
           ${meta ? `<p class="stay-meta">${escapeHtml(meta)}</p>` : ""}
           <p class="stay-note-text">${escapeHtml(place.note || "")}</p>
-          ${booking}
+          ${actions ? `<div class="stay-actions">${actions}</div>` : ""}
         </div>`;
       grid.appendChild(article);
     });
@@ -682,13 +684,22 @@
       const article = document.createElement("article");
       article.className = "registry-card";
       const label = item.linkLabel || "View registry";
+      const qrCode = item.qrImage
+        ? `<a class="registry-qr" href="${escapeHtml(imgSrc(item.qrImage))}" target="_blank" rel="noopener" aria-label="Open ${escapeHtml(item.qrAlt || item.title || "QR code")} full size">
+            <img src="${escapeHtml(imgSrc(item.qrImage))}" alt="${escapeHtml(item.qrAlt || item.title || "Gift QR code")}" loading="lazy" />
+          </a>`
+        : `<div class="registry-qr registry-qr--placeholder" aria-label="${escapeHtml(item.qrPlaceholder || "QR code image placeholder")}">
+            <span aria-hidden="true">QR</span>
+            <small>${escapeHtml(item.qrPlaceholder || "Add QR Code")}</small>
+          </div>`;
       const action = item.url
         ? `<a class="btn btn-outline" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`
-        : `<span class="registry-pending">${escapeHtml(label)}</span>`;
+        : "";
       article.innerHTML = `
         <span class="registry-number">${String(index + 1).padStart(2, "0")}</span>
         <h3>${escapeHtml(item.title || "Registry")}</h3>
         <p>${escapeHtml(item.description || "")}</p>
+        ${qrCode}
         ${action}`;
       grid.appendChild(article);
     });
