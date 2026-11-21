@@ -53,8 +53,8 @@ window.WEDDING_CONFIG = {
     subline: "Tap to enter our celebration.",
     cta: "Tap to see more details",
     invitationPath: "invitation.html",
-    monogram: "images/vc monogram.png",
-    envelopeFlowers: "images/flower.png",
+    monogram: "images/welcome-monogram-transparent.png",
+    envelopeFlowers: "images/welcome-flower.jpeg",
     envelopeStyle: "images/envelope.webp",
   },
 
