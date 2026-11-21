@@ -144,6 +144,46 @@ body.rosas-inspired::before {
   color: var(--gold-300);
 }
 
+.rosas-inspired .header-menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgba(227, 201, 141, 0.38);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-100);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.rosas-inspired .header-menu-icon {
+  width: 0.9rem;
+  display: grid;
+  gap: 0.16rem;
+}
+
+.rosas-inspired .header-menu-icon i {
+  display: block;
+  height: 1px;
+  background: var(--gold-300);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.rosas-inspired .header-menu-toggle[aria-expanded="true"] .header-menu-icon i:first-child {
+  transform: translateY(0.32rem) rotate(45deg);
+}
+
+.rosas-inspired .header-menu-toggle[aria-expanded="true"] .header-menu-icon i:nth-child(2) {
+  opacity: 0;
+}
+
+.rosas-inspired .header-menu-toggle[aria-expanded="true"] .header-menu-icon i:last-child {
+  transform: translateY(-0.32rem) rotate(-45deg);
+}
+
 /* Hero */
 .rosas-inspired .hero {
   min-height: 100svh;
@@ -175,7 +215,7 @@ body.rosas-inspired::before {
 .rosas-inspired .hero-inner {
   width: min(760px, 92vw);
   max-width: none;
-  transform: translateY(clamp(14rem, 22vh, 17rem));
+  transform: translateY(clamp(7rem, 12vh, 9rem));
   padding: clamp(2.5rem, 7vw, 4.5rem) clamp(1.2rem, 6vw, 4rem);
   border: 1px solid rgba(227, 201, 141, 0.42);
   outline: 1px solid rgba(227, 201, 141, 0.13);
@@ -304,6 +344,67 @@ body.rosas-inspired::before {
   color: var(--gold-100);
   background: rgba(53, 16, 28, 0.8);
   border-color: rgba(227, 201, 141, 0.55);
+}
+
+.rosas-inspired .floating-rsvp-button {
+  position: fixed;
+  z-index: 119;
+  left: clamp(0.75rem, 2vw, 1.5rem);
+  bottom: clamp(0.75rem, 2vw, 1.5rem);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(227, 201, 141, 0.72);
+  border-radius: 999px;
+  color: var(--gold-100);
+  background: rgba(53, 16, 28, 0.9);
+  box-shadow: 0 12px 34px rgba(20, 5, 10, 0.32);
+  backdrop-filter: blur(12px);
+  text-decoration: none;
+  animation: floating-rsvp 3.4s ease-in-out infinite;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.rosas-inspired .floating-rsvp-button > span {
+  color: var(--gold-300);
+  font-size: 0.85rem;
+}
+
+.rosas-inspired .floating-rsvp-button strong {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.rosas-inspired .floating-rsvp-button small {
+  padding-left: 0.55rem;
+  border-left: 1px solid rgba(227, 201, 141, 0.32);
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 246, 240, 0.7);
+}
+
+.rosas-inspired .floating-rsvp-button:hover,
+.rosas-inspired .floating-rsvp-button:focus-visible {
+  color: #fffaf6;
+  background: rgba(112, 38, 58, 0.96);
+  transform: translateY(-2px);
+  animation-play-state: paused;
+  outline: 1px solid rgba(227, 201, 141, 0.68);
+  outline-offset: 3px;
+}
+
+@keyframes floating-rsvp {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.35rem);
+  }
 }
 
 /* Shared section composition */
@@ -1459,11 +1560,40 @@ body.gallery-lightbox-open {
   .rosas-inspired .site-header {
     min-height: 4rem;
     padding: 0.55rem 1rem;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .rosas-inspired .header-chip {
     align-items: flex-start;
+  }
+
+  .rosas-inspired .header-menu-toggle {
+    display: inline-flex;
+  }
+
+  .rosas-inspired .header-nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    padding: 0.7rem 1rem 0.9rem;
+    background: rgba(38, 12, 21, 0.97);
+    border-bottom: 1px solid rgba(227, 201, 141, 0.28);
+    box-shadow: 0 14px 28px rgba(20, 5, 10, 0.24);
+    backdrop-filter: blur(16px);
+  }
+
+  .rosas-inspired .header-nav.is-open {
+    display: grid;
+  }
+
+  .rosas-inspired .header-nav a {
+    padding: 0.72rem 0.45rem;
+    border-bottom: 1px solid rgba(227, 201, 141, 0.1);
+    text-align: center;
   }
 
   .rosas-inspired .hero {
@@ -1506,6 +1636,42 @@ body.gallery-lightbox-open {
 }
 
 @media (max-width: 420px) {
+  .rosas-inspired .site-header {
+    min-height: 3.5rem;
+    padding: 0.45rem 0.6rem;
+  }
+
+  .rosas-inspired .header-chip {
+    padding-left: 2.2rem;
+  }
+
+  .rosas-inspired .header-chip::before {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.86rem;
+  }
+
+  .rosas-inspired .header-chip-names {
+    font-size: 0.94rem;
+  }
+
+  .rosas-inspired .chip-meta {
+    display: none;
+  }
+
+  .rosas-inspired .header-menu-toggle {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.56rem;
+  }
+
+  .rosas-inspired .floating-rsvp-button {
+    padding: 0.62rem 0.75rem;
+  }
+
+  .rosas-inspired .floating-rsvp-button strong {
+    font-size: 0.9rem;
+  }
+
   .rosas-inspired .hero-names {
     font-size: clamp(2.55rem, 13vw, 3.8rem);
   }
@@ -1528,6 +1694,10 @@ body.gallery-lightbox-open {
   }
 
   .rosas-inspired .header-chip::before {
+    animation: none;
+  }
+
+  .rosas-inspired .floating-rsvp-button {
     animation: none;
   }
 

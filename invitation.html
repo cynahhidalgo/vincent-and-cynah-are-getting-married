@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/everly.css?v=16" />
-    <link rel="stylesheet" href="css/rosas-inspired.css?v=65" />
+    <link rel="stylesheet" href="css/rosas-inspired.css?v=68" />
   </head>
   <body class="everly rosas-inspired">
     <a class="skip-link" href="#story">Skip to invitation</a>
@@ -27,7 +27,17 @@
           <span class="chip-days" id="header-days" aria-live="polite"></span>
         </span>
       </a>
-      <nav class="header-nav" aria-label="Sections">
+      <button
+        class="header-menu-toggle"
+        id="header-menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="header-nav"
+      >
+        <span class="header-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Menu</span>
+      </button>
+      <nav class="header-nav" id="header-nav" aria-label="Sections">
         <a href="#story">Story</a>
         <a href="#details">Details</a>
         <a href="#sponsors">Our Entourage</a>
@@ -294,6 +304,12 @@
 
     </main>
 
+    <a class="floating-rsvp-button" href="#rsvp" aria-label="Will you be there? Go to RSVP">
+      <span aria-hidden="true">♥</span>
+      <strong>Will you be there?</strong>
+      <small>RSVP</small>
+    </a>
+
     <button
       type="button"
       class="hero-music-btn"
@@ -310,7 +326,7 @@
     </footer>
 
     <script src="js/config.js?v=91"></script>
-    <script src="js/main.js?v=44"></script>
+    <script src="js/main.js?v=45"></script>
     <script>
       (function () {
         var daysEl = document.getElementById("cd-days");

@@ -83,6 +83,7 @@
     setupGoogleForm(cfg.googleFormUrl, cfg.googleFormEntries, cfg.googleFormMeta);
     initRsvpForm();
     initHeaderScroll();
+    initMobileMenu();
     initScrollSpy();
     initCountdown();
     initHeroMusic();
@@ -1126,6 +1127,40 @@
     }
   }
 
+  function initMobileMenu() {
+    const header = $("#header");
+    const toggle = $("#header-menu-toggle");
+    const nav = $("#header-nav");
+    if (!header || !toggle || !nav) return;
+
+    const close = () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.addEventListener("click", () => {
+      const willOpen = !nav.classList.contains("is-open");
+      nav.classList.toggle("is-open", willOpen);
+      toggle.setAttribute("aria-expanded", String(willOpen));
+    });
+
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) close();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target)) close();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) close();
+    });
+  }
+
   const WORD_REVEAL_SELECTORS = [
     ".section-title",
     ".detail-card h3",
@@ -1252,6 +1287,7 @@
     if (!cfg) {
       initRsvpForm();
       initHeaderScroll();
+      initMobileMenu();
       initCountdown();
     }
   }
