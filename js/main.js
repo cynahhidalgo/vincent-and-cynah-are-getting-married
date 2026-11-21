@@ -80,7 +80,7 @@
     initGuestbook(cfg.guestbook);
     initSeatingLookup(cfg.seating);
     renderGiftRegistry(cfg.giftRegistry);
-    setupGoogleForm(cfg.googleFormUrl, cfg.googleFormEntries);
+    setupGoogleForm(cfg.googleFormUrl, cfg.googleFormEntries, cfg.googleFormMeta);
     initRsvpForm();
     initHeaderScroll();
     initScrollSpy();
@@ -694,7 +694,7 @@
     });
   }
 
-  function setupGoogleForm(url, entries = {}) {
+  function setupGoogleForm(url, entries = {}, meta = {}) {
     const wrap = $("#google-form-wrap");
     const form = $("#rsvp-form");
     const setup = $("#google-form-setup");
@@ -726,6 +726,13 @@
           control.name = `entry.${entries[field]}`;
         }
       });
+      Object.entries(meta).forEach(([name, value]) => {
+        const hidden = document.createElement("input");
+        hidden.type = "hidden";
+        hidden.name = name;
+        hidden.value = value;
+        form.appendChild(hidden);
+      });
       if (wrap) wrap.hidden = true;
       form.hidden = false;
       if (setup) setup.hidden = true;
@@ -746,7 +753,7 @@
     const form = $("#rsvp-form");
     const success = $("#rsvp-success");
     if (!form) return;
-    const submissionKey = "vincent-cynah-rsvp-submitted";
+    const submissionKey = "vincent-cynah-rsvp-submitted-v2";
     const submittedMessage =
       "Your RSVP has already been submitted. Thank you — we have saved your response and cannot wait to celebrate with you!";
 
@@ -767,25 +774,45 @@
       if (form.dataset.googleConnected === "true") {
         const nameField =
           form.querySelector('[data-rsvp-field="name"]') || form.elements.namedItem("name");
-        try {
-          localStorage.setItem(
-            submissionKey,
-            JSON.stringify({
-              name: String(nameField?.value || "").trim(),
-              submittedAt: new Date().toISOString(),
-            })
-          );
-        } catch (_) {
-          /* Submission still proceeds if browser storage is unavailable. */
-        }
-        window.setTimeout(() => {
+        const responseFrame = document.querySelector('iframe[name="google-form-response-frame"]');
+        const submitButton = form.querySelector('[type="submit"]');
+        const originalButtonText = submitButton?.textContent || "Send RSVP";
+        let completed = false;
+
+        const finishSubmission = () => {
+          if (completed) return;
+          completed = true;
+          try {
+            localStorage.setItem(
+              submissionKey,
+              JSON.stringify({
+                name: String(nameField?.value || "").trim(),
+                submittedAt: new Date().toISOString(),
+              })
+            );
+          } catch (_) {
+            /* Submission still succeeds if browser storage is unavailable. */
+          }
           form.hidden = true;
           if (success) {
             success.textContent = submittedMessage;
             success.hidden = false;
           }
           form.reset();
-        }, 250);
+        };
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending RSVP…";
+        }
+        responseFrame?.addEventListener("load", finishSubmission, { once: true });
+        window.setTimeout(() => {
+          if (completed) return;
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        }, 15000);
         return;
       }
       e.preventDefault();

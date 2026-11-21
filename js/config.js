@@ -295,6 +295,13 @@ window.WEDDING_CONFIG = {
     plusOne: "524891825",
     message: "589781160",
   },
+  googleFormMeta: {
+    fvv: "1",
+    partialResponse: '[null,null,"8123278294597602685"]',
+    pageHistory: "0",
+    fbzx: "8123278294597602685",
+    submissionTimestamp: "-1",
+  },
 
   guestbook: {
     title: "Messages & Memories",
