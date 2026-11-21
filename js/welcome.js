@@ -48,7 +48,7 @@
   }
 
   set("welcome-date", w.dateLine || cfg.dateLong || cfg.dateDisplay);
-  set("welcome-rsvp", cfg.rsvpDeadline);
+  set("welcome-rsvp", w.rsvpLine || cfg.rsvpDeadline);
   set(
     "welcome-venue",
     w.venueLine || v.area || v.name

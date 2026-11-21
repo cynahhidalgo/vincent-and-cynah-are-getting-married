@@ -51,6 +51,7 @@ window.WEDDING_CONFIG = {
     receptionTime: "4:00 PM",
     receptionVenue: "Paulino's Event Hall and Cafe",
     subline: "Tap to enter our celebration.",
+    rsvpLine: "You are invited!",
     cta: "Tap to see more details",
     invitationPath: "invitation.html",
     monogram: "images/welcome-monogram-transparent.png",
