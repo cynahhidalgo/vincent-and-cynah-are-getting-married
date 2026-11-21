@@ -306,10 +306,7 @@ We are happy to share this special milestone with you, and it would mean so much
   },
   googleFormMeta: {
     fvv: "1",
-    partialResponse: '[null,null,"8123278294597602685"]',
     pageHistory: "0",
-    fbzx: "8123278294597602685",
-    submissionTimestamp: "-1",
   },
 
   guestbook: {
