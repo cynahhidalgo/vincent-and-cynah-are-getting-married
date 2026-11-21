@@ -80,7 +80,7 @@
     initGuestbook(cfg.guestbook);
     initSeatingLookup(cfg.seating);
     renderGiftRegistry(cfg.giftRegistry);
-    setupGoogleForm(cfg.googleFormUrl);
+    setupGoogleForm(cfg.googleFormUrl, cfg.googleFormEntries);
     initRsvpForm();
     initHeaderScroll();
     initScrollSpy();
@@ -114,18 +114,22 @@
           return `<img class="story-photo${index === 0 ? " is-active" : ""}" src="${escapeHtml(imgSrc(src))}" alt="${escapeHtml(alt)}" loading="${index === 0 ? "eager" : "lazy"}" />`;
         })
         .join("");
+      const position =
+        pictures.length <= 10
+          ? `<div class="story-photo-dots" role="tablist" aria-label="Choose a photo">
+              ${pictures
+                .map(
+                  (_, index) =>
+                    `<button type="button" class="story-photo-dot${index === 0 ? " is-active" : ""}" aria-label="Photo ${index + 1} of ${pictures.length}" aria-selected="${index === 0}"></button>`
+                )
+                .join("")}
+            </div>`
+          : `<span class="story-photo-counter" aria-live="polite">1 / ${pictures.length}</span>`;
       const controls =
         pictures.length > 1
           ? `<div class="story-photo-controls">
               <button type="button" class="story-photo-btn story-photo-prev" aria-label="Previous photo">‹</button>
-              <div class="story-photo-dots" role="tablist" aria-label="Choose a photo">
-                ${pictures
-                  .map(
-                    (_, index) =>
-                      `<button type="button" class="story-photo-dot${index === 0 ? " is-active" : ""}" aria-label="Photo ${index + 1} of ${pictures.length}" aria-selected="${index === 0}"></button>`
-                  )
-                  .join("")}
-              </div>
+              ${position}
               <button type="button" class="story-photo-btn story-photo-next" aria-label="Next photo">›</button>
             </div>`
           : "";
@@ -138,6 +142,7 @@
     $$(".story-photo-slideshow").forEach((slideshow) => {
       const photos = Array.from(slideshow.querySelectorAll(".story-photo"));
       const dots = Array.from(slideshow.querySelectorAll(".story-photo-dot"));
+      const counter = slideshow.querySelector(".story-photo-counter");
       if (photos.length < 2) return;
       let photoIndex = 0;
       let photoTimer;
@@ -160,15 +165,7 @@
           dot.classList.toggle("is-active", active);
           dot.setAttribute("aria-selected", String(active));
         });
-
-        const activePhoto = photos[photoIndex];
-        const fitBoxToPhoto = () => {
-          if (activePhoto.naturalWidth && activePhoto.naturalHeight) {
-            slideshow.style.aspectRatio = `${activePhoto.naturalWidth} / ${activePhoto.naturalHeight}`;
-          }
-        };
-        if (activePhoto.complete) fitBoxToPhoto();
-        else activePhoto.addEventListener("load", fitBoxToPhoto, { once: true });
+        if (counter) counter.textContent = `${photoIndex + 1} / ${photos.length}`;
 
         scheduleNextPhoto();
       };
@@ -405,6 +402,13 @@
           swatches.appendChild(color);
         });
         motif.appendChild(swatches);
+
+        if (invitation.motifNote) {
+          const note = document.createElement("p");
+          note.className = "entourage-motif-note";
+          note.textContent = invitation.motifNote;
+          motif.appendChild(note);
+        }
       }
     }
 
@@ -486,11 +490,73 @@
   function renderGallery(items) {
     const grid = $("#gallery-grid");
     if (!grid || !items?.length) return;
+    const images = items.map((src) => imgSrc(src));
     grid.innerHTML = "";
-    items.forEach((src, i) => {
+    images.forEach((src, i) => {
       const fig = document.createElement("figure");
-      fig.innerHTML = `<img src="${escapeHtml(imgSrc(src))}" alt="Moments Before I Do ${i + 1}" loading="lazy" />`;
+      fig.innerHTML = `
+        <button class="gallery-view-button" type="button" aria-label="View Moments Before I Do photo ${i + 1} full size">
+          <img src="${escapeHtml(src)}" alt="Moments Before I Do ${i + 1}" loading="lazy" />
+        </button>`;
       grid.appendChild(fig);
+    });
+
+    const lightbox = document.createElement("div");
+    lightbox.className = "gallery-lightbox";
+    lightbox.id = "gallery-lightbox";
+    lightbox.hidden = true;
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Moments Before I Do image viewer");
+    lightbox.innerHTML = `
+      <button class="gallery-lightbox-close" type="button" aria-label="Close image viewer">&times;</button>
+      <button class="gallery-lightbox-nav gallery-lightbox-prev" type="button" aria-label="Previous image">&#8249;</button>
+      <figure class="gallery-lightbox-figure">
+        <img class="gallery-lightbox-image" src="" alt="" />
+        <figcaption class="gallery-lightbox-count" aria-live="polite"></figcaption>
+      </figure>
+      <button class="gallery-lightbox-nav gallery-lightbox-next" type="button" aria-label="Next image">&#8250;</button>`;
+    document.body.appendChild(lightbox);
+
+    const image = lightbox.querySelector(".gallery-lightbox-image");
+    const count = lightbox.querySelector(".gallery-lightbox-count");
+    const closeButton = lightbox.querySelector(".gallery-lightbox-close");
+    let activeIndex = 0;
+
+    function showImage(index) {
+      activeIndex = (index + images.length) % images.length;
+      image.src = images[activeIndex];
+      image.alt = `Moments Before I Do ${activeIndex + 1}`;
+      count.textContent = `${activeIndex + 1} / ${images.length}`;
+    }
+
+    function openLightbox(index) {
+      showImage(index);
+      lightbox.hidden = false;
+      document.body.classList.add("gallery-lightbox-open");
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      document.body.classList.remove("gallery-lightbox-open");
+      grid.querySelectorAll(".gallery-view-button")[activeIndex]?.focus();
+    }
+
+    grid.querySelectorAll(".gallery-view-button").forEach((button, index) => {
+      button.addEventListener("click", () => openLightbox(index));
+    });
+    closeButton.addEventListener("click", closeLightbox);
+    lightbox.querySelector(".gallery-lightbox-prev").addEventListener("click", () => showImage(activeIndex - 1));
+    lightbox.querySelector(".gallery-lightbox-next").addEventListener("click", () => showImage(activeIndex + 1));
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (lightbox.hidden) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showImage(activeIndex - 1);
+      if (event.key === "ArrowRight") showImage(activeIndex + 1);
     });
   }
 
@@ -628,12 +694,40 @@
     });
   }
 
-  function setupGoogleForm(url) {
+  function setupGoogleForm(url, entries = {}) {
     const wrap = $("#google-form-wrap");
     const form = $("#rsvp-form");
     const setup = $("#google-form-setup");
     const iframe = $("#google-form-iframe");
     if (!url) return;
+
+    const fields = ["name", "email", "attending", "plusOne", "message"];
+    const hasMappedFields = form && fields.every((field) => entries[field]);
+    if (hasMappedFields) {
+      let responseUrl = url.trim().replace(/\/viewform.*$/, "/formResponse");
+      const targetName = "google-form-response-frame";
+      let responseFrame = document.querySelector(`iframe[name="${targetName}"]`);
+      if (!responseFrame) {
+        responseFrame = document.createElement("iframe");
+        responseFrame.name = targetName;
+        responseFrame.hidden = true;
+        responseFrame.title = "Google Form response";
+        document.body.appendChild(responseFrame);
+      }
+
+      form.action = responseUrl;
+      form.method = "POST";
+      form.target = targetName;
+      form.dataset.googleConnected = "true";
+      fields.forEach((field) => {
+        const control = form.elements.namedItem(field);
+        if (control) control.name = `entry.${entries[field]}`;
+      });
+      if (wrap) wrap.hidden = true;
+      form.hidden = false;
+      if (setup) setup.hidden = true;
+      return;
+    }
 
     let embed = url.trim();
     if (embed.includes("/viewform")) {
@@ -650,6 +744,14 @@
     const success = $("#rsvp-success");
     if (!form) return;
     form.addEventListener("submit", (e) => {
+      if (form.dataset.googleConnected === "true") {
+        window.setTimeout(() => {
+          form.hidden = true;
+          if (success) success.hidden = false;
+          form.reset();
+        }, 250);
+        return;
+      }
       e.preventDefault();
       form.hidden = true;
       if (success) success.hidden = false;
