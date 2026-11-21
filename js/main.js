@@ -721,7 +721,10 @@
       form.dataset.googleConnected = "true";
       fields.forEach((field) => {
         const control = form.elements.namedItem(field);
-        if (control) control.name = `entry.${entries[field]}`;
+        if (control) {
+          control.dataset.rsvpField = field;
+          control.name = `entry.${entries[field]}`;
+        }
       });
       if (wrap) wrap.hidden = true;
       form.hidden = false;
@@ -743,11 +746,44 @@
     const form = $("#rsvp-form");
     const success = $("#rsvp-success");
     if (!form) return;
+    const submissionKey = "vincent-cynah-rsvp-submitted";
+    const submittedMessage =
+      "Your RSVP has already been submitted. Thank you — we have saved your response and cannot wait to celebrate with you!";
+
+    try {
+      if (localStorage.getItem(submissionKey)) {
+        form.hidden = true;
+        if (success) {
+          success.textContent = submittedMessage;
+          success.hidden = false;
+        }
+        return;
+      }
+    } catch (_) {
+      /* Browser storage may be unavailable in private contexts. */
+    }
+
     form.addEventListener("submit", (e) => {
       if (form.dataset.googleConnected === "true") {
+        const nameField =
+          form.querySelector('[data-rsvp-field="name"]') || form.elements.namedItem("name");
+        try {
+          localStorage.setItem(
+            submissionKey,
+            JSON.stringify({
+              name: String(nameField?.value || "").trim(),
+              submittedAt: new Date().toISOString(),
+            })
+          );
+        } catch (_) {
+          /* Submission still proceeds if browser storage is unavailable. */
+        }
         window.setTimeout(() => {
           form.hidden = true;
-          if (success) success.hidden = false;
+          if (success) {
+            success.textContent = submittedMessage;
+            success.hidden = false;
+          }
           form.reset();
         }, 250);
         return;
