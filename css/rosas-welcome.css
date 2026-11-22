@@ -413,6 +413,75 @@ body.rosas-welcome-page {
   color: rgba(243, 229, 211, 0.42);
 }
 
+.welcome-guest-lookup {
+  width: min(32rem, 100%);
+  margin-top: 1.15rem;
+}
+
+.welcome-guest-lookup label {
+  display: block;
+  margin-bottom: 0.42rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(227, 201, 141, 0.76);
+}
+
+.welcome-guest-lookup__controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.65rem;
+}
+
+.welcome-guest-lookup input {
+  min-width: 0;
+  padding: 0.72rem 0.2rem;
+  border: 0;
+  border-bottom: 1px solid rgba(227, 201, 141, 0.42);
+  border-radius: 0;
+  font: 1rem "Cormorant Garamond", Georgia, serif;
+  color: var(--editorial-ivory);
+  background: transparent;
+}
+
+.welcome-guest-lookup input::placeholder {
+  color: rgba(243, 229, 211, 0.38);
+}
+
+.welcome-guest-lookup input:focus {
+  outline: 0;
+  border-color: var(--editorial-gold);
+}
+
+.welcome-guest-lookup button {
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(227, 201, 141, 0.62);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--editorial-rose-deep);
+  background: var(--editorial-gold);
+  cursor: pointer;
+}
+
+.welcome-guest-lookup button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.welcome-guest-result {
+  margin: 1rem 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--editorial-gold);
+}
+
+.welcome-guest-result.is-found {
+  color: var(--editorial-ivory);
+}
+
 .rosas-editorial-welcome__button {
   display: inline-block;
   min-width: 12rem;
@@ -432,6 +501,10 @@ body.rosas-welcome-page {
     color 0.25s ease,
     background 0.25s ease,
     transform 0.25s ease;
+}
+
+.rosas-editorial-welcome__button[hidden] {
+  display: none;
 }
 
 .rosas-editorial-welcome__button:hover,
@@ -652,6 +725,13 @@ body.rosas-welcome-page {
   .rosas-editorial-welcome__content {
     width: min(34rem, 82vw);
     padding: 8rem 0 3rem;
+    text-align: center;
+  }
+
+  .rosas-editorial-welcome__divider {
+    width: min(22rem, 100%);
+    margin-inline: auto;
+    background: linear-gradient(90deg, transparent, rgba(200, 165, 104, 0.65), transparent);
   }
 
   .rosas-editorial-welcome__photo {
@@ -696,6 +776,10 @@ body.rosas-welcome-page {
 
   .rosas-editorial-welcome__monogram {
     width: clamp(14rem, 68vw, 18rem);
+  }
+
+  .welcome-guest-lookup__controls {
+    grid-template-columns: 1fr;
   }
 }
 

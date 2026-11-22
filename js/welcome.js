@@ -60,16 +60,142 @@
   const tap = document.getElementById("welcome-envelope-tap");
   const card = document.getElementById("welcome-envelope-card");
   const enter = document.getElementById("welcome-enter");
+  const guestLookupForm = document.getElementById("welcome-guest-lookup");
+  const guestResult = document.getElementById("welcome-guest-result");
+  const verifiedGuestKey = "vincent-cynah-verified-guest";
   const modal = document.getElementById("welcome-invitation-modal");
   const frame = document.getElementById("welcome-invitation-frame");
   const closeBtn = document.getElementById("welcome-invitation-close");
   const backdrop = document.getElementById("welcome-invitation-backdrop");
   let isNavigating = false;
 
+  function readVerifiedGuest() {
+    try {
+      const guest = JSON.parse(sessionStorage.getItem(verifiedGuestKey) || "null");
+      return guest?.name && Number(guest?.seats) > 0 ? guest : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function saveVerifiedGuest(guest) {
+    try {
+      sessionStorage.setItem(verifiedGuestKey, JSON.stringify(guest));
+    } catch (_) {
+      /* Session storage may be unavailable in private contexts. */
+    }
+  }
+
+  function clearVerifiedGuest() {
+    try {
+      sessionStorage.removeItem(verifiedGuestKey);
+    } catch (_) {
+      /* Session storage may be unavailable in private contexts. */
+    }
+  }
+
+  function requestGuestAllocation(url, name) {
+    return new Promise((resolve, reject) => {
+      const callbackName = `welcomeGuestLookup_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+      const script = document.createElement("script");
+      const timeout = window.setTimeout(() => finish(new Error("Guest lookup timed out")), 12000);
+
+      function cleanup() {
+        window.clearTimeout(timeout);
+        script.remove();
+        try {
+          delete window[callbackName];
+        } catch (_) {
+          window[callbackName] = undefined;
+        }
+      }
+
+      function finish(error, data) {
+        cleanup();
+        if (error) reject(error);
+        else resolve(data);
+      }
+
+      window[callbackName] = (data) => finish(null, data);
+      script.onerror = () => finish(new Error("Guest lookup failed"));
+      const endpoint = new URL(url);
+      endpoint.searchParams.set("name", name);
+      endpoint.searchParams.set("callback", callbackName);
+      script.src = endpoint.toString();
+      document.head.appendChild(script);
+    });
+  }
+
+  function showVerifiedGuest(guest) {
+    const seats = Math.max(1, Number.parseInt(guest.seats, 10) || 1);
+    const seatWord = seats === 1 ? "seat" : "seats";
+    if (guestResult) {
+      guestResult.textContent = `Welcome, ${guest.name}. We have reserved ${seats} ${seatWord} for you.`;
+      guestResult.classList.add("is-found");
+      guestResult.hidden = false;
+    }
+    if (enter) enter.hidden = false;
+  }
+
   if (enter) {
     enter.href = path;
     enter.textContent = w.cta || "Open invitation";
   }
+
+  const savedGuest = readVerifiedGuest();
+  if (savedGuest) showVerifiedGuest(savedGuest);
+
+  guestLookupForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const input = guestLookupForm.elements.namedItem("guestName");
+    const button = guestLookupForm.querySelector('[type="submit"]');
+    const name = String(input?.value || "").trim();
+    if (!name || !cfg.rsvpGuestLookup?.url) return;
+
+    clearVerifiedGuest();
+    if (enter) enter.hidden = true;
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Checking…";
+    }
+    if (guestResult) guestResult.hidden = true;
+
+    try {
+      const response = await requestGuestAllocation(cfg.rsvpGuestLookup.url, name);
+      if (!response?.found) {
+        if (guestResult) {
+          guestResult.textContent =
+            response?.message ||
+            cfg.rsvpGuestLookup.notFound ||
+            "We could not find that invited name.";
+          guestResult.classList.remove("is-found");
+          guestResult.hidden = false;
+        }
+        return;
+      }
+
+      const guest = {
+        name: response.name || name,
+        seats: Math.max(1, Number.parseInt(response.seats, 10) || 1),
+        verifiedAt: new Date().toISOString(),
+      };
+      saveVerifiedGuest(guest);
+      showVerifiedGuest(guest);
+    } catch (_) {
+      if (guestResult) {
+        guestResult.textContent =
+          cfg.rsvpGuestLookup.error ||
+          "We could not check the guest list right now. Please try again.";
+        guestResult.classList.remove("is-found");
+        guestResult.hidden = false;
+      }
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = "Check invitation";
+      }
+    }
+  });
 
   const hero = cfg.images?.hero;
   if (card && hero) {
@@ -81,6 +207,10 @@
   const modalMotionMs = prefersReducedMotion ? 120 : 920;
 
   function navigateToInvitation() {
+    if (!readVerifiedGuest()) {
+      document.getElementById("welcome-guest-name")?.focus();
+      return;
+    }
     if (isNavigating) return;
     isNavigating = true;
     if (enter) enter.textContent = "Opening invitation…";
@@ -94,6 +224,10 @@
   }
 
   function showInvitationModal() {
+    if (!readVerifiedGuest()) {
+      document.getElementById("welcome-guest-name")?.focus();
+      return;
+    }
     if (!modal || !frame) {
       navigateToInvitation();
       return;

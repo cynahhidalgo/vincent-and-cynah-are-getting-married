@@ -4,6 +4,16 @@
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
+  const verifiedGuestKey = "vincent-cynah-verified-guest";
+
+  function readVerifiedGuest() {
+    try {
+      const guest = JSON.parse(sessionStorage.getItem(verifiedGuestKey) || "null");
+      return guest?.name && Number(guest?.seats) > 0 ? guest : null;
+    } catch (_) {
+      return null;
+    }
+  }
 
   /** Resolve paths under local `images/` (see WEDDING_CONFIG.imagesBase). */
   function imgSrc(path) {
@@ -77,16 +87,20 @@
     renderEntourageInvitation(cfg.entourageInvitation);
     renderGallery(cfg.images?.gallery);
     applyFeatureVisibility(cfg.features);
+    applyGuestbookAvailability(cfg.guestbook);
+    applySeatingAvailability(cfg.seating);
     initGuestbook(cfg.guestbook);
     initSeatingLookup(cfg.seating);
     renderGiftRegistry(cfg.giftRegistry);
     setupGoogleForm(cfg.googleFormUrl, cfg.googleFormEntries, cfg.googleFormMeta);
+    applyVerifiedGuestToRsvp(readVerifiedGuest());
     initRsvpForm();
     initHeaderScroll();
     initMobileMenu();
     initScrollSpy();
     initCountdown();
     initHeroMusic();
+    initMomentsVideoMusicPause();
   }
 
   function initCountdown() {
@@ -591,6 +605,44 @@
     });
   }
 
+  function applyScheduledSectionAvailability(sectionId, openAfter, enabled = true) {
+    const section = document.getElementById(sectionId);
+    const links = $$(`.header-nav a[href="#${sectionId}"]`);
+    if (!section || !enabled) return;
+
+    const opensAt = Date.parse(openAfter || "");
+    const update = () => {
+      const isOpen = !Number.isFinite(opensAt) || Date.now() >= opensAt;
+      section.hidden = !isOpen;
+      links.forEach((link) => {
+        link.hidden = !isOpen;
+      });
+
+      if (!isOpen) {
+        const remaining = Math.max(1000, opensAt - Date.now());
+        window.setTimeout(update, Math.min(remaining, 60 * 60 * 1000));
+      }
+    };
+
+    update();
+  }
+
+  function applyGuestbookAvailability(guestbook = {}) {
+    applyScheduledSectionAvailability(
+      "guestbook",
+      guestbook.openAfter,
+      cfg?.features?.guestbook !== false
+    );
+  }
+
+  function applySeatingAvailability(seating = {}) {
+    applyScheduledSectionAvailability(
+      "seating",
+      seating.openAfter,
+      cfg?.features?.seating !== false
+    );
+  }
+
   function guestbookStorageRead(key) {
     if (!key) return [];
     try {
@@ -761,9 +813,60 @@
     if (setup) setup.hidden = true;
   }
 
+  function applyVerifiedGuestToRsvp(guest) {
+    const form = document.getElementById("rsvp-form");
+    const summary = document.getElementById("rsvp-verified-guest");
+    if (!form || !guest) return;
+
+    const reservedSeats = Math.max(1, Number.parseInt(guest.seats, 10) || 1);
+    const companionCount = Math.max(0, reservedSeats - 1);
+    const seatWord = reservedSeats === 1 ? "seat" : "seats";
+    const nameField =
+      form.querySelector('[data-rsvp-field="name"]') || form.elements.namedItem("name");
+    const companionLabel = document.getElementById("rsvp-companion-label");
+    const companionText = document.getElementById("rsvp-companion-text");
+    const companionInput =
+      document.getElementById("rsvp-companion-input") ||
+      form.querySelector('[data-rsvp-field="plusOne"]');
+
+    if (nameField) {
+      nameField.value = guest.name;
+      nameField.readOnly = true;
+    }
+
+    if (summary) {
+      summary.innerHTML = `
+        <p class="seating-result-label">Welcome, ${escapeHtml(guest.name)}</p>
+        <h3>${reservedSeats} reserved ${seatWord}</h3>
+        <p>Please confirm your attendance below.</p>`;
+      summary.classList.add("is-found");
+      summary.hidden = false;
+    }
+
+    if (companionLabel && companionInput) {
+      companionLabel.hidden = companionCount === 0;
+      companionInput.required = companionCount > 0;
+      companionInput.value = companionCount === 0 ? "No companion" : "";
+      companionInput.placeholder =
+        companionCount === 1
+          ? "Enter your companion's name"
+          : `Enter up to ${companionCount} companion names, separated by commas`;
+      if (companionText) {
+        companionText.textContent =
+          companionCount === 1
+            ? "Companion name"
+            : `Companion names — up to ${companionCount}`;
+      }
+    }
+
+    form.dataset.reservedSeats = String(reservedSeats);
+    form.hidden = false;
+  }
+
   function initRsvpForm() {
     const form = $("#rsvp-form");
     const success = $("#rsvp-success");
+    const verifiedGuest = $("#rsvp-verified-guest");
     if (!form) return;
     const submissionKey = "vincent-cynah-rsvp-submitted-v2";
     const submittedMessage =
@@ -772,6 +875,7 @@
     try {
       if (localStorage.getItem(submissionKey)) {
         form.hidden = true;
+        if (verifiedGuest) verifiedGuest.hidden = true;
         if (success) {
           success.textContent = submittedMessage;
           success.hidden = false;
@@ -782,7 +886,42 @@
       /* Browser storage may be unavailable in private contexts. */
     }
 
+    const attendingField =
+      form.querySelector('[data-rsvp-field="attending"]') || form.elements.namedItem("attending");
+    const companionField =
+      form.querySelector('[data-rsvp-field="plusOne"]') || form.elements.namedItem("plusOne");
+    const maxCompanions = Math.max(0, Number(form.dataset.reservedSeats || 1) - 1);
+
+    const updateCompanionRequirement = () => {
+      if (!companionField) return;
+      companionField.required =
+        maxCompanions > 0 && attendingField?.value === "Joyfully accepts";
+      companionField.setCustomValidity("");
+    };
+    attendingField?.addEventListener("change", updateCompanionRequirement);
+    updateCompanionRequirement();
+
     form.addEventListener("submit", (e) => {
+      if (
+        companionField &&
+        maxCompanions > 0 &&
+        attendingField?.value === "Joyfully accepts"
+      ) {
+        const companions = String(companionField.value || "")
+          .split(/[,;\n]+/)
+          .map((name) => name.trim())
+          .filter(Boolean);
+        if (companions.length > maxCompanions) {
+          e.preventDefault();
+          companionField.setCustomValidity(
+            `Please enter no more than ${maxCompanions} companion ${maxCompanions === 1 ? "name" : "names"}.`
+          );
+          companionField.reportValidity();
+          return;
+        }
+        companionField.setCustomValidity("");
+      }
+
       if (form.dataset.googleConnected === "true") {
         const nameField =
           form.querySelector('[data-rsvp-field="name"]') || form.elements.namedItem("name");
@@ -806,6 +945,7 @@
             /* Submission still succeeds if browser storage is unavailable. */
           }
           form.hidden = true;
+          if (verifiedGuest) verifiedGuest.hidden = true;
           if (success) {
             success.textContent = submittedMessage;
             success.hidden = false;
@@ -880,6 +1020,7 @@
   let heroMusicPlayer = null;
   let heroMusicPlayerReady = false;
   let heroMusicWantsPlay = false;
+  let localHeroMusicController = null;
 
   function loadYouTubeIframeApi() {
     return new Promise((resolve) => {
@@ -1001,6 +1142,14 @@
       btn.setAttribute("aria-label", enabled ? "Turn off wedding music" : "Turn on wedding music");
     }
 
+    localHeroMusicController = {
+      stop() {
+        enabled = false;
+        audio.pause();
+        updateButton();
+      },
+    };
+
     function playIfAllowed() {
       if (!enabled || (!heroVisible && music.pauseWhenLeave !== false)) return;
       audio.play().catch(() => {
@@ -1040,6 +1189,43 @@
     };
     document.addEventListener("pointerdown", resumeAfterBlockedAutoplay, { once: true });
     document.addEventListener("keydown", resumeAfterBlockedAutoplay, { once: true });
+  }
+
+  function stopBackgroundMusicForVideo() {
+    localHeroMusicController?.stop();
+    heroMusicWantsPlay = false;
+
+    if (heroMusicPlayerReady && heroMusicPlayer) {
+      try {
+        heroMusicPlayer.pauseVideo();
+      } catch (_) {
+        /* player may no longer be available */
+      }
+    }
+
+    const btn = document.getElementById("hero-music-btn");
+    if (btn) {
+      btn.setAttribute("aria-pressed", "false");
+      btn.setAttribute("aria-label", "Turn on wedding music");
+    }
+  }
+
+  function initMomentsVideoMusicPause() {
+    const iframe = document.getElementById("moments-video-frame");
+    if (!iframe) return;
+
+    loadYouTubeIframeApi().then(() => {
+      if (!window.YT?.Player) return;
+      new window.YT.Player(iframe, {
+        events: {
+          onStateChange: (event) => {
+            if (event.data === window.YT.PlayerState.PLAYING) {
+              stopBackgroundMusicForVideo();
+            }
+          },
+        },
+      });
+    });
   }
 
   function ensureHeroMusicPlayer(videoId, host, onReady) {
@@ -1282,6 +1468,10 @@
   }
 
   function boot() {
+    if (!readVerifiedGuest()) {
+      window.location.replace("index.html");
+      return;
+    }
     applyConfig();
     initScrollReveal();
     if (!cfg) {

@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&family=Great+Vibes&family=Pinyon+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/rosas-welcome.css?v=32" />
+    <link rel="stylesheet" href="css/rosas-welcome.css?v=34" />
   </head>
   <body class="rosas-welcome-page">
     <main class="rosas-editorial-welcome" id="welcome-screen">
@@ -37,7 +37,22 @@
         <p class="rosas-editorial-welcome__rsvp" id="welcome-rsvp">
           You are invited!
         </p>
-        <a class="rosas-editorial-welcome__button" id="welcome-enter" href="invitation.html">
+        <form class="welcome-guest-lookup" id="welcome-guest-lookup">
+          <label for="welcome-guest-name">Invited name</label>
+          <div class="welcome-guest-lookup__controls">
+            <input
+              id="welcome-guest-name"
+              name="guestName"
+              type="search"
+              autocomplete="name"
+              placeholder="Enter the name on your invitation"
+              required
+            />
+            <button type="submit">Check invitation</button>
+          </div>
+        </form>
+        <p class="welcome-guest-result" id="welcome-guest-result" role="status" aria-live="polite" hidden></p>
+        <a class="rosas-editorial-welcome__button" id="welcome-enter" href="invitation.html" hidden>
           Tap to see more details
         </a>
       </section>
@@ -48,7 +63,7 @@
       </div>
     </main>
 
-    <script src="js/config.js?v=93"></script>
-    <script src="js/welcome.js?v=26"></script>
+    <script src="js/config.js?v=97"></script>
+    <script src="js/welcome.js?v=27"></script>
   </body>
 </html>

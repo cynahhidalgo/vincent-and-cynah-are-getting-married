@@ -309,10 +309,16 @@ We are happy to share this special milestone with you, and it would mean so much
     fvv: "1",
     pageHistory: "0",
   },
+  rsvpGuestLookup: {
+    url: "https://script.google.com/macros/s/AKfycbyXERXCvdGA7oM1PbZcBZjyh0197VT9iq6uiGYt3PX5pskHKzhAVWvVBx2C7RE-SrcO0g/exec",
+    notFound: "We could not find that invited name. Please check the spelling or contact Vincent and Cynah.",
+    error: "We could not check the guest list right now. Please try again in a moment.",
+  },
 
   guestbook: {
     title: "Messages & Memories",
     intro: "Leave us a note, a wish, or a favorite memory to carry into our next chapter.",
+    openAfter: "2027-01-03T00:00:00+08:00",
     storageKey: "vincent-cynah-guestbook",
     localOnlyNote:
       "Messages are stored on this browser until a shared guestbook service is connected.",
@@ -327,6 +333,7 @@ We are happy to share this special milestone with you, and it would mean so much
   seating: {
     title: "Find Your Seat",
     intro: "Enter the guest name used on your invitation to view the assigned table.",
+    openAfter: "2027-01-03T00:00:00+08:00",
     notFound:
       "We could not find that name yet. Please check the spelling or contact Vincent and Cynah.",
     assignments: [

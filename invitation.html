@@ -43,7 +43,7 @@
         <a href="#sponsors">Our Entourage</a>
         <a href="#gallery" title="Moments Before I Do">Before &quot;I do&quot;</a>
         <a href="#rsvp">RSVP</a>
-        <a href="#guestbook">Guestbook</a>
+        <a href="#guestbook" data-guestbook-link hidden>Guestbook</a>
         <a href="#registry">Registry</a>
       </nav>
     </header>
@@ -167,8 +167,9 @@
           <p class="section-sub glimpses-sub">Wandering Into Forever — Every adventure brought us closer to this beautiful chapter.</p>
           <div class="moments-video">
             <iframe
+              id="moments-video-frame"
               class="moments-video-frame"
-              src="https://www.youtube-nocookie.com/embed/YyLhKrS_Ubg?autoplay=1&amp;mute=1&amp;playsinline=1&amp;rel=0"
+              src="https://www.youtube-nocookie.com/embed/YyLhKrS_Ubg?autoplay=1&amp;mute=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1"
               title="Vincent and Cynah wedding video"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -218,14 +219,20 @@
           <h2 class="section-title">Will You Be There?</h2>
           <p class="section-sub" data-field="rsvpDeadline"></p>
           <p class="rsvp-guest-note">
-            We'd love to celebrate with everyone special to us! However, due to limited seating, additional guests
-            will be subject to availability. If you'd like to bring a plus-one, kindly let us know in advance, and
-            we'll see if we can accommodate your request.
+            We have reserved the number of seats shown for your invitation. Please confirm your attendance and list
+            the companion names included in your allocation.
           </p>
+          <div
+            class="seating-result rsvp-verified-guest"
+            id="rsvp-verified-guest"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
           <div class="google-form-wrap" id="google-form-wrap" hidden>
             <iframe id="google-form-iframe" title="RSVP" loading="lazy"></iframe>
           </div>
-          <form class="rsvp-form" id="rsvp-form">
+          <form class="rsvp-form" id="rsvp-form" hidden>
             <label>Name<input type="text" name="name" required /></label>
             <label>Email<input type="email" name="email" required /></label>
             <label
@@ -236,9 +243,9 @@
                 <option value="Regretfully declines">Regretfully declines</option>
               </select>
             </label>
-            <label>
-              Do you have a +1? If yes, add their names here.
-              <input type="text" name="plusOne" placeholder="Enter name(s), or No" />
+            <label id="rsvp-companion-label">
+              <span id="rsvp-companion-text">Companion name</span>
+              <input id="rsvp-companion-input" type="text" name="plusOne" placeholder="Enter companion name" />
             </label>
             <label>Message<textarea name="message" rows="3"></textarea></label>
             <button type="submit" class="btn btn-primary">Send RSVP</button>
@@ -250,7 +257,7 @@
         </div>
       </section>
 
-      <section class="section section-muted guestbook-section" id="guestbook" data-feature="guestbook">
+      <section class="section section-muted guestbook-section" id="guestbook" data-feature="guestbook" hidden>
         <div class="container narrow">
           <h2 class="section-title" data-field="guestbookTitle">Messages &amp; Memories</h2>
           <p class="section-sub" data-field="guestbookIntro"></p>
@@ -270,7 +277,7 @@
         </div>
       </section>
 
-      <section class="section guest-tools-section" id="seating" data-feature="seating">
+      <section class="section guest-tools-section" id="seating" data-feature="seating" hidden>
         <div class="container narrow">
           <h2 class="section-title" data-field="seatingTitle">Find Your Seat</h2>
           <p class="section-sub" data-field="seatingIntro"></p>
@@ -325,8 +332,8 @@
       <p><span data-field="partner1-footer">Vincent</span> & <span data-field="partner2-footer">Cynah</span></p>
     </footer>
 
-    <script src="js/config.js?v=93"></script>
-    <script src="js/main.js?v=45"></script>
+    <script src="js/config.js?v=97"></script>
+    <script src="js/main.js?v=50"></script>
     <script>
       (function () {
         var daysEl = document.getElementById("cd-days");
