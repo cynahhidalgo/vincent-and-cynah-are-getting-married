@@ -24,7 +24,7 @@ window.WEDDING_CONFIG = {
   },
   partner1: "Vincent",
   partner2: "Cynah",
-  hashtag: "VincentAndCynah",
+  hashtag: "CYwasconVINCEd",
 
   weddingDateTime: "2027-02-12T13:00:00+08:00",
   dateDisplay: "Friday, February 12 · 2027",
