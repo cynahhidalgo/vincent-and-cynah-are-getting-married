@@ -43,7 +43,7 @@ window.WEDDING_CONFIG = {
     eyebrow: "You're invited",
     title: "Welcome to our celebration",
     inviteLine: "You are warmly invited",
-    dateLine: "February 12, 2027",
+    dateLine: "February 12, 2027 · 1:00 PM",
     ceremonyLine: "1:00 PM · Ceremony · Episcopal Church, Pico, La Trinidad",
     receptionLine: "Reception Follows at Paulino's Event Hall and Cafe",
     ceremonyTime: "1:00 PM",

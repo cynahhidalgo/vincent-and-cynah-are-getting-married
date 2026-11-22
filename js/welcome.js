@@ -142,6 +142,8 @@
     enter.textContent = w.cta || "Open invitation";
   }
 
+  const navigationEntry = performance.getEntriesByType?.("navigation")?.[0];
+  if (navigationEntry?.type === "reload") clearVerifiedGuest();
   const savedGuest = readVerifiedGuest();
   if (savedGuest) showVerifiedGuest(savedGuest);
 

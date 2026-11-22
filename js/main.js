@@ -15,6 +15,14 @@
     }
   }
 
+  function clearVerifiedGuest() {
+    try {
+      sessionStorage.removeItem(verifiedGuestKey);
+    } catch (_) {
+      /* Session storage may be unavailable in private contexts. */
+    }
+  }
+
   /** Resolve paths under local `images/` (see WEDDING_CONFIG.imagesBase). */
   function imgSrc(path) {
     if (!path) return "";
@@ -1468,6 +1476,12 @@
   }
 
   function boot() {
+    const navigationEntry = performance.getEntriesByType?.("navigation")?.[0];
+    if (navigationEntry?.type === "reload") {
+      clearVerifiedGuest();
+      window.location.replace("index.html");
+      return;
+    }
     if (!readVerifiedGuest()) {
       window.location.replace("index.html");
       return;
