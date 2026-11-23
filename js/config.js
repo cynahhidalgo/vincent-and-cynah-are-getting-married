@@ -82,6 +82,26 @@ We are happy to share this special milestone with you, and it would mean so much
 
   storyTimeline: [
     {
+      era: "May 2019",
+      place: "Baguio City",
+      title: "Our Story",
+      text: "It all started in college. We were classmates, became colleagues, and eventually good friends. We shared the same dreams, laughter, and memories, never knowing we'd one day become each other's forever. After graduation, friendship turned into love, and the rest is our story.",
+      images: [
+        {
+          src: "images/sun-moon-lake-taiwan-2.webp",
+          alt: "Vincent and Cynah during their journey together",
+        },
+        {
+          src: "images/hero-sun-moon-lake-final.jpg",
+          alt: "Vincent and Cynah at Shuishe Pier",
+        },
+        {
+          src: "images/story-where-it-all-started.jpg",
+          alt: "A shared adventure at Sun Moon Lake",
+        },
+      ],
+    },
+    {
       era: "December 2025",
       place: "Sun Moon Lake, Nantou, Taiwan",
       title: "The proposal",

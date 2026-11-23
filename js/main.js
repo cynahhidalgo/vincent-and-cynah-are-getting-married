@@ -1080,6 +1080,8 @@
     const btn = document.getElementById("hero-music-btn");
     if (!music || !section || !btn) return;
 
+    window.addEventListener("pagehide", stopBackgroundMusicForVideo, { once: true });
+
     if (music.audio) {
       initLocalHeroMusic(music, section, btn);
       return;
