@@ -541,6 +541,8 @@ body.rosas-inspired::before {
   outline: 5px solid rgba(244, 231, 209, 0.72);
   outline-offset: -10px;
   background:
+    url("../images/story-note-floral.svg") right 0.55rem top 0.45rem / clamp(7rem, 18vw, 11rem) auto no-repeat,
+    url("../images/story-note-floral.svg") left -0.8rem bottom -1rem / clamp(5rem, 13vw, 8rem) auto no-repeat,
     radial-gradient(circle at 3% 3%, rgba(71, 103, 72, 0.16), transparent 12rem),
     radial-gradient(circle at 97% 96%, rgba(112, 38, 58, 0.11), transparent 14rem),
     repeating-linear-gradient(
@@ -575,14 +577,7 @@ body.rosas-inspired::before {
 }
 
 .rosas-inspired #story .lead::after {
-  content: "❧";
-  position: absolute;
-  top: 0.65rem;
-  right: 1rem;
-  color: rgba(63, 91, 61, 0.58);
-  font-family: Georgia, serif;
-  font-size: clamp(1.5rem, 4vw, 2.15rem);
-  line-height: 1;
+  content: none;
 }
 
 @media (max-width: 520px) {

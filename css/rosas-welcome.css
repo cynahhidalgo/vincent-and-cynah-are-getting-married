@@ -436,22 +436,28 @@ body.rosas-welcome-page {
 
 .welcome-guest-lookup input {
   min-width: 0;
-  padding: 0.72rem 0.2rem;
-  border: 0;
-  border-bottom: 1px solid rgba(227, 201, 141, 0.42);
-  border-radius: 0;
+  padding: 0.72rem 0.7rem;
+  border: 1px solid rgba(227, 201, 141, 0.46);
+  border-radius: 0.18rem;
   font: 1rem "Cormorant Garamond", Georgia, serif;
   color: var(--editorial-ivory);
-  background: transparent;
+  background: rgba(243, 229, 211, 0.08);
+  box-shadow: inset 0 0 22px rgba(227, 201, 141, 0.035);
 }
 
 .welcome-guest-lookup input::placeholder {
-  color: rgba(243, 229, 211, 0.38);
+  font-weight: 500;
+  color: rgba(248, 238, 232, 0.78);
+  text-shadow: 0 1px 8px rgba(20, 3, 8, 0.4);
 }
 
 .welcome-guest-lookup input:focus {
   outline: 0;
   border-color: var(--editorial-gold);
+  background: rgba(243, 229, 211, 0.13);
+  box-shadow:
+    inset 0 0 22px rgba(227, 201, 141, 0.06),
+    0 0 0 2px rgba(200, 165, 104, 0.12);
 }
 
 .welcome-guest-lookup button {
