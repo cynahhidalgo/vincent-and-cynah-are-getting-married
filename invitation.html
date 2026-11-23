@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/everly.css?v=16" />
-    <link rel="stylesheet" href="css/rosas-inspired.css?v=69" />
+    <link rel="stylesheet" href="css/rosas-inspired.css?v=75" />
   </head>
   <body class="everly rosas-inspired">
     <a class="skip-link" href="#story">Skip to invitation</a>
@@ -62,13 +62,6 @@
           <p class="families" data-field="familiesLine">With the love and blessing of their families</p>
           <p class="hero-meta">
             <span class="hero-event-line" data-field="dateLong">Friday, February 12, 2027</span>
-            <span class="hero-event-line" data-field="ceremonyLine">
-              1:00 PM · Ceremony · Episcopal Church, Pico, La Trinidad
-            </span>
-            <span class="hero-event-line">
-              <span data-field="receptionLine">Reception Follows at Paulino's Event Hall and Cafe</span>
-              <span aria-hidden="true">, </span><span data-field="whenCity">Upper Lamtang</span>
-            </span>
           </p>
           <div class="countdown" aria-label="Countdown" data-wedding-datetime="2027-02-12T13:00:00+08:00">
             <div><span id="cd-days">--</span><small>Days</small></div>
@@ -169,7 +162,7 @@
             <iframe
               id="moments-video-frame"
               class="moments-video-frame"
-              src="https://www.youtube-nocookie.com/embed/YyLhKrS_Ubg?autoplay=1&amp;mute=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1"
+              src="https://www.youtube-nocookie.com/embed/YyLhKrS_Ubg?playsinline=1&amp;rel=0&amp;enablejsapi=1"
               title="Vincent and Cynah wedding video"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -218,10 +211,6 @@
         <div class="container narrow">
           <h2 class="section-title">Will You Be There?</h2>
           <p class="section-sub" data-field="rsvpDeadline"></p>
-          <p class="rsvp-guest-note">
-            We have reserved the number of seats shown for your invitation. Please confirm your attendance and list
-            the companion names included in your allocation.
-          </p>
           <div
             class="seating-result rsvp-verified-guest"
             id="rsvp-verified-guest"
@@ -246,6 +235,7 @@
             <label id="rsvp-companion-label">
               <span id="rsvp-companion-text">Companion name</span>
               <input id="rsvp-companion-input" type="text" name="plusOne" placeholder="Enter companion name" />
+              <small class="rsvp-companion-note" id="rsvp-companion-note" hidden></small>
             </label>
             <label>Message<textarea name="message" rows="3"></textarea></label>
             <button type="submit" class="btn btn-primary">Send RSVP</button>
@@ -332,8 +322,8 @@
       <p><span data-field="partner1-footer">Vincent</span> & <span data-field="partner2-footer">Cynah</span></p>
     </footer>
 
-    <script src="js/config.js?v=99"></script>
-    <script src="js/main.js?v=51"></script>
+    <script src="js/config.js?v=105"></script>
+    <script src="js/main.js?v=55"></script>
     <script>
       (function () {
         var daysEl = document.getElementById("cd-days");

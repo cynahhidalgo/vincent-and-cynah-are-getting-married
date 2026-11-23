@@ -130,6 +130,8 @@
     }
     const pictures = item.images?.length ? item.images : item.image ? [item.image] : [];
     if (pictures.length) {
+      const photoInterval = Math.max(250, Number(item.photoInterval) || 2000);
+      const photoFade = Math.max(100, Number(item.photoFade) || 650);
       const images = pictures
         .map((picture, index) => {
           const src = typeof picture === "string" ? picture : picture.src;
@@ -146,7 +148,7 @@
               <button type="button" class="story-photo-btn story-photo-next" aria-label="Next photo">Next</button>
             </div>`
           : "";
-      return `<div class="timeline-visual story-photo-slideshow"><div class="story-photo-stage">${images}</div>${controls}</div>`;
+      return `<div class="timeline-visual story-photo-slideshow" data-photo-interval="${photoInterval}" style="--story-photo-fade:${photoFade}ms"><div class="story-photo-stage">${images}</div>${controls}</div>`;
     }
     return `<div class="timeline-visual timeline-visual--empty" aria-hidden="true"></div>`;
   }
@@ -157,6 +159,7 @@
       const dots = Array.from(slideshow.querySelectorAll(".story-photo-dot"));
       const counter = slideshow.querySelector(".story-photo-counter");
       if (photos.length < 2) return;
+      const photoInterval = Math.max(250, Number(slideshow.dataset.photoInterval) || 2000);
       let photoIndex = 0;
       let photoTimer;
 
@@ -167,7 +170,7 @@
           const storySlide = slideshow.closest(".story-slide");
           if (storySlide?.getAttribute("aria-hidden") === "false") showPhoto(photoIndex + 1);
           else scheduleNextPhoto();
-        }, 2000);
+        }, photoInterval);
       };
 
       const showPhoto = (index) => {
@@ -833,6 +836,7 @@
       form.querySelector('[data-rsvp-field="name"]') || form.elements.namedItem("name");
     const companionLabel = document.getElementById("rsvp-companion-label");
     const companionText = document.getElementById("rsvp-companion-text");
+    const companionNote = document.getElementById("rsvp-companion-note");
     const companionInput =
       document.getElementById("rsvp-companion-input") ||
       form.querySelector('[data-rsvp-field="plusOne"]');
@@ -846,24 +850,34 @@
       summary.innerHTML = `
         <p class="seating-result-label">Welcome, ${escapeHtml(guest.name)}</p>
         <h3>${reservedSeats} reserved ${seatWord}</h3>
-        <p>Please confirm your attendance below.</p>`;
+        <p>We have reserved the number of seats shown for your invitation. Please confirm your attendance and list the companion names included in your allocation.</p>`;
       summary.classList.add("is-found");
       summary.hidden = false;
     }
 
     if (companionLabel && companionInput) {
-      companionLabel.hidden = companionCount === 0;
+      companionLabel.hidden = false;
+      companionInput.disabled = companionCount === 0;
       companionInput.required = companionCount > 0;
-      companionInput.value = companionCount === 0 ? "No companion" : "";
+      companionInput.value = "";
       companionInput.placeholder =
-        companionCount === 1
+        companionCount === 0
+          ? "No companion included in this invitation"
+          : companionCount === 1
           ? "Enter your companion's name"
           : `Enter up to ${companionCount} companion names, separated by commas`;
       if (companionText) {
         companionText.textContent =
-          companionCount === 1
+          companionCount === 0
+            ? "Companion name — unavailable"
+            : companionCount === 1
             ? "Companion name"
             : `Companion names — up to ${companionCount}`;
+      }
+      if (companionNote) {
+        companionNote.textContent =
+          "This invitation is reserved for one guest only, so a companion cannot be added.";
+        companionNote.hidden = companionCount > 0;
       }
     }
 

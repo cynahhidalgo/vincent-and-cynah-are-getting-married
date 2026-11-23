@@ -24,7 +24,7 @@ window.WEDDING_CONFIG = {
   },
   partner1: "Vincent",
   partner2: "Cynah",
-  hashtag: "CYwasconVINCEd",
+  hashtag: "VINCEbewareofwarningCYNs",
 
   weddingDateTime: "2027-02-12T13:00:00+08:00",
   dateDisplay: "Friday, February 12 · 2027",
@@ -82,50 +82,12 @@ We are happy to share this special milestone with you, and it would mean so much
 
   storyTimeline: [
     {
-      era: "May 2019",
-      place: "Baguio City",
-      title: "Where It All Started",
-      text: "We were classmates, colleagues, and friends throughout college, sharing the same university and dreams. After graduation, our friendship blossomed into love—and the rest became our story.",
-      images: [
-        {
-          src: "images/story-where-it-all-started.jpg",
-          alt: "Vincent and Cynah together at Sun Moon Lake",
-        },
-        {
-          src: "images/hero-sun-moon-lake-final.jpg",
-          alt: "Vincent and Cynah at Shuishe Pier",
-        },
-        {
-          src: "images/sun-moon-lake-taiwan-2.webp",
-          alt: "A memory from Vincent and Cynah's Sun Moon Lake trip",
-        },
-      ],
-    },
-    {
-      era: "Spring 2021",
-      place: "The mountains",
-      title: "Our Journey",
-      text: "From our first jobs and travels to our first adventures, milestones, failures, and lessons, we've experienced life side by side. Through every high and low, we've grown together—and we'll keep choosing each other, wherever life takes us.",
-      images: [
-        {
-          src: "images/sun-moon-lake-taiwan-2.webp",
-          alt: "Vincent and Cynah during their journey together",
-        },
-        {
-          src: "images/hero-sun-moon-lake-final.jpg",
-          alt: "Vincent and Cynah at Shuishe Pier",
-        },
-        {
-          src: "images/story-where-it-all-started.jpg",
-          alt: "A shared adventure at Sun Moon Lake",
-        },
-      ],
-    },
-    {
       era: "December 2025",
       place: "Sun Moon Lake, Nantou, Taiwan",
       title: "The proposal",
       text: "A beautiful moment at Sun Moon Lake, Taiwan, where forever began with one question and one unforgettable YES.",
+      photoInterval: 700,
+      photoFade: 220,
       images: [
         { src: "images/proposal-sorted-01.jpg", alt: "Vincent and Cynah — Proposal photo 1" },
         { src: "images/proposal-sorted-02.jpg", alt: "Vincent and Cynah — Proposal photo 2" },
@@ -166,6 +128,8 @@ We are happy to share this special milestone with you, and it would mean so much
       place: "Paulino's Event Hall and Cafe",
       title: "Forever begins",
       text: "Now we gather the people we love most at Paulino's Event Hall and Cafe to make it official. Bring your dancing shoes and a tissue or two.",
+      photoInterval: 700,
+      photoFade: 220,
       images: [
         { src: "images/forever-begins-final-01.jpg", alt: "Vincent and Cynah — Forever Begins photo 1" },
         { src: "images/forever-begins-final-02.jpg", alt: "Vincent and Cynah — Forever Begins photo 2" },
@@ -194,7 +158,7 @@ We are happy to share this special milestone with you, and it would mean so much
 
   ceremony: {
     label: "",
-    title: "Ceremony",
+    title: "Ceremony starts at 1:00 PM",
     subtitle: "Holy Guardian Angels Parish (Episcopal Church)",
     image: "images/ceremony.jpeg",
     imageAlt: "Ceremony at Holy Guardian Angels Parish",
@@ -210,7 +174,7 @@ We are happy to share this special milestone with you, and it would mean so much
 
   reception: {
     label: "",
-    title: "Reception",
+    title: "Reception follows at",
     subtitle: "Paulino's Event Hall and Cafe",
     image: "images/reception.jpeg",
     imageAlt: "Reception at Paulino's Event Hall and Cafe",
